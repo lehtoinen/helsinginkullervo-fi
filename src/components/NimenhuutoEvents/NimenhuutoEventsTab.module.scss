@@ -1,0 +1,67 @@
+@import '../../assets/scss/colors';
+
+.row {
+  padding: 0.65em calc(0.65em + 0.45em);
+  text-decoration: none;
+  display: flex;
+  background: $color-white;
+  color: $color-black;
+
+  &:not(:first-child) {
+    border-top: 1px solid $color-complimentary;
+  }
+
+  &:hover {
+    border-left: 0.45em solid $color-base-mid;
+    padding-left: 0.65em;
+    opacity: 1;
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.35;
+  }
+
+  .subject {
+    font-size: 1em;
+    margin-bottom: 0.115em;
+    color: $color-base-mid;
+    
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .time {
+    margin-right: 0.35em;
+  }
+
+  .details {
+    font-size: 0.85em;
+  }
+
+  .location {
+    color: $color-grey;
+  }
+
+  .day {
+    text-align: center;
+    margin-right: 0.85em;
+    line-height: 0.975;
+
+    .weekday {
+      font-size: 1.65em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $color-base-dark;
+    }
+
+    .date {
+      font-size: 0.85em;
+      color: $color-grey;
+    }
+  }
+}

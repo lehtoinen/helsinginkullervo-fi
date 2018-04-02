@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NimenhuutoEventsTab renders "empty" when { loading: false, items: [] } 1`] = `
+<NimenhuutoEventsTab
+  error={false}
+  items={Array []}
+  label="Foo"
+  loading={false}
+>
+  <div
+    className="empty"
+  >
+    Ei tulevia tapahtumia.
+  </div>
+</NimenhuutoEventsTab>
+`;
+
+exports[`NimenhuutoEventsTab renders "error" when { error: true } 1`] = `
+<NimenhuutoEventsTab
+  error={true}
+  items={
+    Array [
+      Object {
+        "date": 2018-03-23T00:00:00.000Z,
+        "location": "Foo",
+        "subject": "Foo",
+        "time": "Foo",
+        "url": "Foo",
+      },
+    ]
+  }
+  label="Foo"
+  loading={false}
+>
+  <div
+    className="error"
+  >
+    Lataaminen epäonnistui!
+  </div>
+</NimenhuutoEventsTab>
+`;
+
+exports[`NimenhuutoEventsTab renders "loading" when { loading: true, items: [] } 1`] = `
+<NimenhuutoEventsTab
+  error={false}
+  items={Array []}
+  label="Foo"
+  loading={true}
+>
+  <div
+    className="loading"
+  >
+    Ladataan...
+  </div>
+</NimenhuutoEventsTab>
+`;
+
+exports[`NimenhuutoEventsTab renders all items 1`] = `
+<NimenhuutoEventsTab
+  error={false}
+  items={
+    Array [
+      Object {
+        "date": 2018-03-23T00:00:00.000Z,
+        "location": "Foo",
+        "subject": "Foo",
+        "time": "Foo",
+        "url": "Foo",
+      },
+    ]
+  }
+  label="Foo"
+  loading={false}
+>
+  <div
+    className="root"
+  >
+    <a
+      className="event-row row"
+      href="Foo"
+      key="FooFri Mar 23 2018 02:00:00 GMT+0200 (EET)Foo"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <DateBadge
+        dateStr={2018-03-23T00:00:00.000Z}
+      >
+        <div
+          className="day"
+        >
+          <div
+            className="weekday"
+          >
+            pe
+          </div>
+          <div
+            className="date"
+          >
+            23.03
+          </div>
+        </div>
+      </DateBadge>
+      <div
+        className="info"
+      >
+        <div
+          className="subject"
+        >
+          oo
+        </div>
+        <div
+          className="details"
+        >
+          <span
+            className="time"
+          >
+            Klo 
+            Foo
+          </span>
+          <span
+            className="location"
+          >
+            Foo
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+</NimenhuutoEventsTab>
+`;

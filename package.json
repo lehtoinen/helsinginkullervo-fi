@@ -1,0 +1,45 @@
+{
+  "name": "helsinginkullervo-fi",
+  "description": "Helsingin Kullervo website",
+  "version": "0.0.1",
+  "author": "Anssi Lehtonen <lehtovaaralainen@gmail.com>",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "comma-separated-values": "^3.6.4",
+    "gatsby": "^1.9.238",
+    "gatsby-link": "^1.6.39",
+    "gatsby-plugin-postcss-sass": "^1.0.18",
+    "gatsby-plugin-react-helmet": "^2.0.8",
+    "gatsby-plugin-typography": "^1.7.18",
+    "moment": "^2.21.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "typography-theme-alton": "^0.15.10",
+    "typography-theme-funston": "^0.15.10",
+    "typography-theme-kirkham": "^0.16.3"
+  },
+  "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.3",
+    "jest-fetch-mock": "^1.5.0",
+    "normalize.css": "^8.0.0",
+    "prettier": "^1.11.1"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "jest --config jest.config.json",
+    "test:watch": "jest --watch --config jest.config.json --verbose"
+  }
+}
