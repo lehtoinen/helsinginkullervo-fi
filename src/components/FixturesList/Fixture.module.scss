@@ -1,0 +1,34 @@
+@import '../../assets/scss/colors';
+
+.fixture {
+  padding-left: 3em;
+  line-height: 1.25;
+  margin-bottom: 1.35em;
+
+  &.completed {
+    opacity: 0.5;
+  }
+
+  .winner {
+    font-weight: bold;
+  }
+
+  .subject {
+    font-size: 1.1em;
+    color: $color-base-dark;
+    font-style: italic;
+  }
+
+  .info {
+    font-size: 0.9em;
+    margin-top: 0.05em;
+  }
+
+  .competition {
+    font-style: normal;
+  }
+
+  .location {
+    color: $color-grey;
+  }
+}

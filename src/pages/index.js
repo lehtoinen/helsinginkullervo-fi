@@ -1,16 +1,10 @@
 import React from 'react';
 
-import NimenhuutoEvents from '../components/NimenhuutoEvents/NimenhuutoEvents';
+import FixturesList from '../components/FixturesList/FixturesList';
 
 const IndexPage = () => (
   <div>
-    <NimenhuutoEvents
-      sources={[
-        { label: 'Jalkapallo', url: '//kullervo.nimenhuuto.com' },
-        { label: 'Futsal', url: '//kullervofutsal.nimenhuuto.com' },
-      ]}
-      // count={8}
-    />
+    <FixturesList fixturesURL="/fixtures/?season_id=2018&club_id=571" />
   </div>
 );
 

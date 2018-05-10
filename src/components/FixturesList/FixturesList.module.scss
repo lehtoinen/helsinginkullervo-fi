@@ -1,0 +1,21 @@
+@import '../../assets/scss/colors';
+
+.root {
+  position: relative;
+  font-size: 0.8em;
+  margin: 1em 2em 2em 1em;
+  box-shadow: 1.5em 1.5em $color-base-dark;
+  padding: 1em;
+
+  &:before {
+    display: block;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    content: "";
+    border: 1px solid $color-base-light;
+    z-index: -1;
+  }
+}

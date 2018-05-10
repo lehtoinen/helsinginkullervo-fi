@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 
 const SIZE_PX = 100;
 // const BASE_COLOR = '#EB4538';
@@ -8,7 +7,7 @@ const SIZE_PX = 100;
 // const LIGHT_GREY_COLOR = '#f9f2f1';
 // const COMPLIMENTARY_COLOR = '#20A520';
 
-const BASE_COLOR = '#de2b26';
+// const BASE_COLOR = '#de2b26';
 const BLACK_COLOR = '#453b3b';
 // const MID_GREY_COLOR = '#ded6d6';
 const WHITE_COLOR = '#fcfbf8';
@@ -22,6 +21,7 @@ const ColorPalette = () => (
       position: 'absolute',
       top: 0,
       right: 0,
+      zIndex: 1000,
       boxShadow: '0 0 3px grey',
     }}
   >

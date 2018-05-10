@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Header from '../components/Header/Header';
-import ColorPalette from '../components/Helpers/ColorPalette';
+// import ColorPalette from '../components/Helpers/ColorPalette';
 
 import './index.scss';
-import { height } from 'window-size';
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -17,14 +16,14 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'kullervo, helsinki' },
       ]}
     />
-    <ColorPalette />
+    {/* <ColorPalette /> */}
     <Header />
     <div>{children()}</div>
   </div>
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func.isRequired,
 };
 
 export default TemplateWrapper;

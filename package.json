@@ -11,35 +11,49 @@
     "comma-separated-values": "^3.6.4",
     "gatsby": "^1.9.238",
     "gatsby-link": "^1.6.39",
+    "gatsby-plugin-eslint": "^1.0.3",
+    "gatsby-plugin-netlify": "^1.0.19",
     "gatsby-plugin-postcss-sass": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-typography": "^1.7.18",
     "moment": "^2.21.0",
+    "netlify-lambda": "^0.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
-    "typography-theme-alton": "^0.15.10",
-    "typography-theme-funston": "^0.15.10",
+    "react-redux": "^5.0.7",
     "typography-theme-kirkham": "^0.16.3"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "dotenv": "^5.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "jest-fetch-mock": "^1.5.0",
     "normalize.css": "^8.0.0",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "jest --config jest.config.json",
-    "test:watch": "jest --watch --config jest.config.json --verbose"
+    "test:watch": "jest --watch --config jest.config.json --verbose",
+    "develop:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda"
   }
 }

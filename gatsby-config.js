@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -17,5 +21,16 @@ module.exports = {
         precision: 8, // SASS default: 5
       },
     },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+      },
+    },
+    'gatsby-plugin-netlify',
   ],
+  proxy: {
+    prefix: '/fixtures',
+    url: 'http://localhost:9000/getFixtures',
+  },
 };
