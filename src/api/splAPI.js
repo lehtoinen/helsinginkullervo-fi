@@ -14,7 +14,7 @@ function parseMatch(match) {
   };
 }
 
-// /api/fixtures/&season_id=2018&club_id=571
+// /api/fixtures/?season_id=2018&club_id=571
 export const fetchFixtures = url =>
   fetch(url)
     .then(response => {
@@ -27,7 +27,7 @@ export const fetchFixtures = url =>
     .then(obj => obj.matches.map(match => parseMatch(match)))
     .then(fixtures => fixtures);
 
-// /table/&competition_id=hkijp18&category_id=M7&group_id=1&matches=1
+// /table/?competition_id=hkijp18&category_id=M7&group_id=1&matches=1
 // export function fetchTable(url) {
 //   url;
 // }
