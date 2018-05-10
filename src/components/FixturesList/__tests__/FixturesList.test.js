@@ -10,9 +10,8 @@ describe('FixturesList', () => {
   let component;
 
   const fetchFixtures = jest.fn();
-
-  let isLoading = false;
-  let fixturesURL = 'foobar';
+  const isLoading = false;
+  const fixturesURL = 'foobar';
 
   beforeEach(() => {
     // pass the mock function as the login prop
