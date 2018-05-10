@@ -5,10 +5,9 @@ import moment from 'moment';
 import styles from './DateBadge.module.scss';
 
 const DateBadge = ({ date, isPast }) => {
-  moment.locale('fi');
   const eventDate = moment(date);
-  const weekday = eventDate.format('dd');
-  const dateStr = eventDate.format('DD.MM');
+  const weekday = eventDate.locale('fi').format('dd');
+  const dateStr = eventDate.locale('fi').format('DD.MM');
 
   return (
     <div className={`${styles.root} ${isPast ? styles.completed : null}`}>
