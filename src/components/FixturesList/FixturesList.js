@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import isEqual from 'lodash.isequal';
 import { fetchFixtures } from '../../state/actions';
 
 import FixturesFilter from './FixturesFilter';
@@ -20,7 +21,17 @@ export class FixturesList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.fixtures !== this.props.fixtures) {
+    // Checking if the fixtures are updated.
+    //  - Is the nextProps.fixtures length different to rendered fixtures?
+    //  - Are objects in nextProps.fixtures different to fixtures in current props?
+
+    const fixturesUpdated =
+      nextProps.fixtures.length !== this.state.fixtures.length ||
+      nextProps.fixtures.some(
+        (obj, ind) => !isEqual(obj, this.props.fixtures[ind])
+      );
+
+    if (fixturesUpdated) {
       this.parseEvents(nextProps.fixtures);
     }
   }
@@ -80,12 +91,16 @@ export class FixturesList extends React.Component {
           />
         )}
         {filteredFixtures.map(fixture => {
-          const addDateBadge = currentDate !== fixture.date.getTime();
-          currentDate = fixture.date.getTime();
+          const addDateBadge = currentDate !== fixture.date;
+          currentDate = fixture.date;
+
           return (
-            <Fragment key={`${fixture.competition}${fixture.date.toString()}`}>
+            <Fragment key={`${fixture.competition}${fixture.date}`}>
               {addDateBadge && (
-                <DateBadge date={fixture.date} isPast={fixture.isCompleted} />
+                <DateBadge
+                  date={new Date(fixture.date)}
+                  isPast={fixture.isCompleted}
+                />
               )}
               <Fixture {...fixture} />
             </Fragment>
