@@ -1,11 +1,18 @@
 @import '../../assets/scss/colors';
+@import '../../assets/scss/mediaQueries';
 
 .root {
   position: relative;
   font-size: 0.8em;
   margin: 1em 2em 2em 1em;
-  box-shadow: 1.5em 1.5em $color-base-dark;
+  box-shadow: 1.25em 1.5em $color-base-dark;
   padding: 1em;
+
+  @media #{$mobile} {
+    font-size: 0.65em;
+    margin: 0;
+    box-shadow: none;
+  }
 
   &:before {
     display: block;

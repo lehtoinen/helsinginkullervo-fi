@@ -7,6 +7,7 @@ import { fetchFixtures } from '../../state/actions';
 import FixturesFilter from './FixturesFilter';
 import Fixture from './Fixture';
 import DateBadge from './DateBadge';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 import styles from './FixturesList.module.scss';
 
@@ -86,7 +87,16 @@ export class FixturesList extends React.Component {
             }
           />
         )}
-        {this.props.isLoading && <div>Loading ...</div>}
+        {this.props.isLoading && (
+          <LoadingSpinner
+            style={{
+              fontSize: '0.5em',
+              position: 'absolute',
+              top: '2em',
+              right: '2em',
+            }}
+          />
+        )}
         {filteredFixtures.map(fixture => {
           const addDateBadge = currentDate !== fixture.date;
           currentDate = fixture.date;
