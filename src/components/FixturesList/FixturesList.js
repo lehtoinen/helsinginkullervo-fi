@@ -65,10 +65,6 @@ export class FixturesList extends React.Component {
   }
 
   render() {
-    if (this.props.isLoading) {
-      return <div>Loading ...</div>;
-    }
-
     const { fixtures, filters, competitions } = this.state;
     let filteredFixtures = fixtures;
     if (filters.competitions.length > 0) {
@@ -90,6 +86,7 @@ export class FixturesList extends React.Component {
             }
           />
         )}
+        {this.props.isLoading && <div>Loading ...</div>}
         {filteredFixtures.map(fixture => {
           const addDateBadge = currentDate !== fixture.date;
           currentDate = fixture.date;
