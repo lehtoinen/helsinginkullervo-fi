@@ -3,7 +3,7 @@ function parseMatch(match) {
     source: 'spl',
     timecode: `${match.date}-${match.time}`,
     competition: match.category_name,
-    date: new Date(match.date),
+    date: match.date,
     time: match.time,
     venue: match.venue_name,
     homeTeam: match.team_A_name,
