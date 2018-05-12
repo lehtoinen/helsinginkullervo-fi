@@ -1,5 +1,7 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import reducer from './reducer';
 
@@ -14,9 +16,15 @@ function loadDevTools() {
   /* eslint-enable */
 }
 
-const store = createStore(
-  reducer,
+const persistConfig = {
+  key: 'root',
+  storage,
+  // stateReconciler: autoMergeLevel2, // see "Merge Process" section for details.
+};
+
+export const store = createStore(
+  persistReducer(persistConfig, reducer),
   compose(applyMiddleware(thunk), loadDevTools())
 );
 
-export default store;
+export const persistor = persistStore(store);
