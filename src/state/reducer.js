@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { FETCH_FIXTURES_REQUEST, FETCH_FIXTURES_RESPONSE } from './actions';
+import {
+  FETCH_FIXTURES_REQUEST,
+  FETCH_FIXTURES_RESPONSE,
+  UPDATE_FIXTURE_FILTERS,
+} from './actions';
 
 const fixturesLoading = (state = false, action) => {
   if (action.type === FETCH_FIXTURES_REQUEST) {
@@ -22,15 +26,16 @@ const fixtures = (state = {}, action) => {
   return state;
 };
 
-// const signUpEvents = (state = [], action) => {
-//   if (action.type === FETCH_FIXTURES_RESPONSE) {
-//     return [...state, ...(action.events.nimenhuutoEvents || [])];
-//   }
+const fixtureFilters = (state = {}, action) => {
+  if (action.type === UPDATE_FIXTURE_FILTERS) {
+    return { ...state, ...action.filters };
+  }
 
-//   return state;
-// };
+  return state;
+};
 
 export default combineReducers({
   fixturesLoading,
   fixtures,
+  fixtureFilters,
 });
