@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import isEqual from 'lodash.isequal';
-import { fetchFixtures } from '../../state/actions';
+import { fetchFixtures, updateFixtureFilters } from '../../state/actions';
 
 import FixturesFilter from './FixturesFilter';
 import Fixture from './Fixture';
@@ -14,7 +14,7 @@ import styles from './FixturesList.module.scss';
 export class FixturesList extends React.Component {
   constructor() {
     super();
-    this.state = { fixtures: [], filters: { competitions: [] } };
+    this.state = { fixtures: [] };
   }
 
   componentDidMount() {
@@ -38,23 +38,24 @@ export class FixturesList extends React.Component {
   }
 
   onChangeFilter(type, value) {
-    const filterValues = this.state.filters[type].slice(0);
+    const filterValues = this.props.filters[type]
+      ? this.props.filters[type].slice(0)
+      : [];
     const ind = filterValues.indexOf(value);
     if (ind === -1) {
       filterValues.push(value);
     } else {
       filterValues.splice(ind, 1);
     }
-    this.setState({
-      filters: { ...this.state.filters, ...{ [type]: filterValues } },
-    });
+
+    this.props.updateFixtureFilters({ [type]: filterValues });
   }
 
   parseEvents(fixtures) {
     const competitions = [];
     fixtures.forEach(fixture => {
       const { competition } = fixture;
-      if (competitions.indexOf(competition) === -1) {
+      if (!competitions.includes(competition)) {
         competitions.push(competition);
       }
     });
@@ -66,11 +67,12 @@ export class FixturesList extends React.Component {
   }
 
   render() {
-    const { fixtures, filters, competitions } = this.state;
+    const { fixtures, competitions } = this.state;
+    const { filters } = this.props;
     let filteredFixtures = fixtures;
-    if (filters.competitions.length > 0) {
-      filteredFixtures = filteredFixtures.filter(
-        fixture => filters.competitions.indexOf(fixture.competition) > -1
+    if (filters.competitions && filters.competitions.length > 0) {
+      filteredFixtures = filteredFixtures.filter(fixture =>
+        filters.competitions.includes(fixture.competition)
       );
     }
 
@@ -120,22 +122,22 @@ export class FixturesList extends React.Component {
 
 FixturesList.propTypes = {
   fetchFixtures: PropTypes.func.isRequired,
+  updateFixtureFilters: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   fixturesURL: PropTypes.string.isRequired,
-  fixtures: PropTypes.arrayOf(PropTypes.object),
-};
-
-FixturesList.defaultProps = {
-  fixtures: [],
+  filters: PropTypes.shape().isRequired,
+  fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
   isLoading: state.fixturesLoading,
   fixtures: state.fixtures[props.fixturesURL],
+  filters: state.fixtureFilters,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchFixtures: url => dispatch(fetchFixtures(url)),
+  updateFixtureFilters: filters => dispatch(updateFixtureFilters(filters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FixturesList);

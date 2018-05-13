@@ -19,7 +19,6 @@ function loadDevTools() {
 const persistConfig = {
   key: 'root',
   storage,
-  // stateReconciler: autoMergeLevel2, // see "Merge Process" section for details.
 };
 
 export const store = createStore(
