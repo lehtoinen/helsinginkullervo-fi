@@ -4,8 +4,9 @@
 node_modules
 yarn-error.log
 
-# Build directory
+# Build directories
 /public
+/lambda
 
 /tmp
 
