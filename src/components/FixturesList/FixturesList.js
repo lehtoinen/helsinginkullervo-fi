@@ -56,6 +56,8 @@ export class FixturesList extends React.Component {
   componentWillReceiveProps(nextProps) {
     let newState = {};
 
+    console.log(nextProps);
+
     // Checking if the fixtures are updated.
     //  - Is the nextProps.fixtures length different to rendered fixtures?
     //  - Are objects in nextProps.fixtures different to fixtures in current props?
@@ -102,15 +104,19 @@ export class FixturesList extends React.Component {
   }
 
   render() {
-    console.log('render!');
     const { fixtures, competitions } = this.state;
     const { filters } = this.props;
+    const showFilters = fixtures.length > 0 && competitions;
 
     let currentDate;
 
+    if (fixtures.length < 1) {
+      return null;
+    }
+
     return (
       <div className={styles.root}>
-        {competitions && (
+        {showFilters && (
           <Fragment>
             <FixturesFilter
               options={competitions}
@@ -161,7 +167,11 @@ FixturesList.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   fixturesURL: PropTypes.string.isRequired,
   filters: PropTypes.shape().isRequired,
-  fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fixtures: PropTypes.arrayOf(PropTypes.object),
+};
+
+FixturesList.defaultProps = {
+  fixtures: [],
 };
 
 const mapStateToProps = (state, props) => ({
