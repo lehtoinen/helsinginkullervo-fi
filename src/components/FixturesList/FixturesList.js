@@ -56,8 +56,6 @@ export class FixturesList extends React.Component {
   componentWillReceiveProps(nextProps) {
     let newState = {};
 
-    console.log(nextProps);
-
     // Checking if the fixtures are updated.
     //  - Is the nextProps.fixtures length different to rendered fixtures?
     //  - Are objects in nextProps.fixtures different to fixtures in current props?
