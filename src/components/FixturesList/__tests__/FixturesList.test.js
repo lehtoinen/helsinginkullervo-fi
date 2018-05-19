@@ -10,16 +10,22 @@ describe('FixturesList', () => {
   let component;
 
   const fetchFixtures = jest.fn();
+  const updateFixtureFilters = jest.fn();
   const isLoading = false;
-  const fixturesURL = 'foobar';
+  const fixturesURL = 'foobarh';
+  const fixtures = [];
+  const filters = {};
 
   beforeEach(() => {
     // pass the mock function as the login prop
     component = shallow(
       <FixturesList
         fetchFixtures={fetchFixtures}
+        updateFixtureFilters={updateFixtureFilters}
         isLoading={isLoading}
         fixturesURL={fixturesURL}
+        fixtures={fixtures}
+        filters={filters}
       />
     );
   });
