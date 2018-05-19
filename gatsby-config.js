@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+var proxy = require('http-proxy-middleware');
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -29,8 +31,15 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
   ],
-  proxy: {
-    prefix: '/fixtures',
-    url: 'http://localhost:9000/getFixtures',
+  developMiddleware: app => {
+    app.use(
+      '/api',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/api': '',
+        },
+      })
+    );
   },
 };

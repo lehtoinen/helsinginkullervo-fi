@@ -1,5 +1,5 @@
 # Redirect fixtures to getFixtures function
-https://www.kullervo.club/fixtures/*  https://www.kullervo.club/.netlify/functions/getFixtures:splat  200
+https://www.kullervo.club/api/*  https://www.kullervo.club/.netlify/functions/:splat  200
 
 # Redirect default Netlify subdomain to primary domain
 https://kullervo.netlify.com/* https://www.kullervo.club/:splat 301!

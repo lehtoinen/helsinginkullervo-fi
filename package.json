@@ -42,6 +42,7 @@
     "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "http-proxy-middleware": "^0.18.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
     "jest-fetch-mock": "^1.5.0",
@@ -50,7 +51,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm test && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "jest --config jest.config.json",

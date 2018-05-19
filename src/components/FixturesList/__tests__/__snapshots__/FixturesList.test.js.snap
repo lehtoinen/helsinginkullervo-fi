@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FixturesList renders 1`] = `""`;
+
+exports[`FixturesList renders with undefined fixtures 1`] = `""`;
