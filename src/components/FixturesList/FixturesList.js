@@ -12,11 +12,22 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './FixturesList.module.scss';
 
 export class FixturesList extends React.Component {
+  static parseCompetitions(fixtures) {
+    const competitions = [];
+    fixtures.forEach(fixture => {
+      const { competition } = fixture;
+      if (!competitions.includes(competition)) {
+        competitions.push(competition);
+      }
+    });
+    return competitions.sort();
+  }
+
   static filterFixtures(fixtures, filters) {
     let filtered = fixtures;
 
     // filter fixtures by date
-    if (filters.upcoming.length) {
+    if (filters.upcoming && filters.upcoming.length) {
       const today = new Date();
       filtered = filtered.slice(
         filtered.findIndex(fixture => new Date(fixture.date) >= today)
@@ -43,21 +54,37 @@ export class FixturesList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    let newState = {};
+
     // Checking if the fixtures are updated.
     //  - Is the nextProps.fixtures length different to rendered fixtures?
     //  - Are objects in nextProps.fixtures different to fixtures in current props?
-
     const fixturesUpdated =
       nextProps.fixtures.length !== this.state.fixtures.length ||
       nextProps.fixtures.some(
         (obj, ind) => !isEqual(obj, this.props.fixtures[ind])
       );
 
-    if (fixturesUpdated) {
-      this.parseEvents(nextProps.fixtures);
+    // Checking if the filters are updated.
+    const filtersUpdated = nextProps.filters === this.props.filters;
+
+    if (fixturesUpdated || filtersUpdated) {
+      newState = {
+        ...newState,
+        ...{
+          fixtures: FixturesList.filterFixtures(
+            nextProps.fixtures,
+            nextProps.filters
+          ),
+          competitions: FixturesList.parseCompetitions(nextProps.fixtures),
+        },
+      };
     }
 
-    // TODO -- Filter here!
+    // Anything new in the state?
+    if (Object.keys(newState).length) {
+      this.setState(newState);
+    }
   }
 
   onChangeFilter(type, value) {
@@ -74,25 +101,10 @@ export class FixturesList extends React.Component {
     this.props.updateFixtureFilters({ [type]: filterValues });
   }
 
-  parseEvents(fixtures) {
-    const competitions = [];
-    fixtures.forEach(fixture => {
-      const { competition } = fixture;
-      if (!competitions.includes(competition)) {
-        competitions.push(competition);
-      }
-    });
-
-    this.setState({
-      fixtures,
-      competitions: competitions.sort(),
-    });
-  }
-
   render() {
+    console.log('render!');
     const { fixtures, competitions } = this.state;
     const { filters } = this.props;
-    const filteredFixtures = FixturesList.filterFixtures(fixtures, filters);
 
     let currentDate;
 
@@ -122,7 +134,7 @@ export class FixturesList extends React.Component {
             }}
           />
         )}
-        {filteredFixtures.map(fixture => {
+        {fixtures.map(fixture => {
           const addDateBadge = currentDate !== fixture.date;
           currentDate = fixture.date;
 

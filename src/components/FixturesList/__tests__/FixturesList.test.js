@@ -12,7 +12,7 @@ describe('FixturesList', () => {
   const fetchFixtures = jest.fn();
   const updateFixtureFilters = jest.fn();
   const isLoading = false;
-  const fixturesURL = 'foobar';
+  const fixturesURL = 'foobarh';
   const fixtures = [];
   const filters = {};
 
