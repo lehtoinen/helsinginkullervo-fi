@@ -7,18 +7,17 @@ import { FixturesList } from '../FixturesList';
 configure({ adapter: new Adapter() });
 
 describe('FixturesList', () => {
-  let component;
-
   const fetchFixtures = jest.fn();
   const updateFixtureFilters = jest.fn();
-  const isLoading = false;
-  const fixturesURL = 'foobar';
-  const fixtures = [];
-  const filters = {};
 
-  beforeEach(() => {
-    // pass the mock function as the login prop
-    component = shallow(
+  // pass the mock function as the login prop
+  const component = ({
+    isLoading = false,
+    fixturesURL = 'foobar',
+    fixtures = [],
+    filters = {},
+  }) =>
+    shallow(
       <FixturesList
         fetchFixtures={fetchFixtures}
         updateFixtureFilters={updateFixtureFilters}
@@ -28,13 +27,17 @@ describe('FixturesList', () => {
         filters={filters}
       />
     );
-  });
 
   test('calls the fetchFixtures function', () => {
+    component({});
     expect(fetchFixtures.mock.calls.length).toBe(1);
   });
 
   test('renders', () => {
-    expect(component).toMatchSnapshot();
+    expect(component({})).toMatchSnapshot();
+  });
+
+  test('renders with undefined fixtures', () => {
+    expect(component({ fixtures: null })).toMatchSnapshot();
   });
 });

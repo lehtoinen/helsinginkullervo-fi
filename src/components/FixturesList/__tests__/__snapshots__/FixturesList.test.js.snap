@@ -5,3 +5,9 @@ exports[`FixturesList renders 1`] = `
   className="root"
 />
 `;
+
+exports[`FixturesList renders with undefined fixtures 1`] = `
+<div
+  className="root"
+/>
+`;
