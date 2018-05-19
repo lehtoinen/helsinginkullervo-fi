@@ -22851,8 +22851,8 @@ RequestSigner.prototype.canonicalString = function() {
       if (normalizePath && piece === '..') {
         path.pop()
       } else if (!normalizePath || piece !== '.') {
-        if (decodePath) piece = querystring.unescape(piece)
-        path.push(encodeRfc3986(querystring.escape(piece)))
+        if (decodePath) piece = decodeURIComponent(piece)
+        path.push(encodeRfc3986(encodeURIComponent(piece)))
       }
       return path
     }, []).join('/')
@@ -22921,7 +22921,7 @@ RequestSigner.prototype.parsePath = function() {
   // So if there are non-reserved chars (and it's not already all % encoded), just encode them all
   if (/[^0-9A-Za-z!'()*\-._~%/]/.test(path)) {
     path = path.split('/').map(function(piece) {
-      return querystring.escape(querystring.unescape(piece))
+      return encodeURIComponent(decodeURIComponent(piece))
     }).join('/')
   }
 
@@ -27186,7 +27186,7 @@ StringStream.prototype.write = function(data) {
     return false
   }
   if (this.fromEncoding) {
-    if (Buffer.isBuffer(data)) data = data.toString()
+    if (Buffer.isBuffer(data) || typeof data === 'number') data = data.toString()
     data = new Buffer(data, this.fromEncoding)
   }
   var string = this.decoder.write(data)
