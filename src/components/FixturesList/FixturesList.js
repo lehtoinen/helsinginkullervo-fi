@@ -12,6 +12,27 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './FixturesList.module.scss';
 
 export class FixturesList extends React.Component {
+  static filterFixtures(fixtures, filters) {
+    let filtered = fixtures;
+
+    // filter fixtures by date
+    if (filters.upcoming.length) {
+      const today = new Date();
+      filtered = filtered.slice(
+        filtered.findIndex(fixture => new Date(fixture.date) >= today)
+      );
+    }
+
+    // filter fixtures by competition
+    if (filters.competitions && filters.competitions.length > 0) {
+      filtered = filtered.filter(fixture =>
+        filters.competitions.includes(fixture.competition)
+      );
+    }
+
+    return filtered;
+  }
+
   constructor() {
     super();
     this.state = { fixtures: [] };
@@ -35,6 +56,8 @@ export class FixturesList extends React.Component {
     if (fixturesUpdated) {
       this.parseEvents(nextProps.fixtures);
     }
+
+    // TODO -- Filter here!
   }
 
   onChangeFilter(type, value) {
@@ -69,25 +92,25 @@ export class FixturesList extends React.Component {
   render() {
     const { fixtures, competitions } = this.state;
     const { filters } = this.props;
-    let filteredFixtures = fixtures;
-    if (filters.competitions && filters.competitions.length > 0) {
-      filteredFixtures = filteredFixtures.filter(fixture =>
-        filters.competitions.includes(fixture.competition)
-      );
-    }
+    const filteredFixtures = FixturesList.filterFixtures(fixtures, filters);
 
     let currentDate;
 
     return (
       <div className={styles.root}>
         {competitions && (
-          <FixturesFilter
-            options={competitions}
-            selected={filters.competitions}
-            onChange={competition =>
-              this.onChangeFilter('competitions', competition)
-            }
-          />
+          <Fragment>
+            <FixturesFilter
+              options={competitions}
+              selected={filters.competitions}
+              onChange={option => this.onChangeFilter('competitions', option)}
+            />
+            <FixturesFilter
+              options={['Näytä vain tulevat ottelut']}
+              selected={filters.upcoming}
+              onChange={option => this.onChangeFilter('upcoming', option)}
+            />
+          </Fragment>
         )}
         {this.props.isLoading && (
           <LoadingSpinner
