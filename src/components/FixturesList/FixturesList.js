@@ -26,16 +26,15 @@ export class FixturesList extends React.Component {
   static filterFixtures(fixtures, filters) {
     let filtered = fixtures;
 
-    // filter fixtures by date
+    // filter fixtures by completion status
     if (filters.upcoming && filters.upcoming.length) {
-      const today = new Date();
       filtered = filtered.slice(
-        filtered.findIndex(fixture => new Date(fixture.date) >= today)
+        filtered.findIndex(fixture => !fixture.isCompleted)
       );
     }
 
     // filter fixtures by competition
-    if (filters.competitions && filters.competitions.length > 0) {
+    if (filters.competitions && filters.competitions.length) {
       filtered = filtered.filter(fixture =>
         filters.competitions.includes(fixture.competition)
       );
@@ -66,7 +65,7 @@ export class FixturesList extends React.Component {
       );
 
     // Checking if the filters are updated.
-    const filtersUpdated = nextProps.filters === this.props.filters;
+    const filtersUpdated = !isEqual(nextProps.filters, this.props.filters);
 
     if (fixturesUpdated || filtersUpdated) {
       newState = {
@@ -164,8 +163,22 @@ FixturesList.propTypes = {
   updateFixtureFilters: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   fixturesURL: PropTypes.string.isRequired,
-  filters: PropTypes.shape().isRequired,
-  fixtures: PropTypes.arrayOf(PropTypes.object),
+  filters: PropTypes.objectOf(PropTypes.array).isRequired,
+  fixtures: PropTypes.arrayOf(
+    PropTypes.shape({
+      awayScore: PropTypes.string,
+      awayTeam: PropTypes.string,
+      competition: PropTypes.string,
+      date: PropTypes.string,
+      homeScore: PropTypes.string,
+      homeTeam: PropTypes.string,
+      isCompleted: PropTypes.bool,
+      source: PropTypes.string,
+      time: PropTypes.string,
+      timecode: PropTypes.string,
+      venue: PropTypes.string,
+    })
+  ),
 };
 
 FixturesList.defaultProps = {
