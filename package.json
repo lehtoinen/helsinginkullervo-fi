@@ -18,7 +18,6 @@
     "gatsby-plugin-typography": "^1.7.18",
     "lodash.isequal": "^4.5.0",
     "moment": "^2.21.0",
-    "netlify-lambda": "^0.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
@@ -55,8 +54,6 @@
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "jest --config jest.config.json",
-    "test:watch": "jest --watch --config jest.config.json --verbose",
-    "develop:lambda": "netlify-lambda serve src/lambda",
-    "build:lambda": "netlify-lambda build src/lambda"
+    "test:watch": "jest --watch --config jest.config.json --verbose"
   }
 }
