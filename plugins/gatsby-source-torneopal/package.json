@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-source-torneopal",
+  "description":
+    "Gatsby source plugin for building websites using Torneopal (torneopal.fi) as a data source",
+  "version": "0.0.1",
+  "author": "Anssi Lehtonen <lehtovaaralainen@gmail.com>",
+  "dependencies": {
+    "node-fetch": "^2.2.0",
+    "query-string": "^6.1.0"
+  },
+  "keywords": ["gatsby", "gatsby-plugin", "gatsby-source-plugin"],
+  "license": "MIT",
+  "main": "index.js"
+}
