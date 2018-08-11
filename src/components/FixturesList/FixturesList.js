@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import isEqual from 'lodash.isequal';
-import { fetchFixtures, updateFixtureFilters } from '../../state/actions';
+import { updateFixtureFilters } from '../../state/actions';
 
 import FixturesFilter from './FixturesFilter';
 import Fixture from './Fixture';
 import DateBadge from './DateBadge';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 import styles from './FixturesList.module.scss';
 
@@ -43,47 +41,11 @@ export class FixturesList extends React.Component {
     return filtered;
   }
 
-  constructor() {
+  constructor({ fixtures }) {
     super();
-    this.state = { fixtures: [] };
-  }
-
-  componentDidMount() {
-    this.props.fetchFixtures(this.props.fixturesURL);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    let newState = {};
-
-    // Checking if the fixtures are updated.
-    //  - Is the nextProps.fixtures length different to rendered fixtures?
-    //  - Are objects in nextProps.fixtures different to fixtures in current props?
-    const fixturesUpdated =
-      nextProps.fixtures.length !== this.state.fixtures.length ||
-      nextProps.fixtures.some(
-        (obj, ind) => !isEqual(obj, this.props.fixtures[ind])
-      );
-
-    // Checking if the filters are updated.
-    const filtersUpdated = !isEqual(nextProps.filters, this.props.filters);
-
-    if (fixturesUpdated || filtersUpdated) {
-      newState = {
-        ...newState,
-        ...{
-          fixtures: FixturesList.filterFixtures(
-            nextProps.fixtures,
-            nextProps.filters
-          ),
-          competitions: FixturesList.parseCompetitions(nextProps.fixtures),
-        },
-      };
-    }
-
-    // Anything new in the state?
-    if (Object.keys(newState).length) {
-      this.setState(newState);
-    }
+    this.state = {
+      competitions: FixturesList.parseCompetitions(fixtures),
+    };
   }
 
   onChangeFilter(type, value) {
@@ -101,42 +63,30 @@ export class FixturesList extends React.Component {
   }
 
   render() {
-    const { fixtures, competitions } = this.state;
-    const { filters } = this.props;
-    const showFilters = fixtures.length > 0 && competitions;
-
-    let currentDate;
-
-    if (fixtures.length < 1) {
+    if (this.props.fixtures.length < 1) {
       return null;
     }
 
+    const { competitions } = this.state;
+    const { filters } = this.props;
+    const fixtures = FixturesList.filterFixtures(this.props.fixtures, filters);
+
+    let currentDate;
+
     return (
       <div className={styles.root}>
-        {showFilters && (
-          <Fragment>
-            <FixturesFilter
-              options={competitions}
-              selected={filters.competitions}
-              onChange={option => this.onChangeFilter('competitions', option)}
-            />
-            <FixturesFilter
-              options={['Näytä vain tulevat ottelut']}
-              selected={filters.upcoming}
-              onChange={option => this.onChangeFilter('upcoming', option)}
-            />
-          </Fragment>
-        )}
-        {this.props.isLoading && (
-          <LoadingSpinner
-            style={{
-              fontSize: '0.5em',
-              position: 'absolute',
-              top: '2em',
-              right: '2em',
-            }}
+        <Fragment>
+          <FixturesFilter
+            options={competitions}
+            selected={filters.competitions}
+            onChange={option => this.onChangeFilter('competitions', option)}
           />
-        )}
+          <FixturesFilter
+            options={['Näytä vain tulevat ottelut']}
+            selected={filters.upcoming}
+            onChange={option => this.onChangeFilter('upcoming', option)}
+          />
+        </Fragment>
         {fixtures.map(fixture => {
           const addDateBadge = currentDate !== fixture.date;
           currentDate = fixture.date;
@@ -159,10 +109,7 @@ export class FixturesList extends React.Component {
 }
 
 FixturesList.propTypes = {
-  fetchFixtures: PropTypes.func.isRequired,
   updateFixtureFilters: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  fixturesURL: PropTypes.string.isRequired,
   filters: PropTypes.objectOf(PropTypes.array).isRequired,
   fixtures: PropTypes.arrayOf(
     PropTypes.shape({
@@ -185,14 +132,12 @@ FixturesList.defaultProps = {
   fixtures: [],
 };
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   isLoading: state.fixturesLoading,
-  fixtures: state.fixtures[props.fixturesURL],
   filters: state.fixtureFilters,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchFixtures: url => dispatch(fetchFixtures(url)),
   updateFixtureFilters: filters => dispatch(updateFixtureFilters(filters)),
 });
 
