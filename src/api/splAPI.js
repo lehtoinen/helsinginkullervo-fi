@@ -25,7 +25,11 @@ export const fetchFixtures = url =>
     })
     .then(text => JSON.parse(text))
     .then(obj => obj.matches.map(match => parseMatch(match)))
-    .then(fixtures => fixtures);
+    .then(fixtures => fixtures)
+    .catch(e => {
+      // eslint-disable-next-line
+      console.error(e);
+    });
 
 // /table/?competition_id=hkijp18&category_id=M7&group_id=1&matches=1
 // export function fetchTable(url) {
