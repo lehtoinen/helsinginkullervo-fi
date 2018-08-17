@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-var proxy = require('http-proxy-middleware');
-
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -30,16 +28,21 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-source-torneopal',
+      options: {
+        api: 'https://spl.torneopal.fi/taso/rest/',
+        key: process.env.TORNEOPAL_API_KEY,
+        queries: [
+          {
+            method: 'getMatches',
+            options: {
+              season_id: 2018,
+              club_id: 571,
+            },
+          },
+        ],
+      },
+    },
   ],
-  developMiddleware: app => {
-    app.use(
-      '/api',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/api': '',
-        },
-      })
-    );
-  },
 };
