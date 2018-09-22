@@ -3,20 +3,27 @@ import PropTypes from 'prop-types';
 
 import { parseFixture, parseGroup } from '../utils/torneopalParser';
 
-import FixturesList from '../components/FixturesList/FixturesList';
+import BorderedContainer from '../components/layout/BorderedContainer';
+import FixturesList from '../components/fixtureslist/FixturesList';
+import Competitions from '../components/competitions/Competitions';
 
 const IndexPage = ({ data }) => (
   <div>
-    <FixturesList
-      fixtures={data.allTorneopalMatch.edges.map(edge =>
-        parseFixture(edge.node)
-      )}
-    />
-    <div>
-      {data.allTorneopalGroup.edges.map(edge =>
-        console.log(parseGroup(edge.node))
-      )}
-    </div>
+    <BorderedContainer>
+      <h2>Sarjataulukot</h2>
+      groups
+      <Competitions
+        groups={data.allTorneopalGroup.edges.map(edge => parseGroup(edge.node))}
+      />
+    </BorderedContainer>
+    <BorderedContainer>
+      <h2>Otteluohjelma</h2>
+      <FixturesList
+        fixtures={data.allTorneopalMatch.edges.map(edge =>
+          parseFixture(edge.node)
+        )}
+      />
+    </BorderedContainer>
   </div>
 );
 
@@ -45,7 +52,7 @@ IndexPage.propTypes = {
         PropTypes.shape({
           node: PropTypes.shape({
             category_name: PropTypes.string.isRequired,
-            group_id: PropTypes.string.isRequired,
+            group_name: PropTypes.string.isRequired,
             teams: PropTypes.arrayOf(
               PropTypes.shape({
                 team_name: PropTypes.string.isRequired,

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import Header from '../components/Header/Header';
-// import ColorPalette from '../components/Helpers/ColorPalette';
+import Header from '../components/header/Header';
+// import ColorPalette from '../components/helpers/ColorPalette';
 
 import './index.scss';
 
