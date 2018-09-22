@@ -49,35 +49,3 @@ Fixture.defaultProps = {
 };
 
 export default Fixture;
-
-/*
-
-
-date
-time
-competition
-venue
-homeTeam
-homeScore
-awayTeam
-awayScore
-isCompleted
-
-            {
-            // <div
-            //   key={`${fixture.date.toString()}${fixture.time}${
-            //     fixture.competition
-            //   }`}
-            // >
-            //   {fixture.date.toString()} {fixture.time}
-            //   <br />
-            //   {fixture.competition}: {fixture.homeTeam} {fixture.homeScore} -{' '}
-            //   {fixture.awayScore}
-            //   {fixture.awayTeam}
-            //   <br />
-            //   {fixture.venue}
-            //   <br />
-            //   <br />
-            // </div>
-          }))}
-          */

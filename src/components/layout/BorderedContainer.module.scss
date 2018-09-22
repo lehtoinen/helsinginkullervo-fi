@@ -4,15 +4,10 @@
 .root {
   position: relative;
   font-size: 0.8em;
-  margin: 1em 2em 2em 1em;
+  margin: 1em 2em 3em 1em;
   box-shadow: 1.25em 1.5em $color-base-dark;
   padding: 1em;
-
-  @media #{$mobile} {
-    font-size: 0.75em;
-    margin: 0;
-    box-shadow: none;
-  }
+  background: $color-white;
 
   &:before {
     display: block;
@@ -24,5 +19,19 @@
     content: "";
     border: 1px solid $color-base-light;
     z-index: -1;
+  }
+
+  @media #{$mobile} {
+    font-size: 0.75em;
+    margin: 0;
+    margin-bottom: 2em;
+    box-shadow: none;
+    &:before {
+      border-width: 0 0 1px 0;
+    }
+  }
+
+  h2 {
+    color: $color-base-dark;
   }
 }

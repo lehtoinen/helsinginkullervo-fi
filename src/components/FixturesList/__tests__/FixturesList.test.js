@@ -7,31 +7,33 @@ import { FixturesList } from '../FixturesList';
 configure({ adapter: new Adapter() });
 
 describe('FixturesList', () => {
-  const fetchFixtures = jest.fn();
   const updateFixtureFilters = jest.fn();
 
   // pass the mock function as the login prop
   const component = ({
-    isLoading = false,
-    fixturesURL = 'foobar',
-    fixtures = [],
+    fixtures = [
+      {
+        awayScore: '0',
+        awayTeam: 'Kullervo/Überkleber',
+        competition: 'Regions Cup',
+        date: '2018-04-15',
+        homeScore: '8',
+        homeTeam: 'RiPS',
+        isCompleted: true,
+        time: '15:00:00',
+        timecode: '2018-04-15-15:00:00',
+        venue: 'Riihimäki Keskuskenttä TN',
+      },
+    ],
     filters = {},
   }) =>
     shallow(
       <FixturesList
-        fetchFixtures={fetchFixtures}
         updateFixtureFilters={updateFixtureFilters}
-        isLoading={isLoading}
-        fixturesURL={fixturesURL}
         fixtures={fixtures}
         filters={filters}
       />
     );
-
-  test('calls the fetchFixtures function', () => {
-    component({});
-    expect(fetchFixtures.mock.calls.length).toBe(1);
-  });
 
   test('renders', () => {
     expect(component({})).toMatchSnapshot();

@@ -7,8 +7,6 @@ import FixturesFilter from './FixturesFilter';
 import Fixture from './Fixture';
 import DateBadge from './DateBadge';
 
-import styles from './FixturesList.module.scss';
-
 export class FixturesList extends React.Component {
   static parseCompetitions(fixtures) {
     const competitions = [];
@@ -41,13 +39,6 @@ export class FixturesList extends React.Component {
     return filtered;
   }
 
-  constructor({ fixtures }) {
-    super();
-    this.state = {
-      competitions: FixturesList.parseCompetitions(fixtures),
-    };
-  }
-
   onChangeFilter(type, value) {
     const filterValues = this.props.filters[type]
       ? this.props.filters[type].slice(0)
@@ -63,18 +54,18 @@ export class FixturesList extends React.Component {
   }
 
   render() {
-    if (this.props.fixtures.length < 1) {
+    if (!this.props.fixtures || this.props.fixtures.length < 1) {
       return null;
     }
 
-    const { competitions } = this.state;
     const { filters } = this.props;
+    const competitions = FixturesList.parseCompetitions(this.props.fixtures);
     const fixtures = FixturesList.filterFixtures(this.props.fixtures, filters);
 
     let currentDate;
 
     return (
-      <div className={styles.root}>
+      <div>
         <Fragment>
           <FixturesFilter
             options={competitions}
@@ -133,7 +124,6 @@ FixturesList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  isLoading: state.fixturesLoading,
   filters: state.fixtureFilters,
 });
 
