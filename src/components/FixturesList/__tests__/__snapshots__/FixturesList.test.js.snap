@@ -3,7 +3,7 @@
 exports[`FixturesList renders 1`] = `
 <div>
   <React.Fragment>
-    <FixturesFilter
+    <Filter
       onChange={[Function]}
       options={
         Array [
@@ -12,7 +12,7 @@ exports[`FixturesList renders 1`] = `
       }
       selected={Array []}
     />
-    <FixturesFilter
+    <Filter
       onChange={[Function]}
       options={
         Array [

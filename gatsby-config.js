@@ -37,8 +37,9 @@ module.exports = {
           {
             method: 'getMatches',
             options: {
-              season_id: 2018,
+              // season_id: '2018-19',
               club_id: 571,
+              competition_id: 'hkifs1819',
             },
           },
           {
