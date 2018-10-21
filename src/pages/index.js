@@ -7,7 +7,7 @@ import {
 } from '../utils/torneopalParser';
 
 import BorderedContainer from '../components/layout/BorderedContainer';
-import FixturesList from '../components/fixtureslist/FixturesList';
+import FixturesList from '../components/FixturesList/FixturesList';
 // import Competitions from '../components/competitions/Competitions';
 
 const IndexPage = ({ data }) => (
