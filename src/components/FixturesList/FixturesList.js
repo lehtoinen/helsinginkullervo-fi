@@ -1,44 +1,40 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import uniq from 'lodash/uniq';
+import memoize from 'lodash/memoize';
+
 import { updateFixtureFilters } from '../../state/actions';
 
-import FixturesFilter from './FixturesFilter';
+import Filter from '../Filter';
 import Fixture from './Fixture';
 import DateBadge from './DateBadge';
 
+const parseCompetitions = memoize(fixtures =>
+  uniq(fixtures.map(fixture => fixture.competition)).sort()
+);
+
+const filterFixtures = (fixtures, filters) => {
+  let filtered = fixtures;
+
+  // filter fixtures by completion status
+  if (filters.upcoming && filters.upcoming.length) {
+    filtered = filtered.slice(
+      filtered.findIndex(fixture => !fixture.isCompleted)
+    );
+  }
+
+  // filter fixtures by competition
+  if (filters.competitions && filters.competitions.length) {
+    filtered = filtered.filter(fixture =>
+      filters.competitions.includes(fixture.competition)
+    );
+  }
+
+  return filtered;
+};
+
 export class FixturesList extends React.Component {
-  static parseCompetitions(fixtures) {
-    const competitions = [];
-    fixtures.forEach(fixture => {
-      const { competition } = fixture;
-      if (!competitions.includes(competition)) {
-        competitions.push(competition);
-      }
-    });
-    return competitions.sort();
-  }
-
-  static filterFixtures(fixtures, filters) {
-    let filtered = fixtures;
-
-    // filter fixtures by completion status
-    if (filters.upcoming && filters.upcoming.length) {
-      filtered = filtered.slice(
-        filtered.findIndex(fixture => !fixture.isCompleted)
-      );
-    }
-
-    // filter fixtures by competition
-    if (filters.competitions && filters.competitions.length) {
-      filtered = filtered.filter(fixture =>
-        filters.competitions.includes(fixture.competition)
-      );
-    }
-
-    return filtered;
-  }
-
   onChangeFilter(type, value) {
     const filterValues = this.props.filters[type]
       ? this.props.filters[type].slice(0)
@@ -59,20 +55,20 @@ export class FixturesList extends React.Component {
     }
 
     const { filters } = this.props;
-    const competitions = FixturesList.parseCompetitions(this.props.fixtures);
-    const fixtures = FixturesList.filterFixtures(this.props.fixtures, filters);
+    const competitions = parseCompetitions(this.props.fixtures);
+    const fixtures = filterFixtures(this.props.fixtures, filters);
 
     let currentDate;
 
     return (
       <div>
         <Fragment>
-          <FixturesFilter
+          <Filter
             options={competitions}
             selected={filters.competitions}
             onChange={option => this.onChangeFilter('competitions', option)}
           />
-          <FixturesFilter
+          <Filter
             options={['Näytä vain tulevat ottelut']}
             selected={filters.upcoming}
             onChange={option => this.onChangeFilter('upcoming', option)}
