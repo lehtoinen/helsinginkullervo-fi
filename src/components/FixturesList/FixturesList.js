@@ -15,7 +15,7 @@ const parseCompetitions = memoize(fixtures =>
 );
 
 const filterFixtures = (fixtures, filters) => {
-  let filtered = fixtures;
+  let filtered = fixtures.slice();
 
   // filter fixtures by completion status
   if (filters.upcoming && filters.upcoming.length) {
@@ -79,7 +79,9 @@ export class FixturesList extends React.Component {
           currentDate = fixture.date;
 
           return (
-            <Fragment key={`${fixture.competition}${fixture.date}`}>
+            <Fragment
+              key={`${fixture.homeTeam}${fixture.awayTeam}${fixture.date}`}
+            >
               {addDateBadge && (
                 <DateBadge
                   date={new Date(fixture.date)}
