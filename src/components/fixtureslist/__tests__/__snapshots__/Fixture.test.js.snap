@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fixture renders 1`] = `
+<div
+  className="fixture completed"
+>
+  <div
+    className="subject"
+  >
+    <span
+      className="competition"
+    >
+       
+      Regions Cup
+      : 
+    </span>
+    <span
+      className="winner"
+    >
+      RiPS
+       
+      8
+    </span>
+     
+    -
+     
+    <span
+      className={null}
+    >
+      0
+       
+      Kullervo/Überkleber
+    </span>
+  </div>
+  <div
+    className="info"
+  >
+    klo 
+    15:00
+     
+    <span
+      className="location"
+    >
+      Riihimäki Keskuskenttä TN
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Fixture renders with only required props defined 1`] = `
+<div
+  className="fixture completed"
+>
+  <div
+    className="subject"
+  >
+    <span
+      className="competition"
+    >
+       
+      Regions Cup
+      : 
+    </span>
+    <span
+      className={null}
+    >
+      RiPS
+       
+    </span>
+     
+    -
+     
+    <span
+      className={null}
+    >
+       
+      Kullervo/Überkleber
+    </span>
+  </div>
+  <div
+    className="info"
+  >
+    klo 
+    15:00
+     
+    <span
+      className="location"
+    />
+  </div>
+</div>
+`;

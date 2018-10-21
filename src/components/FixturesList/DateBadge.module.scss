@@ -11,10 +11,8 @@
 
   .day {
     text-align: center;
-    margin-right: 0.85em;
     line-height: 0.975;
     position: absolute;
-    margin-top: -0.075em;
 
     .weekday {
       font-size: 1.7em;
@@ -26,6 +24,7 @@
     .date {
       font-size: 0.9em;
       color: $color-grey;
+      margin-top: 0.15em;
     }
   }
 }

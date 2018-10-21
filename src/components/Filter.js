@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './FixturesFilter.module.scss';
+import styles from './Filter.module.scss';
 
-const FixturesFilter = ({ options, selected, onChange }) => (
+const Filter = ({ options, selected, onChange }) => (
   <div className={styles.root}>
     {options.map(option => {
       const isSelected = selected && selected.includes(option);
@@ -25,14 +25,14 @@ const FixturesFilter = ({ options, selected, onChange }) => (
   </div>
 );
 
-FixturesFilter.propTypes = {
+Filter.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
   selected: PropTypes.arrayOf(PropTypes.string),
 };
 
-FixturesFilter.defaultProps = {
+Filter.defaultProps = {
   selected: [],
 };
 
-export default FixturesFilter;
+export default Filter;

@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FixturesList renders 1`] = `""`;
+exports[`FixturesList renders 1`] = `
+<div>
+  <React.Fragment>
+    <Filter
+      onChange={[Function]}
+      options={
+        Array [
+          "Regions Cup",
+        ]
+      }
+      selected={Array []}
+    />
+    <Filter
+      onChange={[Function]}
+      options={
+        Array [
+          "Näytä vain tulevat ottelut",
+        ]
+      }
+      selected={Array []}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="Regions Cup2018-04-15"
+  >
+    <DateBadge
+      date={2018-04-15T00:00:00.000Z}
+      isPast={true}
+    />
+    <Fixture
+      awayScore="0"
+      awayTeam="Kullervo/Überkleber"
+      competition="Regions Cup"
+      date="2018-04-15"
+      homeScore="8"
+      homeTeam="RiPS"
+      isCompleted={true}
+      time="15:00:00"
+      timecode="2018-04-15-15:00:00"
+      venue="Riihimäki Keskuskenttä TN"
+    />
+  </React.Fragment>
+</div>
+`;
 
 exports[`FixturesList renders with undefined fixtures 1`] = `""`;

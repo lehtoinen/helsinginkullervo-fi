@@ -1,7 +1,8 @@
-@import '../../assets/scss/colors';
+@import '../assets/scss/colors';
 
 .root {
   padding: 0.25em 0.25em 0.75em;
+  color: $color-black;
   
   .option {
     display: inline-block;

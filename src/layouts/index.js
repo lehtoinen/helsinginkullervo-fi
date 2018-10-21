@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Header from '../components/Header/Header';
-// import ColorPalette from '../components/Helpers/ColorPalette';
+// import ColorPalette from '../components/helpers/ColorPalette';
 
 import './index.scss';
 
@@ -12,7 +12,11 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title="Helsingin Kullervo"
       meta={[
-        { name: 'description', content: 'Helsingin Kullervo' },
+        {
+          name: 'description',
+          content:
+            'Helsingin Kullervo on vuonna 1919 perustettu helsinkiläinen jalkapallo- ja futsalseura.',
+        },
         { name: 'keywords', content: 'kullervo, helsinki' },
       ]}
     />

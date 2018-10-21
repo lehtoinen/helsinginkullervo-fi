@@ -16,7 +16,7 @@
     "gatsby-plugin-postcss-sass": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-typography": "^1.7.18",
-    "lodash.isequal": "^4.5.0",
+    "lodash.orderby": "^4.6.0",
     "moment": "^2.21.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

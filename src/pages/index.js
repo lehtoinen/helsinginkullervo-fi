@@ -1,29 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FixturesList from '../components/FixturesList/FixturesList';
+import {
+  parseFixture,
+  // parseGroup
+} from '../utils/torneopalParser';
 
-// Helper function to parse a Torneopal match node to a fixture for the FixtureList
-const parseFixture = match => ({
-  awayScore: match.fs_B,
-  awayTeam: match.team_B_name,
-  competition: match.category_name,
-  date: match.date,
-  homeScore: match.fs_A,
-  homeTeam: match.team_A_name,
-  isCompleted: match.status === 'Played',
-  time: match.time,
-  timecode: `${match.date}-${match.time}`,
-  venue: match.venue_name,
-});
+import BorderedContainer from '../components/layout/BorderedContainer';
+import FixturesList from '../components/FixturesList/FixturesList';
+// import Competitions from '../components/competitions/Competitions';
 
 const IndexPage = ({ data }) => (
   <div>
-    <FixturesList
-      fixtures={data.allTorneopalMatch.edges.map(edge =>
-        parseFixture(edge.node)
-      )}
-    />
+    {/* <BorderedContainer>
+      <h2>Sarjataulukot</h2>
+      <Competitions
+        groups={data.allTorneopalGroup.edges.map(edge => parseGroup(edge.node))}
+      />
+    </BorderedContainer> */}
+    <BorderedContainer>
+      <h2>Otteluohjelma</h2>
+      <FixturesList
+        fixtures={data.allTorneopalMatch.edges.map(edge =>
+          parseFixture(edge.node)
+        )}
+      />
+    </BorderedContainer>
   </div>
 );
 
@@ -47,6 +49,30 @@ IndexPage.propTypes = {
         }).isRequired
       ).isRequired,
     }).isRequired,
+    //   allTorneopalGroup: PropTypes.shape({
+    //     edges: PropTypes.arrayOf(
+    //       PropTypes.shape({
+    //         node: PropTypes.shape({
+    //           category_name: PropTypes.string.isRequired,
+    //           group_name: PropTypes.string.isRequired,
+    //           teams: PropTypes.arrayOf(
+    //             PropTypes.shape({
+    //               team_name: PropTypes.string.isRequired,
+    //               team_id: PropTypes.string.isRequired,
+    //               current_standing: PropTypes.number.isRequired,
+    //               points: PropTypes.number.isRequired,
+    //               matches_played: PropTypes.number.isRequired,
+    //               matches_tied: PropTypes.number.isRequired,
+    //               matches_lost: PropTypes.number.isRequired,
+    //               matches_won: PropTypes.number.isRequired,
+    //               goals_for: PropTypes.number.isRequired,
+    //               goals_against: PropTypes.number.isRequired,
+    //             })
+    //           ).isRequired,
+    //         }).isRequired,
+    //       }).isRequired
+    //     ).isRequired,
+    //   }).isRequired,
   }).isRequired,
 };
 
@@ -54,7 +80,7 @@ export default IndexPage;
 
 // eslint-disable-next-line no-undef
 export const query = graphql`
-  query AboutQuery {
+  query IndexQuery {
     allTorneopalMatch {
       edges {
         node {
@@ -71,5 +97,36 @@ export const query = graphql`
         }
       }
     }
+
+    # allTorneopalGroup {
+    #  edges {
+    #    node {
+    #      id
+    #      competition_id
+    #      category_name
+    #      group_name
+    #      teams {
+    #        team_name
+    #        team_id
+    #        current_standing
+    #        points
+    #        matches_played
+    #        matches_tied
+    #        matches_lost
+    #        matches_won
+    #        goals_for
+    #        goals_against
+    #      }
+    # Documenting the player stats fields here for future use.
+    # player_statistics {
+    #   player_name
+    #   team_id
+    #   team_name
+    #   standing
+    #   goals
+    # }
+    #    }
+    #  }
+    # }
   }
 `;

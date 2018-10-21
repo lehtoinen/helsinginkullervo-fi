@@ -1,9 +1,10 @@
 @import '../../assets/scss/colors';
 
 .fixture {
-  padding-left: 3em;
+  padding-left: 3.5em;
   line-height: 1.25;
   margin-bottom: 1.35em;
+  color: $color-black;
 
   &.completed {
     opacity: 0.5;
@@ -15,13 +16,14 @@
 
   .subject {
     font-size: 1.1em;
-    color: $color-base-dark;
     font-style: italic;
   }
 
   .info {
-    font-size: 0.9em;
-    margin-top: 0.05em;
+    font-size: .8em;
+    margin-top: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .competition {
@@ -30,5 +32,8 @@
 
   .location {
     color: $color-grey;
+    border-left: 1px solid #e6e6e6;
+    padding-left: 0.75em;
+    margin: 0.4em;
   }
 }
