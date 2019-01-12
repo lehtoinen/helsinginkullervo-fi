@@ -1,0 +1,30 @@
+@import '../../assets/scss/colors';
+
+.root {
+  display: table;
+  width: 100%;
+  max-width: 600px;
+
+  .tableHead {
+    font-weight: bold;
+  }
+
+  .tableRow {
+    display: table-row;
+    width: 100%;
+
+    &:nth-child(even) {
+      background: $color-body-bg;
+    }
+
+    > div {
+      display: table-cell;
+      text-align: center;
+      padding: 5px;
+    } 
+
+    &.highlight {
+      background: $color-complimentary;
+    }
+  }
+}
