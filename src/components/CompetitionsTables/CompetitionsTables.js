@@ -8,7 +8,7 @@ import Filter from '../Filter';
 import Group from './Group';
 
 const parseCompetitions = memoize(groups =>
-  uniq(groups.map(group => group.competition)).sort()
+  uniq(groups.map(group => `${group.competition}, lohko ${group.group}`)).sort()
 );
 
 class Competitions extends React.Component {

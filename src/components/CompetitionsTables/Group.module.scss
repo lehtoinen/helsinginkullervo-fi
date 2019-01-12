@@ -1,0 +1,7 @@
+@import '../../assets/scss/mediaQueries';
+
+.hideSmall {
+  @media #{$mobile} {
+    display: none !important;
+  }
+}
