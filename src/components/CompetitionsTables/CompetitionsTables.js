@@ -41,7 +41,7 @@ class Competitions extends React.Component {
         {orderBy(this.props.groups, ['competition'], ['asc']).map(group => (
           <Group
             key={`${group.competition}: ${group.group}`}
-            title={`${group.competition}: ${group.group}`}
+            title={`${group.competition}, lohko ${group.group}`}
             teams={group.teams}
           />
         ))}

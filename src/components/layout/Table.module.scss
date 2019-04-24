@@ -3,7 +3,6 @@
 .root {
   display: table;
   width: 100%;
-  max-width: 600px;
 
   .tableHead {
     font-weight: bold;
@@ -24,7 +23,7 @@
     } 
 
     &.highlight {
-      background: $color-complimentary;
+      font-weight: bold;
     }
   }
 }

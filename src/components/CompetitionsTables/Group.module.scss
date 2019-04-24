@@ -1,5 +1,9 @@
 @import '../../assets/scss/mediaQueries';
 
+.root {
+  margin: 1em 0 2em;
+}
+
 .hideSmall {
   @media #{$mobile} {
     display: none !important;
