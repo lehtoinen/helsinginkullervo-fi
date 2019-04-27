@@ -6,6 +6,9 @@
 
   .tableHead {
     font-weight: bold;
+    > div {
+      padding: 10px 5px !important;
+    }
   }
 
   .tableRow {
@@ -19,8 +22,8 @@
     > div {
       display: table-cell;
       text-align: center;
-      padding: 5px;
-    } 
+      padding: 7px 5px;
+    }
 
     &.highlight {
       font-weight: bold;
