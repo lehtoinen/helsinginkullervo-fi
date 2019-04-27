@@ -1,5 +1,5 @@
-export const UPDATE_FIXTURE_FILTERS = 'UPDATE_FIXTURE_FILTERS';
+export const UPDATE_FILTERS = 'UPDATE_FILTERS';
 
-export const updateFixtureFilters = filters => dispatch => {
-  dispatch({ type: UPDATE_FIXTURE_FILTERS, filters });
+export const updateFilters = (filterType, values) => dispatch => {
+  dispatch({ type: UPDATE_FILTERS, filterType, values });
 };

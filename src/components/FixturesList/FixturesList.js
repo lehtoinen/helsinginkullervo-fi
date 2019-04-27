@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import uniq from 'lodash/uniq';
 import memoize from 'lodash/memoize';
 
-import { updateFixtureFilters } from '../../state/actions';
+import { updateFilters } from '../../state/actions';
+import FilterType from '../../enum/FilterType';
 
 import Filter from '../Filter';
 import Fixture from './Fixture';
@@ -46,7 +47,7 @@ export class FixturesList extends React.Component {
       filterValues.splice(ind, 1);
     }
 
-    this.props.updateFixtureFilters({ [type]: filterValues });
+    this.props.updateFilters({ [type]: filterValues });
   }
 
   render() {
@@ -64,11 +65,13 @@ export class FixturesList extends React.Component {
       <div>
         <Fragment>
           <Filter
+            group="competitions"
             options={competitions}
             selected={filters.competitions}
             onChange={option => this.onChangeFilter('competitions', option)}
           />
           <Filter
+            group="competitions"
             options={['Näytä vain tulevat ottelut']}
             selected={filters.upcoming}
             onChange={option => this.onChangeFilter('upcoming', option)}
@@ -98,7 +101,7 @@ export class FixturesList extends React.Component {
 }
 
 FixturesList.propTypes = {
-  updateFixtureFilters: PropTypes.func.isRequired,
+  updateFilters: PropTypes.func.isRequired,
   filters: PropTypes.objectOf(PropTypes.array).isRequired,
   fixtures: PropTypes.arrayOf(
     PropTypes.shape({
@@ -126,7 +129,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateFixtureFilters: filters => dispatch(updateFixtureFilters(filters)),
+  updateFilters: filters =>
+    dispatch(updateFilters(FilterType.FIXTURES, filters)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FixturesList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FixturesList);

@@ -1,0 +1,33 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mediaQueries';
+
+.root {
+  margin: 1em 0 2em;
+  padding-top: 1.5em;
+
+  .title {
+    padding-bottom: 0.45em;
+    margin-bottom: 0.15em;
+    font-weight: bold;
+    font-size: 1.25em;
+    border-bottom: 1px dashed $color-complimentary;
+    color: $color-base-dark;
+  }
+
+  .teamCell {
+    text-align: left !important;
+    word-break: break-word;
+  }
+}
+
+.hideMedium {
+  @media #{$tablet} {
+    display: none !important;
+  }
+}
+
+.hideSmall {
+  @media #{$mobile} {
+    display: none !important;
+  }
+}

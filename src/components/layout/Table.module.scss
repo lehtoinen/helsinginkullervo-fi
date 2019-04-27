@@ -1,0 +1,32 @@
+@import '../../assets/scss/colors';
+
+.root {
+  display: table;
+  width: 100%;
+
+  .tableHead {
+    font-weight: bold;
+    > div {
+      padding: 10px 5px !important;
+    }
+  }
+
+  .tableRow {
+    display: table-row;
+    width: 100%;
+
+    &:nth-child(even) {
+      background: $color-body-bg;
+    }
+
+    > div {
+      display: table-cell;
+      text-align: center;
+      padding: 7px 5px;
+    }
+
+    &.highlight {
+      font-weight: bold;
+    }
+  }
+}
