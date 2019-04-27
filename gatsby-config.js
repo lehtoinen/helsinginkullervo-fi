@@ -45,8 +45,8 @@ module.exports = {
           {
             method: 'getGroup',
             options: {
-              competition_id: 'hkifs1819', // Helsinki jalkapallo 2018
-              category_id: 'FM5', // Miehet Seiska
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M7', // Miehet Seiska
               group_id: '1', // lohko 1
               matches: '0', // ei ottelulistausta
             },
@@ -54,18 +54,45 @@ module.exports = {
           {
             method: 'getGroup',
             options: {
-              competition_id: 'hkifs1819', // Helsinki jalkapallo 2018
-              category_id: 'FMH1', // Miehet Seiska
-              group_id: '1', // lohko 1
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M6', // Miehet Kutonen
+              group_id: '6', // lohko 6
               matches: '0', // ei ottelulistausta
             },
           },
           {
             method: 'getGroup',
             options: {
-              competition_id: 'hkifs1819', // Helsinki jalkapallo 2018
-              category_id: 'FMH1', // Miehet Seiska
-              group_id: '2', // lohko 1
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M35', // KKI-35
+              group_id: '3', // lohko 3
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M40', // KKI-40
+              group_id: '3', // lohko 3
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M50_7', // KKI-50
+              group_id: '3', // lohko 3
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M55_7', // KKI-55
+              group_id: '3', // lohko 3
               matches: '0', // ei ottelulistausta
             },
           },
