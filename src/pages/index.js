@@ -4,6 +4,7 @@ import get from 'lodash/get';
 
 import { parseFixture, parseGroup } from '../utils/torneopalParser';
 
+import Grid from '../components/layout/Grid';
 import BorderedContainer from '../components/layout/BorderedContainer';
 import FixturesList from '../components/FixturesList/FixturesList';
 import CompetitionsTables from '../components/CompetitionsTables/CompetitionsTables';
@@ -13,20 +14,20 @@ const IndexPage = ({ data }) => {
   const fixtures = get(data, 'fixtures.edges', []);
 
   return (
-    <div>
+    <Grid>
       <BorderedContainer>
-        <h2>Sarjataulukot</h2>
-        <CompetitionsTables
-          groups={groups.map(edge => parseGroup(edge.node))}
-        />
-      </BorderedContainer>
-      <BorderedContainer>
-        <h2>Otteluohjelma</h2>
+        <h2 id="otteluohjelma">Otteluohjelma</h2>
         <FixturesList
           fixtures={fixtures.map(edge => parseFixture(edge.node))}
         />
       </BorderedContainer>
-    </div>
+      <BorderedContainer>
+        <h2 id="sarjataulukot">Sarjataulukot</h2>
+        <CompetitionsTables
+          groups={groups.map(edge => parseGroup(edge.node))}
+        />
+      </BorderedContainer>
+    </Grid>
   );
 };
 
