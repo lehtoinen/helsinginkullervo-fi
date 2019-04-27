@@ -7,7 +7,7 @@ import styles from './Group.module.scss';
 
 const Group = ({ title, teams }) => (
   <div className={styles.root}>
-    <h4>{title}</h4>
+    <div className={styles.title}>{title}</div>
     <Table
       columnTitles={[
         <div />,
@@ -27,7 +27,7 @@ const Group = ({ title, teams }) => (
           highlight={team.name.toLowerCase().includes('kullervo')}
         >
           <div>{team.standing}</div>
-          <div style={{ textAlign: 'left' }}>{team.name}</div>
+          <div className={styles.teamCell}>{team.name}</div>
           <div>{team.matchesPlayed}</div>
           <div>{team.matchesWon}</div>
           <div>{team.matchesTied}</div>
