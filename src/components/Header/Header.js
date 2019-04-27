@@ -1,6 +1,24 @@
 import React from 'react';
-// import Link from 'gatsby-link';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-const Header = () => <div />;
+import styles from './Header.module.scss';
+import Logo from '../layout/Logo';
+
+const Header = () => (
+  <div className={styles.root}>
+    <span>
+      <Logo />
+      <h4>Helsingin Kullervo</h4>
+    </span>
+    <span>
+      <AnchorLink offset="100" href="#otteluohjelma">
+        Otteluohjelma
+      </AnchorLink>
+      <AnchorLink offset="100" href="#sarjataulukot">
+        Sarjataulukot
+      </AnchorLink>
+    </span>
+  </div>
+);
 
 export default Header;
