@@ -10,7 +10,7 @@ const Header = () => (
       <Logo />
       <h4>Helsingin Kullervo</h4>
     </span>
-    <span>
+    <span className={styles.anchorLinks}>
       <AnchorLink offset="100" href="#otteluohjelma">
         Otteluohjelma
       </AnchorLink>

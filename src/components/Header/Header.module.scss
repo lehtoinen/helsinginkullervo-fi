@@ -50,5 +50,11 @@
       text-align: right;
       justify-content: flex-end;
     }
+
+    &.anchorLinks {
+      @media #{$desktop} {
+        display: none;
+      }
+    }
   }
 }
