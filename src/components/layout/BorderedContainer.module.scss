@@ -6,7 +6,7 @@
   position: relative;
   font-size: 0.8em;
   margin: 1em 2em 3em 1em;
-  padding: 2em 1em 1em;
+  padding: 2em 2em 1em;
   background: $color-white;
 
   &:before {
@@ -36,6 +36,7 @@
     font-size: 0.75em;
     margin: 0;
     margin-bottom: 2em;
+    padding: 1em;
     &:before {
       content: none;
     }
