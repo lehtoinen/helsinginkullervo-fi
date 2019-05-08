@@ -16,28 +16,31 @@ const Group = ({ title, teams }) => (
         <div>V</div>,
         <div>T</div>,
         <div>H</div>,
-        <div className={styles.hideSmall}>TM</div>,
-        <div className={styles.hideSmall}>PM</div>,
+        <div className={styles.hideSmall}>M</div>,
         <div>+/-</div>,
         <div>Pst</div>,
       ]}
-      rows={teams.map(team => (
-        <div
-          key={team.id}
-          highlight={team.name.toLowerCase().includes('kullervo')}
-        >
-          <div>{team.standing}</div>
-          <div className={styles.teamCell}>{team.name}</div>
-          <div>{team.matchesPlayed}</div>
-          <div>{team.matchesWon}</div>
-          <div>{team.matchesTied}</div>
-          <div>{team.matchesLost}</div>
-          <div className={styles.hideSmall}>{team.goalsFor}</div>
-          <div className={styles.hideSmall}>{team.goalsAgainst}</div>
-          <div>{team.goalsFor - team.goalsAgainst}</div>
-          <div>{team.points}</div>
-        </div>
-      ))}
+      rows={teams.map(team => {
+        const goalsTotal = team.goalsFor - team.goalsAgainst;
+        return (
+          <div
+            key={team.id}
+            highlight={team.name.toLowerCase().includes('kullervo')}
+          >
+            <div>{team.standing}</div>
+            <div className={styles.teamCell}>{team.name}</div>
+            <div>{team.matchesPlayed}</div>
+            <div>{team.matchesWon}</div>
+            <div>{team.matchesTied}</div>
+            <div>{team.matchesLost}</div>
+            <div className={styles.hideSmall}>
+              {team.goalsFor}-{team.goalsAgainst}
+            </div>
+            <div>{`${goalsTotal > 0 ? '+' : ''}${goalsTotal}`}</div>
+            <div>{team.points}</div>
+          </div>
+        );
+      })}
     />
   </div>
 );
