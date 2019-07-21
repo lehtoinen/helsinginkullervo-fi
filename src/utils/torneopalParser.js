@@ -16,7 +16,7 @@ export const parseFixture = match => ({
 export const parseGroup = group => ({
   competition: group.category_name,
   group: group.group_name,
-  teams: group.teams.map(team => ({
+  teams: group.live_standings.map(team => ({
     name: team.team_name,
     id: team.team_id,
     goalsFor: team.goals_for,

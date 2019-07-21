@@ -10,22 +10,26 @@ const Group = ({ title, teams }) => (
     <div className={styles.title}>{title}</div>
     <Table
       columnTitles={[
-        <div />,
-        <div />,
-        <div>O</div>,
-        <div>V</div>,
-        <div>T</div>,
-        <div>H</div>,
-        <div className={styles.hideSmall}>M</div>,
-        <div>+/-</div>,
-        <div>Pst</div>,
+        <div key={`${title}-coltitle-1`} />,
+        <div key={`${title}-coltitle-2`} />,
+        <div key={`${title}-coltitle-3`}>O</div>,
+        <div key={`${title}-coltitle-4`}>V</div>,
+        <div key={`${title}-coltitle-5`}>T</div>,
+        <div key={`${title}-coltitle-6`}>H</div>,
+        <div key={`${title}-coltitle-7`} className={styles.hideSmall}>
+          M
+        </div>,
+        <div key={`${title}-coltitle-8`}>+/-</div>,
+        <div key={`${title}-coltitle-9`}>Pst</div>,
       ]}
       rows={teams.map(team => {
         const goalsTotal = team.goalsFor - team.goalsAgainst;
         return (
           <div
             key={team.id}
-            highlight={team.name.toLowerCase().includes('kullervo')}
+            highlight={
+              team.name.toLowerCase().includes('kullervo') ? 'true' : ''
+            }
           >
             <div>{team.standing}</div>
             <div className={styles.teamCell}>{team.name}</div>

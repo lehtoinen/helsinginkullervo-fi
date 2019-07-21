@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 import { parseFixture, parseGroup } from '../utils/torneopalParser';
 
+import Layout from '../components/layout/Layout';
 import Grid from '../components/layout/Grid';
 import BorderedContainer from '../components/layout/BorderedContainer';
 import FixturesList from '../components/FixturesList/FixturesList';
@@ -14,20 +16,22 @@ const IndexPage = ({ data }) => {
   const fixtures = get(data, 'fixtures.edges', []);
 
   return (
-    <Grid>
-      <BorderedContainer>
-        <h2 id="otteluohjelma">Otteluohjelma</h2>
-        <FixturesList
-          fixtures={fixtures.map(edge => parseFixture(edge.node))}
-        />
-      </BorderedContainer>
-      <BorderedContainer>
-        <h2 id="sarjataulukot">Sarjataulukot</h2>
-        <CompetitionsTables
-          groups={groups.map(edge => parseGroup(edge.node))}
-        />
-      </BorderedContainer>
-    </Grid>
+    <Layout>
+      <Grid>
+        <BorderedContainer>
+          <h2 id="otteluohjelma">Otteluohjelma</h2>
+          <FixturesList
+            fixtures={fixtures.map(edge => parseFixture(edge.node))}
+          />
+        </BorderedContainer>
+        <BorderedContainer>
+          <h2 id="sarjataulukot">Sarjataulukot</h2>
+          <CompetitionsTables
+            groups={groups.map(edge => parseGroup(edge.node))}
+          />
+        </BorderedContainer>
+      </Grid>
+    </Layout>
   );
 };
 
@@ -57,7 +61,7 @@ IndexPage.propTypes = {
           node: PropTypes.shape({
             category_name: PropTypes.string.isRequired,
             group_name: PropTypes.string.isRequired,
-            teams: PropTypes.arrayOf(
+            live_standings: PropTypes.arrayOf(
               PropTypes.shape({
                 team_name: PropTypes.string.isRequired,
                 team_id: PropTypes.string.isRequired,
@@ -82,7 +86,7 @@ export default IndexPage;
 
 // eslint-disable-next-line no-undef
 export const query = graphql`
-  query IndexQuery {
+  {
     fixtures: allTorneopalMatch {
       edges {
         node {
@@ -106,7 +110,7 @@ export const query = graphql`
           competition_id
           category_name
           group_name
-          teams {
+          live_standings {
             team_name
             team_id
             current_standing

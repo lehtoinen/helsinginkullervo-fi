@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import Header from '../components/Header/Header';
-// import ColorPalette from '../components/helpers/ColorPalette';
+import Header from '../Header/Header';
+// import ColorPalette from '../helpers/ColorPalette';
 
-import './index.scss';
+import './Layout.scss';
 
-const TemplateWrapper = ({ children }) => (
+const Layout = ({ children }) => (
   <div>
     <Helmet
       title="Helsingin Kullervo"
@@ -22,12 +22,12 @@ const TemplateWrapper = ({ children }) => (
     />
     {/* <ColorPalette /> */}
     <Header />
-    <div>{children()}</div>
+    <div>{children}</div>
   </div>
 );
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired,
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default TemplateWrapper;
+export default Layout;

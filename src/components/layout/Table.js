@@ -10,6 +10,7 @@ const Table = ({ columnTitles, rows }) => (
     </div>
     {rows.map(row => (
       <row.type
+        key={row.key}
         {...row.props}
         {...{
           className: `${styles.tableRow} ${

@@ -7,11 +7,8 @@ const queryString = require('query-string');
  * https://spl.torneopal.fi/taso/rest/help#group-group-get
  */
 
-exports.sourceNodes = (
-  { boundActionCreators, createNodeId },
-  configOptions
-) => {
-  const { createNode } = boundActionCreators;
+exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
+  const { createNode } = actions;
   const { api, key, queries } = configOptions;
 
   const generateNodeData = (id, type, data) => {

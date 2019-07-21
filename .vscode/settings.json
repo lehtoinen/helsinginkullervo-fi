@@ -1,0 +1,13 @@
+{
+  "eslint.packageManager": "yarn",
+  "eslint.options": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      }
+    }
+  }
+}

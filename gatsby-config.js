@@ -4,27 +4,28 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Helsingin Kullervo',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Helsingin Kullervo`,
+        short_name: `Kullervo`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `src/assets/img/kullervo.svg`,
+        cache_busting_mode: `none`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: `src/utils/typography.js`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-postcss-sass',
-      options: {
-        // postCssPlugins: [],
-        precision: 8, // SASS default: 5
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-eslint',
-      options: {
-        test: /\.js$|\.jsx$/,
       },
     },
     'gatsby-plugin-netlify',
