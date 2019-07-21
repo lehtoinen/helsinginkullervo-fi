@@ -20,9 +20,7 @@ const filterFixtures = (fixtures, filters) => {
 
   // filter fixtures by completion status
   if (filters.upcoming && filters.upcoming.length) {
-    filtered = filtered.slice(
-      filtered.findIndex(fixture => !fixture.isCompleted)
-    );
+    filtered = filtered.filter(fixture => !fixture.isCompleted);
   }
 
   // filter fixtures by competition
