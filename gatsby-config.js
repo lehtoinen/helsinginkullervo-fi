@@ -18,8 +18,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `standalone`,
-        icon: `src/assets/img/kullervo.svg`,
-        cache_busting_mode: `none`,
+        icon: `src/assets/img/kullervo_favicon.svg`,
+        cache_busting_mode: `query`,
       },
     },
     {
