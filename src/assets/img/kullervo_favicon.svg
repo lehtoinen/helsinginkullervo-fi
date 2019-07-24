@@ -2,7 +2,6 @@
   <defs>
     <style>.logotype{fill:#d3202d;}</style>
   </defs>
-  <rect width="100%" height="100%" fill="#fffffe"/>
   <circle cx="235" cy="235" r="205" fill="#fffffe"/>
   <circle cx="235" cy="235" r="192.5" stroke="#d3202d" fill="none" stroke-width="11"/>
   <g class="logotype" transform="translate(37,37)">
