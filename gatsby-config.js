@@ -4,7 +4,9 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Helsingin Kullervo',
+    injectData: {
+      title: 'Helsingin Kullervo',
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -45,15 +47,33 @@ module.exports = {
           },
           {
             method: 'getGroup',
+            injectData: {
+              title: 'Seiska alkusarja',
+            },
             options: {
               competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
               category_id: 'M7', // Miehet Seiska
-              group_id: '1', // lohko 1
+              group_id: '1', // lohko 4
               matches: '0', // ei ottelulistausta
             },
           },
           {
             method: 'getGroup',
+            injectData: {
+              title: 'Seiska jatkosarja',
+            },
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M7', // Miehet Seiska
+              group_id: '4', // lohko 1
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'Kutonen',
+            },
             options: {
               competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
               category_id: 'M6', // Miehet Kutonen
@@ -63,6 +83,9 @@ module.exports = {
           },
           {
             method: 'getGroup',
+            injectData: {
+              title: 'KKI-35 kevät',
+            },
             options: {
               competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
               category_id: 'M35', // KKI-35
@@ -72,6 +95,21 @@ module.exports = {
           },
           {
             method: 'getGroup',
+            injectData: {
+              title: 'KKI-35 syksy',
+            },
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M35', // KKI-35
+              group_id: '6', // lohko 6
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'KKI-40',
+            },
             options: {
               competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
               category_id: 'M40', // KKI-40
@@ -81,6 +119,9 @@ module.exports = {
           },
           {
             method: 'getGroup',
+            injectData: {
+              title: 'KKI-50 kevät',
+            },
             options: {
               competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
               category_id: 'M50_7', // KKI-50
@@ -90,10 +131,37 @@ module.exports = {
           },
           {
             method: 'getGroup',
+            injectData: {
+              title: 'KKI-50 syksy',
+            },
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M50_7', // KKI-50
+              group_id: '7', // lohko 3
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'KKI-55 alkusarja',
+            },
             options: {
               competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
               category_id: 'M55_7', // KKI-55
               group_id: '3', // lohko 3
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'KKI-55 jatkosarja',
+            },
+            options: {
+              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
+              category_id: 'M55_7', // KKI-55
+              group_id: '5', // lohko 5
               matches: '0', // ei ottelulistausta
             },
           },
