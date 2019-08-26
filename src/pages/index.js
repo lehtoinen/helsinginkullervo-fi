@@ -61,6 +61,7 @@ IndexPage.propTypes = {
           node: PropTypes.shape({
             category_name: PropTypes.string.isRequired,
             group_name: PropTypes.string.isRequired,
+            title: PropTypes.string,
             live_standings: PropTypes.arrayOf(
               PropTypes.shape({
                 team_name: PropTypes.string.isRequired,
@@ -107,6 +108,7 @@ export const query = graphql`
       edges {
         node {
           id
+          title
           competition_id
           category_name
           group_name

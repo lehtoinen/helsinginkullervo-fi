@@ -60,7 +60,7 @@ class CompetitionsTables extends React.Component {
         {orderBy(groups, ['competition'], ['asc']).map(group => (
           <Group
             key={`${group.competition}: ${group.group}`}
-            title={`${group.competition}`}
+            title={`${group.title}`}
             teams={group.teams}
           />
         ))}
@@ -75,7 +75,7 @@ CompetitionsTables.propTypes = {
   groups: PropTypes.arrayOf(
     PropTypes.shape({
       competition: PropTypes.string,
-      // group: PropTypes.string,
+      group: PropTypes.string,
       teams: PropTypes.arrayOf(
         PropTypes.shape({
           goalsAgainst: PropTypes.number,
