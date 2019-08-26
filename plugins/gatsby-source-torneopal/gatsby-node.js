@@ -33,14 +33,19 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
   };
 
   // Helper function that processes a match entry to match Gatsby's node structure.
-  const parseMatch = match => {
+  const parseMatch = (match, injectData = {}) => {
     const matchId = match.match_id;
     const nodeId = createNodeId(`torneopal-match-${matchId}`);
-    return generateNodeData(nodeId, 'TorneopalMatch', match);
+
+    const nodeData = Object.assign(
+      { ...injectData },
+      generateNodeData(nodeId, 'TorneopalMatch', match)
+    );
+    return nodeData;
   };
 
   // Helper function that processes a group entry to match Gatsby's node structure.
-  const parseGroup = group => {
+  const parseGroup = (group, injectData = {}) => {
     const {
       competition_id: competitionId,
       category_id: categoryId,
@@ -50,7 +55,12 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
     const nodeId = createNodeId(
       `torneopal-group-${competitionId}-${categoryId}-${groupId}`
     );
-    return generateNodeData(nodeId, 'TorneopalGroup', group);
+
+    const nodeData = Object.assign(
+      { ...injectData },
+      generateNodeData(nodeId, 'TorneopalGroup', group)
+    );
+    return nodeData;
   };
 
   // Helper function that fetches based on given query object. Returns a promise.
@@ -66,14 +76,14 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
         // if the response contain match data, parse
         if (data.matches) {
           data.matches.forEach(match => {
-            const nodeData = parseMatch(match);
+            const nodeData = parseMatch(match, query.injectData);
             createNode(nodeData);
           });
         }
 
         // if the response contains group data, parse
         if (data.group) {
-          const nodeData = parseGroup(data.group);
+          const nodeData = parseGroup(data.group, query.injectData);
           createNode(nodeData);
         }
       });
