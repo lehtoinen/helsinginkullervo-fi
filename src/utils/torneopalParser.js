@@ -14,6 +14,7 @@ export const parseFixture = match => ({
 
 // Helper function to parse a Torneopal group node to a group object
 export const parseGroup = group => ({
+  title: group.title,
   competition: group.category_name,
   group: group.group_name,
   teams: group.live_standings.map(team => ({
