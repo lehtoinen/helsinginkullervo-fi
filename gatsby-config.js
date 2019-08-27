@@ -10,7 +10,15 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
