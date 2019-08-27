@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import { parseFixture, parseGroup } from '../utils/torneopalParser';
 
@@ -17,6 +17,21 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      <BorderedContainer>
+        <h3>Helsingin Kullervo 100 vuotta!</h3>
+        <p style={{ lineHeight: 1.5 }}>
+          Satavuotias Helsingin Kullervon taivalta juhlistetaan lauantaina 28.
+          syyskuuta. Merkkipäivän kunniaksi Kultsi järjestää kaikille avoimen
+          tapahtuman kotikentällään Brahella.
+          <br />
+          <Link
+            to="/kullervo-sata"
+            style={{ display: 'block', marginTop: '0.5em' }}
+          >
+            Lue lisää &raquo;
+          </Link>
+        </p>
+      </BorderedContainer>
       <Grid>
         <BorderedContainer>
           <h2 id="otteluohjelma">Otteluohjelma</h2>
