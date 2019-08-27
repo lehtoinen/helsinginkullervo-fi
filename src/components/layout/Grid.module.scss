@@ -4,6 +4,13 @@
   display: grid;
   grid-template-columns: 50% 50%;
 
+  @media #{$desktop} {
+    > div {
+      width: calc(100% - 3em);
+      margin-left: 1em;
+    }
+  }
+
   @media #{$mobile} {
     display: block;
   }

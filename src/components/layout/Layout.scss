@@ -1,5 +1,6 @@
 @import '../../../node_modules/normalize.css';
 @import '../../assets/scss/colors';
+@import '../../assets/scss/mediaQueries';
 
 html {
   background: $color-body-bg;
@@ -17,4 +18,16 @@ h1,
 h2 {
   // text-decoration: underline;
   // text-underline-position: below;
+}
+
+.hideMedium {
+  @media #{$tablet} {
+    display: none !important;
+  }
+}
+
+.hideSmall {
+  @media #{$mobile} {
+    display: none !important;
+  }
 }
