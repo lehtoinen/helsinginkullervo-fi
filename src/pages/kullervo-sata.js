@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
@@ -69,9 +68,9 @@ const Page = ({ data }) => {
             Seuran joukkueet pelaavat Brakulla ystävyysottelut.
             Ikämiesjoukkueiden vieraiksi saapuvat <i>Puotinkylän Valtti</i>,
             sekä takavuosien kultsilaisen, kansanedustaja <i>Paavo Arhinmäen</i>{' '}
-            edustama, <i>Eduskunnan jalkapallojoukkue</i>. Päivän huipentaa
-            Kullervon kahden miesjoukkueen keskinäinen ottelu, jossa laitetaan
-            testiin seuran sisäinen nokkimisjärjestys.
+            edustama, <i>Eduskunnan urheilukerhon jalkapallojoukkue</i>. Päivän
+            huipentaa Kullervon kahden miesjoukkueen keskinäinen ottelu, jossa
+            laitetaan testiin seuran sisäinen nokkimisjärjestys.
           </p>
           <p
             style={{
@@ -90,8 +89,7 @@ const Page = ({ data }) => {
               klo 14:00, <i>Kullervo KKI-50/55 - Puotinkylän Valtti</i>
             </li>
             <li>
-              klo 15:00,{' '}
-              <i>Kullervo KKI-35/40 - Eduskunnan jalkapallojoukkue</i>
+              klo 15:00, <i>Kullervo KKI-35/40 - Eduskunnan urheilukerho</i>
             </li>
             <li>
               klo 16:00, <i>Kullervo - Kullervo/Überkleber</i>
