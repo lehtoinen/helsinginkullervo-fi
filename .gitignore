@@ -13,6 +13,6 @@ package-lock.json
 
 coverage
 
-.env.development
+.env.*
 
 .DS_Store
