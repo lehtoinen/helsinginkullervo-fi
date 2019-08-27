@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Location } from '@reach/router';
 
 import styles from './Header.module.scss';
 import Logo from '../layout/Logo';
@@ -7,16 +9,34 @@ import Logo from '../layout/Logo';
 const Header = () => (
   <div className={styles.root}>
     <span>
-      <Logo />
-      <h4>Helsingin Kullervo</h4>
+      <Link
+        to="/"
+        style={{
+          flex: '1 1',
+          display: 'flex',
+          alignItems: 'center',
+          textDecoration: 'none',
+        }}
+      >
+        <Logo />
+        <h4>Helsingin Kullervo</h4>
+      </Link>
     </span>
     <span className={styles.anchorLinks}>
-      <AnchorLink offset="100" href="#otteluohjelma">
-        Otteluohjelma
-      </AnchorLink>
-      <AnchorLink offset="100" href="#sarjataulukot">
-        Sarjataulukot
-      </AnchorLink>
+      <Location>
+        {({ location }) =>
+          location.pathname == '/' ? (
+            <React.Fragment>
+              <AnchorLink offset="100" href="#otteluohjelma">
+                Otteluohjelma
+              </AnchorLink>
+              <AnchorLink offset="100" href="#sarjataulukot">
+                Sarjataulukot
+              </AnchorLink>
+            </React.Fragment>
+          ) : null
+        }
+      </Location>
     </span>
   </div>
 );
