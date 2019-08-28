@@ -67,7 +67,7 @@ const Page = ({ data }) => {
           >
             Seuran joukkueet pelaavat Brakulla ystävyysottelut.
             Ikämiesjoukkueiden vieraiksi saapuvat <i>Puotinkylän Valtti</i>,
-            sekä takavuosien kultsilaisen, kansanedustaja <i>Paavo Arhinmäen</i>{' '}
+            sekä takavuosien kultsilaisen, kansanedustaja Paavo Arhinmäen{' '}
             edustama, <i>Eduskunnan urheilukerhon jalkapallojoukkue</i>. Päivän
             huipentaa Kullervon kahden miesjoukkueen keskinäinen ottelu, jossa
             laitetaan testiin seuran sisäinen nokkimisjärjestys.
