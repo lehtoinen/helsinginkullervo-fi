@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-https://kullervo.netlify.com/* https://www.kullervo.club/:splat 301!
+https://kullervo.netlify.com/* https://www.helsinginkullervo.fi/:splat 301!
