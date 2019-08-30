@@ -22,7 +22,6 @@ const Page = ({ data }) => {
       </Helmet>
       <div style={{ maxWidth: '60em', margin: '0 auto' }}>
         <BorderedContainer>
-          {console.log(img)}
           <h2 id="otteluohjelma">Helsingin Kullervo 100 vuotta</h2>
           <p
             style={{
