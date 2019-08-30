@@ -93,6 +93,15 @@ const Page = ({ data }) => {
             tapaamaan nykytoimijoita ja vanhoja tuttuja, muistelemaan menneitä
             sekä pohtimaan tulevaa.
           </p>
+          <p>
+            <a
+              href="https://www.facebook.com/events/877474752630175/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tapahtuma Facebookissa &raquo;
+            </a>
+          </p>
           <h4>Otteluohjelma:</h4>
           <ul>
             <li>
