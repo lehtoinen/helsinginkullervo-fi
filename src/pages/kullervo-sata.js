@@ -14,9 +14,15 @@ const Page = ({ data }) => {
     <Layout>
       <Helmet>
         <meta property="og:image" content={img.src} />
+        <meta property="og:title" content="Helsingin Kullervo 100v!" />
+        <meta
+          property="og:description"
+          content="Helsingin Kullervo juhlii syntymäpäiviään Brahen kentällä 28.9.2019."
+        />
       </Helmet>
       <div style={{ maxWidth: '60em', margin: '0 auto' }}>
         <BorderedContainer>
+          {console.log(img)}
           <h2 id="otteluohjelma">Helsingin Kullervo 100 vuotta</h2>
           <p
             style={{
