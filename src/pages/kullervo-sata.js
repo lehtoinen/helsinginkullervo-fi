@@ -2,6 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import Helmet from 'react-helmet';
 
 import Layout from '../components/layout/Layout';
 import BorderedContainer from '../components/layout/BorderedContainer';
@@ -11,6 +12,9 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <meta property="og:image" content={img.src} />
+      </Helmet>
       <div style={{ maxWidth: '60em', margin: '0 auto' }}>
         <BorderedContainer>
           <h2 id="otteluohjelma">Helsingin Kullervo 100 vuotta</h2>
