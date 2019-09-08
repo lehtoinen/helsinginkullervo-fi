@@ -2,12 +2,9 @@ import Typography from 'typography';
 import theme from 'typography-theme-kirkham';
 
 theme.overrideThemeStyles = ({ rhythm }, options) => ({
-  'h1,h2,h3': {
+  'h1,h2,h3,h4': {
     marginTop: rhythm(1 / 4),
     marginBottom: rhythm(1 / 2),
-  },
-  h4: {
-    marginBottom: 0,
   },
 });
 
