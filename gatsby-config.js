@@ -14,6 +14,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'fi',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/assets/`,
