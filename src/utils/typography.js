@@ -15,6 +15,7 @@ const typography = new Typography({
     baseFontSize: '20px',
     headerFontFamily: ['Nunito', 'sans-serif'],
     bodyFontFamily: ['Lato', 'sans-serif'],
+    headerWeight: 400,
     googleFonts: [
       {
         name: 'Nunito',
