@@ -7,7 +7,9 @@ import styles from './Group.module.scss';
 
 const Group = ({ title, teams }) => (
   <div className={styles.root}>
-    <div className={styles.title}>{title}</div>
+    <div className={styles.title}>
+      <h4>{title}</h4>
+    </div>
     <Table
       columnTitles={[
         <div key={`${title}-coltitle-1`} />,
