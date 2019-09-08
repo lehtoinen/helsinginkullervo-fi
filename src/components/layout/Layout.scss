@@ -31,3 +31,8 @@ h2 {
     display: none !important;
   }
 }
+
+::selection {
+  color: $color-white;
+  background: $color-base-dark;
+}
