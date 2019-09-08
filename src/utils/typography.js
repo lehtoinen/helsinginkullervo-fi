@@ -19,7 +19,7 @@ const typography = new Typography({
     googleFonts: [
       {
         name: 'Nunito',
-        styles: ['400'],
+        styles: ['400', '700'],
       },
       {
         name: 'Lato',

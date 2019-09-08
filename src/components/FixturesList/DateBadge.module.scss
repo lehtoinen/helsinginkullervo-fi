@@ -11,20 +11,21 @@
 
   .day {
     text-align: center;
-    line-height: 0.975;
+    line-height: 1.1;
     position: absolute;
 
     .weekday {
+      font-family: Nunito, sans-serif;
+      font-weight: 700;
       font-size: 1.45em;
-      font-weight: 900;
       text-transform: uppercase;
       color: $color-base-dark;
     }
 
     .date {
-      font-size: 0.9em;
+      font-size: 0.8em;
       color: $color-grey;
-      margin-top: 0.3em;
+      margin-top: 0.1em;
     }
   }
 }
