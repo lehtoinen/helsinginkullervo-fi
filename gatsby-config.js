@@ -14,6 +14,13 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        showInProduction: false,
+        axeOptions: {},
+      },
+    },
+    {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
         lang: 'fi',
