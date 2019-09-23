@@ -2,3 +2,4 @@
 https://kullervo.netlify.com/*  https://www.helsinginkullervo.fi/:splat 301!
 https://kullervo.club/*         https://www.helsinginkullervo.fi/:splat 301!
 https://www.kullervo.club/*     https://www.helsinginkullervo.fi/:splat 301!
+/pdf/kullervo-50.pdf            https://helsinginkullervo.s3.eu-central-1.amazonaws.com/Kullervo-50.pdf 301!
