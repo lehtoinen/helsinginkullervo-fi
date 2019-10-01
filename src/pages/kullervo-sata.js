@@ -23,17 +23,10 @@ const Page = ({ data }) => {
       <Article>
         <h2 id="otteluohjelma">Helsingin Kullervo 100 vuotta</h2>
         <p>
-          <i>
-            Lauantai 28.9.2019, klo 14-17:00
-            <br />
-            Brahen kenttä, Helsinginkatu 25a
-          </i>
-        </p>
-        <p>
           <b>Helsingin Kullervo</b> perustettiin helmikuun 7. päivänä 1919.
-          Satavuotiaan seuran taivalta juhlistetaan tulevan Kullervon päivän
-          tienoilla lauantaina 28. syyskuuta. Merkkipäivän kunniaksi Kultsi
-          järjestää kaikille avoimen tapahtuman kotikentällään Brahella.
+          Satavuotiaan seuran taivalta juhlistettiin lauantaina 28. syyskuuta.
+          Merkkipäivän kunniaksi Kultsi järjesti avoimen tapahtuman
+          kotikentällään Brahella.
         </p>
         <figure
           style={{ width: '400px', float: 'right' }}
@@ -59,51 +52,60 @@ const Page = ({ data }) => {
           </figcaption>
         </figure>
         <p>
-          Seuran joukkueet pelaavat Brakulla ystävyysottelut. Ikämiesjoukkueiden
-          vieraiksi saapuvat <i>Puotinkylän Valtti</i>, sekä takavuosien
+          Seuran joukkueet pelasivat Brakulla ystävyysottelut.
+          Ikämiesjoukkueiden vieraiksi saapuivat <i>Puotinkylän Valtti</i>,
+          penkkinsä päässä valmentajalegenda Antti Muurinen, sekä takavuosien
           kultsilaisen, kansanedustaja Paavo Arhinmäen edustama,{' '}
-          <i>Eduskunnan urheilukerhon jalkapallojoukkue</i>. Päivän huipentaa
-          Kullervon kahden miesjoukkueen keskinäinen ottelu, jossa laitetaan
+          <i>Eduskunnan urheilukerhon jalkapallojoukkue</i>. Päivän huipensi
+          Kullervon kahden miesjoukkueen keskinäinen ottelu, jossa laitettiin
           testiin seuran sisäinen nokkimisjärjestys.
         </p>
         <p>
-          Toivotamme kaikki nykyiset ja entiset kultsilaiset sekä muuten seuran
-          toiminnasta kiinnostuneet tervetulleiksi mukaan juhlistamaan
-          satavuotista taivalta! Kasaa mukaan vanhat pelikaverit ja tule
-          tapaamaan nykytoimijoita ja vanhoja tuttuja, muistelemaan menneitä
-          sekä pohtimaan tulevaa.
+          Aurinkoinen ja lämmin syyssää helli sekä pelaajia että katsojia.
+          Kentällä ja kentän laidalla päivään osallistuneita nähtiin runsain
+          mitoin nykyisiä ja entisiä kultsilaisia sekä muuten seuran toiminnasta
+          kiinnostuneita.
         </p>
         <p>
-          Tarjolla tottakai juhlakahvit ja{' '}
+          Juhlatarjoiluista vastasivat{' '}
+          <a
+            href="https://www.opistolaisyhdistys.fi/oppiskahvio/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Oppiskahvio
+          </a>{' '}
+          sekä{' '}
           <a
             href="https://www.facebook.com/Cafe-Cardemumma-124044734335593/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Cafe Cardemumman
-          </a>{' '}
-          korvapuustia suoraan Brakun naapurista. Myynnissä myös erä
-          Kullervo-huiveja, sekä t-paitoja!
+            Cafe Cardemumma
+          </a>
+          , molemmat suoraan Brakun naapurista.
         </p>
         <p>
-          <a
-            href="https://www.facebook.com/events/877474752630175/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Tapahtuma Facebookissa &raquo;
-          </a>
+          <b>Lämmin kiitos kaikille osallistujille!</b>
+          <br />
+          <i> - Helsingin Kullervo</i>
         </p>
-        <h4>Otteluohjelma:</h4>
+        <h4>Ottelutulokset:</h4>
         <ul>
           <li>
-            klo 14:00, <i>Kullervo KKI-50/55 - Puotinkylän Valtti</i>
+            <i>
+              Kullervo KKI-50/55 <b>2 - 4</b> Puotinkylän Valtti
+            </i>
           </li>
           <li>
-            klo 15:00, <i>Kullervo KKI-35/40 - Eduskunnan urheilukerho</i>
+            <i>
+              Kullervo KKI-35/40 <b>3 - 0</b> Eduskunnan urheilukerho
+            </i>
           </li>
           <li>
-            klo 16:00, <i>Kullervo - Kullervo/Überkleber</i>
+            <i>
+              Kullervo <b>0 - 3</b> Kullervo/Überkleber
+            </i>
           </li>
         </ul>
         <p>

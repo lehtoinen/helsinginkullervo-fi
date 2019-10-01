@@ -20,8 +20,8 @@ const IndexPage = ({ data }) => {
       <BorderedContainer>
         <h3>Helsingin Kullervo 100 vuotta!</h3>
         <p style={{ lineHeight: 1.5 }}>
-          Satavuotias Helsingin Kullervo juhlistaa taivaltaan lauantaina 28.
-          syyskuuta. Merkkipäivän kunniaksi Kultsi järjestää kaikille avoimen
+          Satavuotias Helsingin Kullervo juhlisti taivaltaan lauantaina 28.
+          syyskuuta. Merkkipäivän kunniaksi Kultsi järjesti kaikille avoimen
           tapahtuman kotikentällään Brahella.
           <br />
           <Link
