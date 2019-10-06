@@ -37,16 +37,16 @@ const Page = ({ data }) => {
             alt="Urheilijoita Kallion urheilukentällä (Brahen kenttä)"
           />
           <figcaption>
-            Kullervon urheilijoita Brahen kentällä. Väinö Kannisto, 1947
+            Kullervon urheilijoita Brahen kentällä. Jani Köykkä, 2019
             <br />
             <i>
               Lähde:{' '}
               <a
-                href="https://hkm.finna.fi/Record/hkm.HKMS000005:000003ha"
+                href="https://www.facebook.com/pg/helsinginkullervo/photos/?tab=album&album_id=2558911010868690&__xts__%5B0%5D=68.ARBvx6QTT5_uWhiZ_xjMxa9t4HB3_B0BYd8hcC0-QFDhswVv02WXlVDEk1Lr_mxZg7JzimegbMlGiF4UFcrMyvEWDSfV7j6I_jNEQ65bT8DJVcMFjVCJMC8QJixUWefRJvrx3jgx3Ol5unnTeEbhjSo1AtevKWHTACsEKhR-hXdt7V5MLP7t9PMo7Rhx54VZ4HTwRJ6axdAnn80nIh-299eY9Jyiip-9OaFwEJqx3ImXvDSiRE_C7DUgJCcZaaed0vdR3n-05JEHCXzZ1pz4bkim-Nm83hP4UhrMShtdz9ulIqljjQMj-5hCol-414hdNUPwc6U0JUBVjV65daaR60ZuL-t7rEeORXZ3q9JbIPpwCy9ftLd00IIhGJb-_RpGj30F0hc-Y4XCfcD8budtsVPQDAyZixzaAlqeaiJOinf_41l-PhoroWgcNuSXaBmFZbWOxzM7MUTdG4dGMqne&__tn__=-UC-R"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Helsingin Kaupunginmuseo
+                Kullervo 100-v.
               </a>
             </i>
           </figcaption>
@@ -74,7 +74,11 @@ const Page = ({ data }) => {
           päivästä!
         </p>
         <p>
-          <a href="https://www.facebook.com/pg/helsinginkullervo/photos/?tab=album&album_id=2558911010868690&__xts__%5B0%5D=68.ARBvx6QTT5_uWhiZ_xjMxa9t4HB3_B0BYd8hcC0-QFDhswVv02WXlVDEk1Lr_mxZg7JzimegbMlGiF4UFcrMyvEWDSfV7j6I_jNEQ65bT8DJVcMFjVCJMC8QJixUWefRJvrx3jgx3Ol5unnTeEbhjSo1AtevKWHTACsEKhR-hXdt7V5MLP7t9PMo7Rhx54VZ4HTwRJ6axdAnn80nIh-299eY9Jyiip-9OaFwEJqx3ImXvDSiRE_C7DUgJCcZaaed0vdR3n-05JEHCXzZ1pz4bkim-Nm83hP4UhrMShtdz9ulIqljjQMj-5hCol-414hdNUPwc6U0JUBVjV65daaR60ZuL-t7rEeORXZ3q9JbIPpwCy9ftLd00IIhGJb-_RpGj30F0hc-Y4XCfcD8budtsVPQDAyZixzaAlqeaiJOinf_41l-PhoroWgcNuSXaBmFZbWOxzM7MUTdG4dGMqne&__tn__=-UC-R">
+          <a
+            href="https://www.facebook.com/pg/helsinginkullervo/photos/?tab=album&album_id=2558911010868690&__xts__%5B0%5D=68.ARBvx6QTT5_uWhiZ_xjMxa9t4HB3_B0BYd8hcC0-QFDhswVv02WXlVDEk1Lr_mxZg7JzimegbMlGiF4UFcrMyvEWDSfV7j6I_jNEQ65bT8DJVcMFjVCJMC8QJixUWefRJvrx3jgx3Ol5unnTeEbhjSo1AtevKWHTACsEKhR-hXdt7V5MLP7t9PMo7Rhx54VZ4HTwRJ6axdAnn80nIh-299eY9Jyiip-9OaFwEJqx3ImXvDSiRE_C7DUgJCcZaaed0vdR3n-05JEHCXzZ1pz4bkim-Nm83hP4UhrMShtdz9ulIqljjQMj-5hCol-414hdNUPwc6U0JUBVjV65daaR60ZuL-t7rEeORXZ3q9JbIPpwCy9ftLd00IIhGJb-_RpGj30F0hc-Y4XCfcD8budtsVPQDAyZixzaAlqeaiJOinf_41l-PhoroWgcNuSXaBmFZbWOxzM7MUTdG4dGMqne&__tn__=-UC-R"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Kuvia juhlapäivästä Facebookissa
           </a>
         </p>
@@ -136,7 +140,7 @@ export default Page;
 // eslint-disable-next-line no-undef
 export const query = graphql`
   {
-    file(relativePath: { eq: "img/brakulla.jpg" }) {
+    file(relativePath: { eq: "img/100-v-braku.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         fluid(maxWidth: 800) {
