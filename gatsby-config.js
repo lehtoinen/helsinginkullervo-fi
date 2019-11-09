@@ -63,53 +63,17 @@ module.exports = {
             options: {
               // season_id: '2018-19',
               club_id: 571,
-              competition_id: 'uusjp19',
+              competition_id: 'etefs1920',
             },
           },
           {
             method: 'getGroup',
             injectData: {
-              title: 'Seiska alkusarja',
+              title: 'Futsal harrastekakkonen, lohko 3',
             },
             options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M7', // Miehet Seiska
-              group_id: '1', // lohko 4
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Seiska jatkosarja',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M7', // Miehet Seiska
-              group_id: '4', // lohko 1
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Kutonen',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M6', // Miehet Kutonen
-              group_id: '6', // lohko 6
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'KKI-35 kevät',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M35', // KKI-35
+              competition_id: 'etefs1920', // Uusimaa futsal 2019-20
+              category_id: 'FMH2', // Miehet Futsal Harrastekakkonen
               group_id: '3', // lohko 3
               matches: '0', // ei ottelulistausta
             },
@@ -117,72 +81,24 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'KKI-35 syksy',
+              title: 'Futsal harrastekakkonen, lohko 1',
             },
             options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M35', // KKI-35
-              group_id: '6', // lohko 6
+              competition_id: 'etefs1920', // Uusimaa futsal 2019-20
+              category_id: 'FMH2', // Miehet Futsal Harrastekakkonen
+              group_id: '1', // lohko 1
               matches: '0', // ei ottelulistausta
             },
           },
           {
             method: 'getGroup',
             injectData: {
-              title: 'KKI-40',
+              title: 'Futsal Vitonen',
             },
             options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M40', // KKI-40
+              competition_id: 'etefs1920', // Uusimaa futsal 2019-20
+              category_id: 'FM5', // Miehet Futsal Vitonen
               group_id: '3', // lohko 3
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'KKI-50 kevät',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M50_7', // KKI-50
-              group_id: '3', // lohko 3
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'KKI-50 syksy',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M50_7', // KKI-50
-              group_id: '7', // lohko 3
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'KKI-55 alkusarja',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M55_7', // KKI-55
-              group_id: '3', // lohko 3
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'KKI-55 jatkosarja',
-            },
-            options: {
-              competition_id: 'uusjp19', // Uusimaa jalkapallo 2019
-              category_id: 'M55_7', // KKI-55
-              group_id: '5', // lohko 5
               matches: '0', // ei ottelulistausta
             },
           },
