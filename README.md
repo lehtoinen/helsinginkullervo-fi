@@ -1,26 +1,27 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# helsinginkullervo.fi
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+This is the website for the Helsingin Kullervo football club.
 
-## Install
+The site is built with Gatsby, utilizing a custom made torneopal-source-plugin to fetch the fixtures and competitions for the teams.
 
-Make sure that you have the Gatsby CLI program installed:
+## Local development
+
+Create and env-file for the development environment (example file in the root)
+
 ```sh
-npm install --global gatsby-cli
+cp .env.example .env.development
 ```
 
-And run from your CLI:
+Enter you your Torneopal API key in the newly created env-file.
+
+Install dependencies:
+
 ```sh
-gatsby new gatsby-example-site
+yarn
 ```
 
-Then you can run it by:
+Then you can the site locally with:
+
 ```sh
-cd gatsby-example-site
-npm run develop
+yarn develop
 ```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
