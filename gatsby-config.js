@@ -70,11 +70,10 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'Seiska alkusarja',
-              title: 'Futsal harrastekakkonen, lohko 3',
+              title: 'Miesten Seiska',
             },
             options: {
-              competition_id, // Uusimaa jalkapallo 2019
+              competition_id,
               category_id: 'M7', // Miehet Seiska
               group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
@@ -83,10 +82,10 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'Kutonen',
+              title: 'Miesten Kutonen',
             },
             options: {
-              competition_id, // Uusimaa jalkapallo 2019
+              competition_id,
               category_id: 'M6', // Miehet Kutonen
               group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
@@ -95,11 +94,11 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'KKI-35',
+              title: 'Miehet 35',
             },
             options: {
-              competition_id, // Uusimaa jalkapallo 2019
-              category_id: 'M35', // KKI-35
+              competition_id,
+              category_id: 'M35', // Miehet 35
               group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
             },
@@ -107,11 +106,11 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'KKI-40',
+              title: 'Miehet 40',
             },
             options: {
-              competition_id, // Uusimaa jalkapallo 2019
-              category_id: 'M40', // KKI-40
+              competition_id,
+              category_id: 'M40', // Miehet 40
               group_id: '6', // lohko 6
               matches: '0', // ei ottelulistausta
             },
@@ -119,11 +118,11 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'KKI-50',
+              title: 'Miehet 50',
             },
             options: {
-              competition_id, // Uusimaa jalkapallo 2019
-              category_id: 'M50', // KKI-50
+              competition_id,
+              category_id: 'M50', // Miehet 50
               group_id: '5', // lohko 5
               matches: '0', // ei ottelulistausta
             },
@@ -131,11 +130,11 @@ module.exports = {
           {
             method: 'getGroup',
             injectData: {
-              title: 'KKI-55',
+              title: 'Miehet 55',
             },
             options: {
-              competition_id, // Uusimaa jalkapallo 2019
-              category_id: 'M55', // KKI-55
+              competition_id,
+              category_id: 'M55', // Miehet 55
               group_id: '2', // lohko 2
               matches: '0', // ei ottelulistausta
             },
