@@ -11,24 +11,31 @@ import FilterType from '../../enum/FilterType';
 import Filter from '../Filter';
 import Group from './Group';
 
-const parseCompetitions = memoize(groups =>
-  uniq(groups.map(group => `${group.competition}`)).sort()
+const parseCompetitions = memoize((groups) =>
+  uniq(groups.map((group) => `${group.competition}`)).sort()
 );
 
-const filterGroups = (groups, filters) => {
-  let filtered = groups.slice();
-
-  // filter tables by competition
-  if (filters.competitions && filters.competitions.length) {
-    filtered = filtered.filter(group =>
-      filters.competitions.includes(group.competition)
-    );
-  }
-
-  return filtered;
-};
-
 class CompetitionsTables extends React.Component {
+  competitions = parseCompetitions(this.props.groups);
+
+  filterGroups = (groups, filters) => {
+    let filtered = groups.slice();
+
+    // filter tables by competition
+    if (filters.competitions) {
+      const competitionFilters = filters.competitions.filter((competition) =>
+        this.competitions.includes(competition)
+      );
+      if (competitionFilters.length) {
+        filtered = filtered.filter((group) =>
+          filters.competitions.includes(group.competition)
+        );
+      }
+    }
+
+    return filtered;
+  };
+
   onChangeFilter(type, value) {
     const filterValues = this.props.filters[type]
       ? this.props.filters[type].slice(0)
@@ -44,20 +51,19 @@ class CompetitionsTables extends React.Component {
 
   render() {
     const { filters } = this.props;
-    const competitions = parseCompetitions(this.props.groups);
-    const groups = filterGroups(this.props.groups, filters);
+    const groups = this.filterGroups(this.props.groups, filters);
 
     return (
       <div>
         <React.Fragment>
           <Filter
             group="tables"
-            options={competitions}
+            options={this.competitions}
             selected={filters.competitions}
-            onChange={option => this.onChangeFilter('competitions', option)}
+            onChange={(option) => this.onChangeFilter('competitions', option)}
           />
         </React.Fragment>
-        {orderBy(groups, ['competition'], ['asc']).map(group => (
+        {orderBy(groups, ['competition'], ['asc']).map((group) => (
           <Group
             key={`${group.competition}: ${group.group}`}
             title={`${group.title}`}
@@ -98,15 +104,13 @@ CompetitionsTables.defaultProps = {
   groups: [],
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   filters: state.tableFilters,
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFilters: filters => dispatch(updateFilters(FilterType.TABLES, filters)),
+const mapDispatchToProps = (dispatch) => ({
+  updateFilters: (filters) =>
+    dispatch(updateFilters(FilterType.TABLES, filters)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CompetitionsTables);
+export default connect(mapStateToProps, mapDispatchToProps)(CompetitionsTables);
