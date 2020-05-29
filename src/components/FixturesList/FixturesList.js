@@ -14,6 +14,7 @@ import DateBadge from './DateBadge';
 const parseCompetitions = memoize((fixtures) =>
   uniq(fixtures.map((fixture) => fixture.competition)).sort()
 );
+
 export class FixturesList extends React.Component {
   competitions = parseCompetitions(this.props.fixtures);
 
