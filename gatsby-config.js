@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const competition_id = 'etejp20';
+
 module.exports = {
   siteMetadata: {
     injectData: {
@@ -61,44 +63,79 @@ module.exports = {
           {
             method: 'getMatches',
             options: {
-              // season_id: '2018-19',
               club_id: 571,
-              competition_id: 'etefs1920',
+              competition_id,
             },
           },
           {
             method: 'getGroup',
             injectData: {
-              title: 'Futsal harrastekakkonen, lohko 3',
+              title: 'Miesten Seiska',
             },
             options: {
-              competition_id: 'etefs1920', // Uusimaa futsal 2019-20
-              category_id: 'FMH2', // Miehet Futsal Harrastekakkonen
-              group_id: '3', // lohko 3
+              competition_id,
+              category_id: 'M7', // Miehet Seiska
+              group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
             },
           },
           {
             method: 'getGroup',
             injectData: {
-              title: 'Futsal harrastekakkonen, lohko 1',
+              title: 'Miesten Kutonen',
             },
             options: {
-              competition_id: 'etefs1920', // Uusimaa futsal 2019-20
-              category_id: 'FMH2', // Miehet Futsal Harrastekakkonen
-              group_id: '1', // lohko 1
+              competition_id,
+              category_id: 'M6', // Miehet Kutonen
+              group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
             },
           },
           {
             method: 'getGroup',
             injectData: {
-              title: 'Futsal Vitonen',
+              title: 'Miehet 35',
             },
             options: {
-              competition_id: 'etefs1920', // Uusimaa futsal 2019-20
-              category_id: 'FM5', // Miehet Futsal Vitonen
-              group_id: '3', // lohko 3
+              competition_id,
+              category_id: 'M35', // Miehet 35
+              group_id: '4', // lohko 4
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'Miehet 40',
+            },
+            options: {
+              competition_id,
+              category_id: 'M40', // Miehet 40
+              group_id: '6', // lohko 6
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'Miehet 50',
+            },
+            options: {
+              competition_id,
+              category_id: 'M50', // Miehet 50
+              group_id: '5', // lohko 5
+              matches: '0', // ei ottelulistausta
+            },
+          },
+          {
+            method: 'getGroup',
+            injectData: {
+              title: 'Miehet 55',
+            },
+            options: {
+              competition_id,
+              category_id: 'M55', // Miehet 55
+              group_id: '2', // lohko 2
               matches: '0', // ei ottelulistausta
             },
           },

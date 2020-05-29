@@ -17,32 +17,17 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <BorderedContainer>
-        <h3>Helsingin Kullervo 100 vuotta!</h3>
-        <p style={{ lineHeight: 1.5 }}>
-          Satavuotias Helsingin Kullervo juhlisti taivaltaan lauantaina 28.
-          syyskuuta. Merkkipäivän kunniaksi Kultsi järjesti kaikille avoimen
-          tapahtuman kotikentällään Brahella.
-          <br />
-          <Link
-            to="/kullervo-sata"
-            style={{ display: 'block', marginTop: '0.5em' }}
-          >
-            Lue lisää &raquo;
-          </Link>
-        </p>
-      </BorderedContainer>
       <Grid>
         <BorderedContainer>
           <h2 id="otteluohjelma">Otteluohjelma</h2>
           <FixturesList
-            fixtures={fixtures.map(edge => parseFixture(edge.node))}
+            fixtures={fixtures.map((edge) => parseFixture(edge.node))}
           />
         </BorderedContainer>
         <BorderedContainer>
           <h2 id="sarjataulukot">Sarjataulukot</h2>
           <CompetitionsTables
-            groups={groups.map(edge => parseGroup(edge.node))}
+            groups={groups.map((edge) => parseGroup(edge.node))}
           />
         </BorderedContainer>
       </Grid>
