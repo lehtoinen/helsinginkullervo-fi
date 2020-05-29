@@ -11,29 +11,35 @@ import Filter from '../Filter';
 import Fixture from './Fixture';
 import DateBadge from './DateBadge';
 
-const parseCompetitions = memoize(fixtures =>
-  uniq(fixtures.map(fixture => fixture.competition)).sort()
+const parseCompetitions = memoize((fixtures) =>
+  uniq(fixtures.map((fixture) => fixture.competition)).sort()
 );
-
-const filterFixtures = (fixtures, filters) => {
-  let filtered = fixtures.slice();
-
-  // filter fixtures by completion status
-  if (filters.upcoming && filters.upcoming.length) {
-    filtered = filtered.filter(fixture => !fixture.isCompleted);
-  }
-
-  // filter fixtures by competition
-  if (filters.competitions && filters.competitions.length) {
-    filtered = filtered.filter(fixture =>
-      filters.competitions.includes(fixture.competition)
-    );
-  }
-
-  return filtered;
-};
-
 export class FixturesList extends React.Component {
+  competitions = parseCompetitions(this.props.fixtures);
+
+  filterFixtures = (fixtures, filters) => {
+    let filtered = fixtures.slice();
+
+    // filter fixtures by completion status
+    if (filters.upcoming && filters.upcoming.length) {
+      filtered = filtered.filter((fixture) => !fixture.isCompleted);
+    }
+
+    // filter fixtures by competition
+    if (filters.competitions) {
+      const competitionFilters = filters.competitions.filter((competition) =>
+        this.competitions.includes(competition)
+      );
+      if (competitionFilters.length) {
+        filtered = filtered.filter((fixture) =>
+          filters.competitions.includes(fixture.competition)
+        );
+      }
+    }
+
+    return filtered;
+  };
+
   onChangeFilter(type, value) {
     const filterValues = this.props.filters[type]
       ? this.props.filters[type].slice(0)
@@ -54,8 +60,7 @@ export class FixturesList extends React.Component {
     }
 
     const { filters } = this.props;
-    const competitions = parseCompetitions(this.props.fixtures);
-    const fixtures = filterFixtures(this.props.fixtures, filters);
+    const fixtures = this.filterFixtures(this.props.fixtures, filters);
 
     let currentDate;
 
@@ -64,18 +69,18 @@ export class FixturesList extends React.Component {
         <Fragment>
           <Filter
             group="competitions"
-            options={competitions}
+            options={this.competitions}
             selected={filters.competitions}
-            onChange={option => this.onChangeFilter('competitions', option)}
+            onChange={(option) => this.onChangeFilter('competitions', option)}
           />
           <Filter
             group="competitions"
             options={['Näytä vain tulevat ottelut']}
             selected={filters.upcoming}
-            onChange={option => this.onChangeFilter('upcoming', option)}
+            onChange={(option) => this.onChangeFilter('upcoming', option)}
           />
         </Fragment>
-        {fixtures.map(fixture => {
+        {fixtures.map((fixture) => {
           const addDateBadge = currentDate !== fixture.date;
           currentDate = fixture.date;
 
@@ -122,16 +127,13 @@ FixturesList.defaultProps = {
   fixtures: [],
 };
 
-const mapStateToProps = state => ({
-  filters: state.fixtureFilters,
+const mapStateToProps = (state) => ({
+  filters: { ...state.fixtureFilters },
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFilters: filters =>
+const mapDispatchToProps = (dispatch) => ({
+  updateFilters: (filters) =>
     dispatch(updateFilters(FilterType.FIXTURES, filters)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FixturesList);
+export default connect(mapStateToProps, mapDispatchToProps)(FixturesList);
