@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const competition_id = 'etejp20';
+
 module.exports = {
   siteMetadata: {
     injectData: {
@@ -62,7 +64,7 @@ module.exports = {
             method: 'getMatches',
             options: {
               club_id: 571,
-              competition_id: 'etejp20',
+              competition_id,
             },
           },
           {
@@ -72,7 +74,7 @@ module.exports = {
               title: 'Futsal harrastekakkonen, lohko 3',
             },
             options: {
-              competition_id: 'etejp20', // Uusimaa jalkapallo 2019
+              competition_id, // Uusimaa jalkapallo 2019
               category_id: 'M7', // Miehet Seiska
               group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
@@ -84,7 +86,7 @@ module.exports = {
               title: 'Kutonen',
             },
             options: {
-              competition_id: 'etejp20', // Uusimaa jalkapallo 2019
+              competition_id, // Uusimaa jalkapallo 2019
               category_id: 'M6', // Miehet Kutonen
               group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
@@ -96,7 +98,7 @@ module.exports = {
               title: 'KKI-35',
             },
             options: {
-              competition_id: 'etejp20', // Uusimaa jalkapallo 2019
+              competition_id, // Uusimaa jalkapallo 2019
               category_id: 'M35', // KKI-35
               group_id: '4', // lohko 4
               matches: '0', // ei ottelulistausta
@@ -108,7 +110,7 @@ module.exports = {
               title: 'KKI-40',
             },
             options: {
-              competition_id: 'etejp20', // Uusimaa jalkapallo 2019
+              competition_id, // Uusimaa jalkapallo 2019
               category_id: 'M40', // KKI-40
               group_id: '6', // lohko 6
               matches: '0', // ei ottelulistausta
@@ -120,7 +122,7 @@ module.exports = {
               title: 'KKI-50',
             },
             options: {
-              competition_id: 'etejp20', // Uusimaa jalkapallo 2019
+              competition_id, // Uusimaa jalkapallo 2019
               category_id: 'M50', // KKI-50
               group_id: '5', // lohko 5
               matches: '0', // ei ottelulistausta
@@ -132,7 +134,7 @@ module.exports = {
               title: 'KKI-55',
             },
             options: {
-              competition_id: 'etejp20', // Uusimaa jalkapallo 2019
+              competition_id, // Uusimaa jalkapallo 2019
               category_id: 'M55', // KKI-55
               group_id: '2', // lohko 2
               matches: '0', // ei ottelulistausta
