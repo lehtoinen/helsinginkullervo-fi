@@ -8,7 +8,7 @@ const fixtureFilters = (state = {}, action) => {
     action.type === UPDATE_FILTERS &&
     action.filterType === FilterType.FIXTURES
   ) {
-    return { ...state, ...action.values };
+    return { ...action.values };
   }
 
   return state;
@@ -19,7 +19,7 @@ const tableFilters = (state = {}, action) => {
     action.type === UPDATE_FILTERS &&
     action.filterType === FilterType.TABLES
   ) {
-    return { ...state, ...action.values };
+    return { ...action.values };
   }
 
   return state;
