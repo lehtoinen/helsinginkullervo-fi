@@ -14,5 +14,6 @@ package-lock.json
 coverage
 
 .env.*
+!.env.example
 
 .DS_Store
