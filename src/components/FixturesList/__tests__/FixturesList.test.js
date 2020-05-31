@@ -29,7 +29,7 @@ describe('FixturesList', () => {
   }) =>
     shallow(
       <FixturesList
-        updateFixtureFilters={updateFixtureFilters}
+        updateFilters={updateFixtureFilters}
         fixtures={fixtures}
         filters={filters}
       />
