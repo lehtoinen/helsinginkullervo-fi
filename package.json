@@ -35,7 +35,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",
-    "gatsby-plugin-react-axe": "^0.2.2",
+    "gatsby-plugin-react-axe": "0.4.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0"
   },
