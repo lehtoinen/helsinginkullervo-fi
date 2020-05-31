@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Location } from '@reach/router';
 
-import styles from './Header.module.scss';
+import styles from './Header.module.css';
 import Logo from '../layout/Logo';
 
 const Header = () => (

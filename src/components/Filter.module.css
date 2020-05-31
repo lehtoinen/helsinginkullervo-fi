@@ -1,0 +1,22 @@
+.root {
+  padding: 0 0.25em 0.75em;
+  color: var(--color-black);
+}
+
+.option {
+  display: inline-block;
+  margin-right: 1.5em;
+  padding: 0.65em 0;
+  cursor: pointer;
+}
+
+.option input {
+  margin-right: 0.5em;
+  top: -1px;
+  position: relative;
+}
+
+.option label {
+  display: inline-block;
+  cursor: pointer;
+}

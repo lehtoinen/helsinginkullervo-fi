@@ -1,0 +1,28 @@
+html {
+  background: var(--color-body-bg);
+  padding-top: 4em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-base-dark);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hideMedium {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hideSmall {
+    display: none !important;
+  }
+}
+
+::selection {
+  color: var(--color-white);
+  background: var(--color-base-dark);
+}

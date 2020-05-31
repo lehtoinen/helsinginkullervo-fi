@@ -1,0 +1,31 @@
+.root {
+  display: table;
+  width: 100%;
+}
+
+.tableHead {
+  font-weight: bold;
+}
+
+.tableHead > div {
+  padding: 10px 5px !important;
+}
+
+.tableRow {
+  display: table-row;
+  width: 100%;
+}
+
+.tableRow:nth-child(even) {
+  background: var(--color-body-bg);
+}
+
+.tableRow > div {
+  display: table-cell;
+  text-align: center;
+  padding: 7px 5px;
+}
+
+.tableRow.highlight {
+  font-weight: bold;
+}

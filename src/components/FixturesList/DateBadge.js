@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import locale from 'moment/locale/fi'; // eslint-disable-line no-unused-vars
 
-import styles from './DateBadge.module.scss';
+import styles from './DateBadge.module.css';
 
 const DateBadge = ({ date, isPast }) => {
   moment.locale('fi');

@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './BorderedContainer.module.scss';
+import styles from './BorderedContainer.module.css';
 
 const BorderedContainer = ({ children }) => (
-  <div className={styles.root}>{children}</div>
+  <>
+    <div className={styles.root}>
+      <div className={styles.background} />
+      {children}
+    </div>
+  </>
 );
 
 BorderedContainer.propTypes = {

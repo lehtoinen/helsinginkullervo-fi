@@ -1,0 +1,10 @@
+.bg-striped-red {
+  background-color: var(--color-base-dark);
+  background-image: url(../../assets/img/diagonal-noise.png),
+    linear-gradient(
+      135deg,
+      rgba(227, 107, 96, 0) 30%,
+      rgba(227, 107, 96, 0.15) 60%,
+      rgba(227, 107, 96, 0.25) 100%
+    );
+}

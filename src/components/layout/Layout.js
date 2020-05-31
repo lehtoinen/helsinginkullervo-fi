@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import Header from '../Header/Header';
-// import ColorPalette from '../helpers/ColorPalette';
 
-import './Layout.scss';
+import '../../assets/css/colors.css';
+import '../../assets/css/backgrounds.css';
+import './Layout.css';
 
 const Layout = ({ children }) => (
   <div>

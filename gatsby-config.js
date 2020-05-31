@@ -14,7 +14,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-react-axe',
       options: {
