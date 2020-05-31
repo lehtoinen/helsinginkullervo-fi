@@ -6,9 +6,9 @@ import styles from './Table.module.scss';
 const Table = ({ columnTitles, rows }) => (
   <div className={styles.root}>
     <div className={`${styles.tableRow} ${styles.tableHead}`}>
-      {columnTitles.map(title => title)}
+      {columnTitles.map((title) => title)}
     </div>
-    {rows.map(row => (
+    {rows.map((row) => (
       <row.type
         key={row.key}
         {...row.props}

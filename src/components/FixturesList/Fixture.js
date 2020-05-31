@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Fixture.module.scss';
 
-const Fixture = props => {
+const Fixture = (props) => {
   const time = props.time.substr(0, props.time.length - 3);
   let winner;
   if (props.isCompleted) winner = props.homeScore - props.awayScore;

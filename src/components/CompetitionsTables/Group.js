@@ -24,7 +24,7 @@ const Group = ({ title, teams }) => (
         <div key={`${title}-coltitle-8`}>+/-</div>,
         <div key={`${title}-coltitle-9`}>Pst</div>,
       ]}
-      rows={teams.map(team => {
+      rows={teams.map((team) => {
         const goalsTotal = team.goalsFor - team.goalsAgainst;
         return (
           <div

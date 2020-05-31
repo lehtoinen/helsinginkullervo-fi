@@ -7,7 +7,7 @@ const Filter = (
   { group, options, selected, onChange } // eslint-disable-line object-curly-newline
 ) => (
   <div className={styles.root}>
-    {options.map(option => {
+    {options.map((option) => {
       const isSelected = selected && selected.includes(option);
       const inputID = `filter_${group}_${option}`;
 

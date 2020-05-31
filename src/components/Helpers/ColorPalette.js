@@ -33,7 +33,7 @@ const ColorPalette = () => (
       '#93918f',
       '#fcfbf8',
       '#d9c4a5',
-    ].map(color => (
+    ].map((color) => (
       <div
         key={color}
         style={{
