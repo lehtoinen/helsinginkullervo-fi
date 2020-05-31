@@ -1,5 +1,5 @@
 // Helper function to parse a Torneopal match node to a fixture object
-export const parseFixture = match => ({
+export const parseFixture = (match) => ({
   awayScore: match.fs_B,
   awayTeam: match.team_B_name,
   competition: match.category_name,
@@ -13,11 +13,11 @@ export const parseFixture = match => ({
 });
 
 // Helper function to parse a Torneopal group node to a group object
-export const parseGroup = group => ({
+export const parseGroup = (group) => ({
   title: group.title,
   competition: group.category_name,
   group: group.group_name,
-  teams: group.live_standings.map(team => ({
+  teams: group.live_standings.map((team) => ({
     name: team.team_name,
     id: team.team_id,
     goalsFor: team.goals_for,
