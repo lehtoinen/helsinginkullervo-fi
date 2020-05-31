@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Fixture.module.scss';
+import styles from './Fixture.module.css';
 
 const Fixture = (props) => {
   const time = props.time.substr(0, props.time.length - 3);

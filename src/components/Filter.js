@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Filter.module.scss';
+import styles from './Filter.module.css';
 
 const Filter = (
   { group, options, selected, onChange } // eslint-disable-line object-curly-newline

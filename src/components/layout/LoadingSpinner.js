@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './LoadingSpinner.module.scss';
+import styles from './LoadingSpinner.module.css';
 
 const LoadingSpinner = ({ style }) => (
   <div className={styles.root} style={style}>

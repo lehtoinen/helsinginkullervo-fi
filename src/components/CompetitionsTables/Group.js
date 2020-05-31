@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Table from '../layout/Table';
 
-import styles from './Group.module.scss';
+import styles from './Group.module.css';
 
 const Group = ({ title, teams }) => (
   <div className={styles.root}>
