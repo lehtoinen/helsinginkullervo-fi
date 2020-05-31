@@ -16,7 +16,7 @@ const parseCompetitions = memoize((fixtures) =>
 );
 
 export class FixturesList extends React.Component {
-  competitions = parseCompetitions(this.props.fixtures);
+  competitions = parseCompetitions(this.props.fixtures || []);
 
   filterFixtures = (fixtures, filters) => {
     let filtered = fixtures.slice();
