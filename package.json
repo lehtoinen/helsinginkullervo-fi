@@ -26,10 +26,10 @@
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
     "react-redux": "7.2.0",
-    "react-typography": "^0.16.19",
+    "react-typography": "0.16.19",
     "redux-persist": "6.0.0",
-    "typography": "^0.16.19",
-    "typography-theme-kirkham": "^0.16.19"
+    "typography": "0.16.19",
+    "typography-theme-kirkham": "0.16.19"
   },
   "devDependencies": {
     "enzyme": "^3.10.0",
