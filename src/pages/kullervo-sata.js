@@ -2,7 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import Layout from '../components/layout/Layout';
 import Article from '../components/layout/Article';
