@@ -6,9 +6,9 @@
   background: var(--color-white);
 }
 
-.root:before {
+.background {
+  composes: bg-striped-red from from global;
   content: '';
-  /* @extend .bg-striped-red; */
   top: 1.5em;
   left: 1.25em;
   position: absolute;
