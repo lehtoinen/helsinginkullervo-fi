@@ -19,7 +19,7 @@ const Header = () => (
         }}
       >
         <Logo />
-        <h4>Helsingin Kullervo</h4>
+        <h4 className={styles.siteName}>Helsingin Kullervo</h4>
       </Link>
     </span>
     <span className={styles.anchorLinks}>
