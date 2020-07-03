@@ -8,7 +8,6 @@
 
 .background {
   composes: bg-striped-red from from global;
-  content: '';
   top: 1.5em;
   left: 1.25em;
   position: absolute;
@@ -37,8 +36,8 @@
     padding: 1em;
   }
 
-  .root:before {
-    content: none;
+  .background {
+    display: none;
   }
 
   .root:after {
