@@ -1,10 +1,9 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
+import 'jest-axe/extend-expect';
 
 import Fixture from '../Fixture';
-
-configure({ adapter: new Adapter() });
 
 describe('Fixture', () => {
   const component = ({
@@ -18,14 +17,18 @@ describe('Fixture', () => {
       time: '15:00:00',
       venue: 'Riihimäki Keskuskenttä TN',
     },
-  }) => shallow(<Fixture {...fixture} />);
+  }) => <Fixture {...fixture} />;
 
-  test('renders', () => {
-    expect(component({})).toMatchSnapshot();
+  it('renders', async () => {
+    const { asFragment, container } = render(component({}));
+    expect(asFragment()).toMatchSnapshot();
+
+    const axeResults = await axe(container);
+    expect(axeResults).toHaveNoViolations();
   });
 
-  test('renders with only required props defined', () => {
-    expect(
+  it('renders with only required props defined', async () => {
+    const { asFragment, container } = render(
       component({
         fixture: {
           awayTeam: 'Kullervo/Überkleber',
@@ -35,6 +38,10 @@ describe('Fixture', () => {
           time: '15:00:00',
         },
       })
-    ).toMatchSnapshot();
+    );
+    expect(asFragment()).toMatchSnapshot();
+
+    const axeResults = await axe(container);
+    expect(axeResults).toHaveNoViolations();
   });
 });
