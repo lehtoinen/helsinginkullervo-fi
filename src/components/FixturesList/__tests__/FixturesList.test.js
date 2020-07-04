@@ -1,10 +1,9 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
+import 'jest-axe/extend-expect';
 
 import { FixturesList } from '../FixturesList';
-
-configure({ adapter: new Adapter() });
 
 describe('FixturesList', () => {
   const updateFixtureFilters = jest.fn();
@@ -26,20 +25,27 @@ describe('FixturesList', () => {
       },
     ],
     filters = {},
-  }) =>
-    shallow(
-      <FixturesList
-        updateFilters={updateFixtureFilters}
-        fixtures={fixtures}
-        filters={filters}
-      />
-    );
+  }) => (
+    <FixturesList
+      updateFilters={updateFixtureFilters}
+      fixtures={fixtures}
+      filters={filters}
+    />
+  );
 
-  test('renders', () => {
-    expect(component({})).toMatchSnapshot();
+  it('renders', async () => {
+    const { asFragment, container } = render(component({}));
+    expect(asFragment()).toMatchSnapshot();
+
+    const axeResults = await axe(container);
+    expect(axeResults).toHaveNoViolations();
   });
 
-  test('renders with undefined fixtures', () => {
-    expect(component({ fixtures: null })).toMatchSnapshot();
+  it('renders with undefined fixtures', async () => {
+    const { asFragment, container } = render(component({ fixtures: null }));
+    expect(asFragment()).toMatchSnapshot();
+
+    const axeResults = await axe(container);
+    expect(axeResults).toHaveNoViolations();
   });
 });

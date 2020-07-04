@@ -1,44 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FixturesList renders 1`] = `
-<div>
-  <Filter
-    group="competitions"
-    onChange={[Function]}
-    options={
-      Array [
-        "Regions Cup",
-      ]
-    }
-    selected={Array []}
-  />
-  <Filter
-    group="competitions"
-    onChange={[Function]}
-    options={
-      Array [
-        "Näytä vain tulevat ottelut",
-      ]
-    }
-    selected={Array []}
-  />
-  <DateBadge
-    date={2018-04-15T00:00:00.000Z}
-    isPast={true}
-  />
-  <Fixture
-    awayScore="0"
-    awayTeam="Kullervo/Überkleber"
-    competition="Regions Cup"
-    date="2018-04-15"
-    homeScore="8"
-    homeTeam="RiPS"
-    isCompleted={true}
-    time="15:00:00"
-    timecode="2018-04-15-15:00:00"
-    venue="Riihimäki Keskuskenttä TN"
-  />
-</div>
+<DocumentFragment>
+  <div>
+    <div
+      class="root"
+    >
+      <div
+        class="option"
+      >
+        <label
+          for="filter_competitions_Regions Cup"
+        >
+          <input
+            id="filter_competitions_Regions Cup"
+            type="checkbox"
+          />
+          Regions Cup
+        </label>
+      </div>
+    </div>
+    <div
+      class="root"
+    >
+      <div
+        class="option"
+      >
+        <label
+          for="filter_competitions_Näytä vain tulevat ottelut"
+        >
+          <input
+            id="filter_competitions_Näytä vain tulevat ottelut"
+            type="checkbox"
+          />
+          Näytä vain tulevat ottelut
+        </label>
+      </div>
+    </div>
+    <div
+      class="root completed"
+    >
+      <div
+        class="day"
+      >
+        <div
+          class="weekday"
+        >
+          su
+        </div>
+        <div
+          class="date"
+        >
+          15.04
+        </div>
+      </div>
+    </div>
+    <div
+      class="fixture completed"
+    >
+      <div
+        class="subject"
+      >
+        <span
+          class="competition"
+        >
+           Regions Cup: 
+        </span>
+        <span
+          class="winner"
+        >
+          RiPS 8
+        </span>
+         - 
+        <span>
+          0 Kullervo/Überkleber
+        </span>
+      </div>
+      <div
+        class="info"
+      >
+        klo 15:00 
+        <span
+          class="location"
+        >
+          Riihimäki Keskuskenttä TN
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`FixturesList renders with undefined fixtures 1`] = `""`;
+exports[`FixturesList renders with undefined fixtures 1`] = `<DocumentFragment />`;

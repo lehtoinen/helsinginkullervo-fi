@@ -1,91 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Fixture renders 1`] = `
-<div
-  className="fixture completed"
->
+<DocumentFragment>
   <div
-    className="subject"
+    class="fixture completed"
   >
-    <span
-      className="competition"
+    <div
+      class="subject"
     >
-       
-      Regions Cup
-      : 
-    </span>
-    <span
-      className="winner"
+      <span
+        class="competition"
+      >
+         Regions Cup: 
+      </span>
+      <span
+        class="winner"
+      >
+        RiPS 8
+      </span>
+       - 
+      <span>
+        0 Kullervo/Überkleber
+      </span>
+    </div>
+    <div
+      class="info"
     >
-      RiPS
-       
-      8
-    </span>
-     
-    -
-     
-    <span
-      className={null}
-    >
-      0
-       
-      Kullervo/Überkleber
-    </span>
+      klo 15:00 
+      <span
+        class="location"
+      >
+        Riihimäki Keskuskenttä TN
+      </span>
+    </div>
   </div>
-  <div
-    className="info"
-  >
-    klo 
-    15:00
-     
-    <span
-      className="location"
-    >
-      Riihimäki Keskuskenttä TN
-    </span>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`Fixture renders with only required props defined 1`] = `
-<div
-  className="fixture completed"
->
+<DocumentFragment>
   <div
-    className="subject"
+    class="fixture completed"
   >
-    <span
-      className="competition"
+    <div
+      class="subject"
     >
-       
-      Regions Cup
-      : 
-    </span>
-    <span
-      className={null}
+      <span
+        class="competition"
+      >
+         Regions Cup: 
+      </span>
+      <span>
+        RiPS 
+      </span>
+       - 
+      <span>
+         Kullervo/Überkleber
+      </span>
+    </div>
+    <div
+      class="info"
     >
-      RiPS
-       
-    </span>
-     
-    -
-     
-    <span
-      className={null}
-    >
-       
-      Kullervo/Überkleber
-    </span>
+      klo 15:00 
+      <span
+        class="location"
+      />
+    </div>
   </div>
-  <div
-    className="info"
-  >
-    klo 
-    15:00
-     
-    <span
-      className="location"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
