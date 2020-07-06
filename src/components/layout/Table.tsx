@@ -22,9 +22,7 @@ const Table = ({ columnTitles = [], rows = [] }: Props) => (
         key={row.key}
         {...row.props}
         {...{
-          className: classNames(styles.tableRow, {
-            [styles.highlight]: row.props.highlight,
-          }),
+          className: classNames(styles.tableRow, row.props.className),
         }}
       />
     ))}

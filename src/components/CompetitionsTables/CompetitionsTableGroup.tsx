@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { Team } from '../../types';
 import Table from '../layout/Table';
@@ -34,9 +35,9 @@ const Group = ({ title, teams }: Props) => (
         return (
           <div
             key={team.id}
-            // highlight={
-            //   team.name.toLowerCase().includes('kullervo') ? 'true' : ''
-            // }
+            className={classNames({
+              [styles.highlight]: team.name.toLowerCase().includes('kullervo'),
+            })}
           >
             <div>{team.standing}</div>
             <div className={styles.teamCell}>{team.name}</div>

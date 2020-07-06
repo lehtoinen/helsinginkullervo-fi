@@ -12,9 +12,8 @@
   color: var(--color-base-dark);
 }
 
-.highlight  {
+.highlight {
   font-weight: bold;
-  background: red !important;
 }
 
 .teamCell {
