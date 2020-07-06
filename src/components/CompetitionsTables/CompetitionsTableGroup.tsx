@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
+import { Team } from '../../types';
 import Table from '../layout/Table';
 
-import styles from './Group.module.css';
+import styles from './CompetitionsTableGroup.module.css';
 
-const Group = ({ title, teams }) => (
+type Props = {
+  title: string;
+  teams: Team[];
+};
+
+const Group = ({ title, teams }: Props) => (
   <div className={styles.root}>
     <div className={styles.title}>
       <h4>{title}</h4>
@@ -29,9 +35,9 @@ const Group = ({ title, teams }) => (
         return (
           <div
             key={team.id}
-            highlight={
-              team.name.toLowerCase().includes('kullervo') ? 'true' : ''
-            }
+            className={classNames({
+              [styles.highlight]: team.name.toLowerCase().includes('kullervo'),
+            })}
           >
             <div>{team.standing}</div>
             <div className={styles.teamCell}>{team.name}</div>
@@ -50,25 +56,5 @@ const Group = ({ title, teams }) => (
     />
   </div>
 );
-
-Group.propTypes = {
-  title: PropTypes.string.isRequired,
-  teams: PropTypes.arrayOf(
-    PropTypes.shape({
-      goalsAgainst: PropTypes.number,
-      goalsFor: PropTypes.number,
-      id: PropTypes.string,
-      matchesLost: PropTypes.number,
-      matchesPlayed: PropTypes.number,
-      matchesTied: PropTypes.number,
-      matchesWon: PropTypes.number,
-      name: PropTypes.string,
-      points: PropTypes.number,
-      standing: PropTypes.number,
-    })
-  ).isRequired,
-};
-
-Group.defaultProps = {};
 
 export default Group;

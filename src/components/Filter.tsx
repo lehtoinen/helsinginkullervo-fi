@@ -1,11 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import styles from './Filter.module.css';
 
-const Filter = (
-  { group, options, selected, onChange } // eslint-disable-line object-curly-newline
-) => (
+type Props = {
+  group: string;
+  onChange: (option: string) => void;
+  selected: string[];
+  options?: string[];
+};
+
+const Filter = ({ group, selected, onChange, options = [] }: Props) => (
   <div className={styles.root}>
     {options.map((option) => {
       const isSelected = selected && selected.includes(option);
@@ -18,8 +22,7 @@ const Filter = (
               onChange={() => onChange(option)}
               type="checkbox"
               id={inputID}
-              selected={isSelected ? 'selected' : null}
-              defaultChecked={isSelected}
+              checked={isSelected}
             />
             {option}
           </label>
@@ -28,16 +31,5 @@ const Filter = (
     })}
   </div>
 );
-
-Filter.propTypes = {
-  group: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onChange: PropTypes.func.isRequired,
-  selected: PropTypes.arrayOf(PropTypes.string),
-};
-
-Filter.defaultProps = {
-  selected: [],
-};
 
 export default Filter;

@@ -42,7 +42,9 @@ describe('FixturesList', () => {
   });
 
   it('renders with undefined fixtures', async () => {
-    const { asFragment, container } = render(component({ fixtures: null }));
+    const { asFragment, container } = render(
+      component({ fixtures: undefined })
+    );
     expect(asFragment()).toMatchSnapshot();
 
     const axeResults = await axe(container);

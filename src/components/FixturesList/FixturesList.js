@@ -8,7 +8,7 @@ import { updateFilters } from '../../state/actions';
 import FilterType from '../../enum/FilterType';
 
 import Filter from '../Filter';
-import Fixture from './Fixture';
+import FixtureListEntry from './FixtureListEntry';
 import DateBadge from './DateBadge';
 
 const parseCompetitions = memoize((fixtures) =>
@@ -95,7 +95,7 @@ export class FixturesList extends React.Component {
                   isPast={fixture.isCompleted}
                 />
               )}
-              <Fixture {...fixture} />
+              <FixtureListEntry {...fixture} />
             </Fragment>
           );
         })}

@@ -9,7 +9,7 @@ import { updateFilters } from '../../state/actions';
 import FilterType from '../../enum/FilterType';
 
 import Filter from '../Filter';
-import Group from './Group';
+import Group from './CompetitionsTableGroup';
 
 const parseCompetitions = memoize((groups) =>
   uniq(groups.map((group) => `${group.competition}`)).sort()

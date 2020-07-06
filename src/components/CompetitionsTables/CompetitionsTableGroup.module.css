@@ -12,6 +12,10 @@
   color: var(--color-base-dark);
 }
 
+.highlight {
+  font-weight: bold;
+}
+
 .teamCell {
   text-align: left !important;
   word-break: break-word;

@@ -25,7 +25,7 @@ const Header = () => (
     <span className={styles.anchorLinks}>
       <Location>
         {({ location }) =>
-          location.pathname == '/' ? (
+          location.pathname === '/' ? (
             <React.Fragment>
               <AnchorLink offset="100" href="#otteluohjelma">
                 Otteluohjelma
