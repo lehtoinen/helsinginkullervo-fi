@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import Header from '../Header/Header';
@@ -8,7 +7,11 @@ import '../../assets/css/colors.css';
 import '../../assets/css/backgrounds.css';
 import './Layout.css';
 
-const Layout = ({ children }) => (
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: Props) => (
   <div>
     <Helmet
       title="Helsingin Kullervo"
@@ -21,14 +24,9 @@ const Layout = ({ children }) => (
         { name: 'keywords', content: 'kullervo, helsinki' },
       ]}
     />
-    {/* <ColorPalette /> */}
     <Header />
     <div>{children}</div>
   </div>
 );
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

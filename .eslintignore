@@ -5,3 +5,5 @@
 /gatsby-*.js
 /src/lambda
 /rules
+/**/*.d.ts
+/**/*.test.tsx
