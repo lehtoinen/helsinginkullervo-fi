@@ -23,7 +23,6 @@ const Filter = ({ group, selected, onChange, options = [] }: Props) => (
               type="checkbox"
               id={inputID}
               checked={isSelected}
-              defaultChecked={isSelected}
             />
             {option}
           </label>
