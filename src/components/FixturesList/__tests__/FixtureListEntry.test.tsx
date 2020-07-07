@@ -15,9 +15,11 @@ describe('Fixture', () => {
     isCompleted = true,
     time = '15:00:00',
     venue = 'Riihimäki Keskuskenttä TN',
+    date = new Date('2020-06-06'),
   }) => (
     <FixtureListEntry
       {...{
+        date,
         awayScore,
         awayTeam,
         competition,

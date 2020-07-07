@@ -7,6 +7,6 @@ export type UpdateFiltersAction = {
   type: string;
   payload: {
     filterType: string;
-    values: string[];
+    values: { [key: string]: string[] };
   };
 };

@@ -1,34 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import { parseFixture, parseGroup } from '../utils/torneopalParser';
 
 import Layout from '../components/layout/Layout';
 import Grid from '../components/layout/Grid';
 import BorderedContainer from '../components/layout/BorderedContainer';
-import FixturesList from '../components/FixturesList/FixturesList';
-import CompetitionsTables from '../components/CompetitionsTables/CompetitionsTables';
+import Fixtures from '../containers/Fixtures';
+import Competitions from '../containers/Competitions';
 
 const IndexPage = ({ data }) => {
-  const groups = get(data, 'groups.edges', []);
-  const fixtures = get(data, 'fixtures.edges', []);
+  const groups = data?.groups?.edges ?? [];
+  const fixtures = data?.fixtures?.edges ?? [];
 
   return (
     <Layout>
       <Grid>
         <BorderedContainer>
           <h2 id="otteluohjelma">Otteluohjelma</h2>
-          <FixturesList
-            fixtures={fixtures.map((edge) => parseFixture(edge.node))}
-          />
+          <Fixtures items={fixtures.map((edge) => parseFixture(edge.node))} />
         </BorderedContainer>
         <BorderedContainer>
           <h2 id="sarjataulukot">Sarjataulukot</h2>
-          <CompetitionsTables
-            groups={groups.map((edge) => parseGroup(edge.node))}
-          />
+          <Competitions items={groups.map((edge) => parseGroup(edge.node))} />
         </BorderedContainer>
       </Grid>
     </Layout>

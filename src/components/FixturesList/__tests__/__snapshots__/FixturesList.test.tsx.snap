@@ -10,10 +10,10 @@ exports[`FixturesList renders 1`] = `
         class="option"
       >
         <label
-          for="filter_competitions_Regions Cup"
+          for="filter_competition_fixtures_Regions Cup"
         >
           <input
-            id="filter_competitions_Regions Cup"
+            id="filter_competition_fixtures_Regions Cup"
             type="checkbox"
           />
           Regions Cup
@@ -27,10 +27,10 @@ exports[`FixturesList renders 1`] = `
         class="option"
       >
         <label
-          for="filter_competitions_Näytä vain tulevat ottelut"
+          for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
         >
           <input
-            id="filter_competitions_Näytä vain tulevat ottelut"
+            id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
             type="checkbox"
           />
           Näytä vain tulevat ottelut
@@ -46,12 +46,12 @@ exports[`FixturesList renders 1`] = `
         <div
           class="weekday"
         >
-          su
+          la
         </div>
         <div
           class="date"
         >
-          15.04
+          06.06
         </div>
       </div>
     </div>
@@ -101,10 +101,10 @@ exports[`FixturesList renders with undefined fixtures 1`] = `
         class="option"
       >
         <label
-          for="filter_competitions_Regions Cup"
+          for="filter_competition_fixtures_Regions Cup"
         >
           <input
-            id="filter_competitions_Regions Cup"
+            id="filter_competition_fixtures_Regions Cup"
             type="checkbox"
           />
           Regions Cup
@@ -118,10 +118,10 @@ exports[`FixturesList renders with undefined fixtures 1`] = `
         class="option"
       >
         <label
-          for="filter_competitions_Näytä vain tulevat ottelut"
+          for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
         >
           <input
-            id="filter_competitions_Näytä vain tulevat ottelut"
+            id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
             type="checkbox"
           />
           Näytä vain tulevat ottelut
@@ -137,12 +137,12 @@ exports[`FixturesList renders with undefined fixtures 1`] = `
         <div
           class="weekday"
         >
-          su
+          la
         </div>
         <div
           class="date"
         >
-          15.04
+          06.06
         </div>
       </div>
     </div>

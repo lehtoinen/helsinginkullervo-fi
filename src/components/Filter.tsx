@@ -4,17 +4,24 @@ import styles from './Filter.module.css';
 
 type Props = {
   group: string;
+  property: string;
   onChange: (option: string) => void;
   selected: string[];
   options?: string[];
 };
 
-const Filter = ({ group, selected, onChange, options = [] }: Props) => (
+const Filter = ({
+  group,
+  property,
+  selected,
+  onChange,
+  options = [],
+}: Props) => (
   <div className={styles.root}>
     {options.map((option) => {
       const isSelected = selected && selected.includes(option);
-      const inputID = `filter_${group}_${option}`;
 
+      const inputID = `filter_${property}_${group}_${option}`;
       return (
         <div key={option} className={styles.option}>
           <label htmlFor={inputID}>
