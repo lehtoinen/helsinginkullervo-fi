@@ -3,20 +3,17 @@ import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import 'jest-axe/extend-expect';
 
-import { FixturesList } from '../FixturesList';
+import FixturesList from '../FixturesList';
 
 describe('FixturesList', () => {
-  const updateFixtureFilters = jest.fn();
-
-  // pass the mock function as the login prop
   const component = ({
     fixtures = [
       {
-        awayScore: '0',
+        awayScore: 0,
         awayTeam: 'Kullervo/Überkleber',
         competition: 'Regions Cup',
-        date: '2018-04-15',
-        homeScore: '8',
+        date: new Date('2020-06-06'),
+        homeScore: 8,
         homeTeam: 'RiPS',
         isCompleted: true,
         time: '15:00:00',
@@ -24,12 +21,15 @@ describe('FixturesList', () => {
         venue: 'Riihimäki Keskuskenttä TN',
       },
     ],
-    filters = {},
+    filters = {
+      competition: [],
+      upcoming: [],
+    },
   }) => (
     <FixturesList
-      updateFilters={updateFixtureFilters}
       fixtures={fixtures}
       filters={filters}
+      updateFilters={jest.fn()}
     />
   );
 

@@ -14,6 +14,7 @@ export type Team = {
 export type Group = {
   competition: string;
   group: string;
+  title: string;
   teams: Team[];
 };
 
@@ -26,4 +27,19 @@ export type Fixture = {
   venue?: string;
   homeScore?: number;
   awayScore?: number;
+  date: Date;
+};
+
+export type FixtureFilters = {
+  competition: string[];
+  upcoming: string[];
+};
+
+export type TableFilters = {
+  competition: string[];
+};
+
+export type RootState = {
+  fixtureFilters: FixtureFilters;
+  tableFilters: TableFilters;
 };

@@ -5,6 +5,7 @@ import FilterType from '../enum/FilterType';
 import { Action } from './actionTypes';
 
 const fixtureFilters = (state = {}, action: Action) => {
+  console.dir('fixtureFilters', action);
   if (
     action.type === UPDATE_FILTERS &&
     action.payload?.filterType === FilterType.FIXTURES

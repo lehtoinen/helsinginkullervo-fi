@@ -1,29 +1,28 @@
-import React, { useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import orderBy from 'lodash/orderBy';
 import memoize from 'lodash/memoize';
 import uniq from 'lodash/uniq';
+import xor from 'lodash/xor';
 
-import { updateFilters } from '../../state/actions';
-import FilterType from '../../enum/FilterType';
+import { Group, TableFilters } from '../../types';
 
 import Filter from '../Filter';
 import CompetitionsTableGroup from './CompetitionsTableGroup';
 
 type Props = {
   groups?: Group[];
+  filters: TableFilters;
+  updateFilters: (property: string, values: string[]) => void;
 };
 
-const parseCompetitions = memoize((groups) =>
-  uniq(groups.map((group) => `${group.competition}`)).sort()
+const parseCompetitions = memoize((groups: Group[]) =>
+  uniq(groups.map((group: Group) => group.competition)).sort()
 );
 
-const CompetitionsTables = ({ groups = [] }) => {
-  const filters = useSelector((state) => state.tableFilters);
-  const dispatch = useDispatch();
+const CompetitionsTables = ({ groups = [], filters, updateFilters }: Props) => {
   const competitions = parseCompetitions(groups);
 
-  const filterGroups = (groups, filters) => {
+  const filterGroups = (groups: Group[], filters: TableFilters) => {
     const competitionFilters = (
       filters.competition ?? []
     ).filter((competition) => competitions.includes(competition)); // removing non-active competitions
@@ -33,16 +32,9 @@ const CompetitionsTables = ({ groups = [] }) => {
       : groups;
   };
 
-  const onChangeFilter = (value: string) => {
-    const filterValues = filters.competition?.slice(0) ?? [];
-    const ind = filterValues.indexOf(value);
-    if (ind === -1) {
-      filterValues.push(value);
-    } else {
-      filterValues.splice(ind, 1);
-    }
-
-    dispatch(updateFilters(FilterType.TABLES, { competition: filterValues }));
+  const onChangeFilter = (property: 'competition', value: string) => {
+    const filterValues = xor(filters.competition?.slice(0) ?? [], [value]);
+    updateFilters(property, filterValues);
   };
 
   return (
@@ -50,9 +42,10 @@ const CompetitionsTables = ({ groups = [] }) => {
       <React.Fragment>
         <Filter
           group="tables"
+          property="competition"
           options={competitions}
           selected={filters.competition}
-          onChange={(option) => onChangeFilter(option)}
+          onChange={(value) => onChangeFilter('competition', value)}
         />
       </React.Fragment>
       {orderBy(filterGroups(groups, filters), ['competition'], ['asc']).map(
