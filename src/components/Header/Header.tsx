@@ -7,7 +7,7 @@ import styles from './Header.module.css';
 import Logo from '../layout/Logo';
 
 const Header = () => (
-  <div className={styles.root}>
+  <nav className={styles.root}>
     <span>
       <Link
         to="/"
@@ -38,7 +38,7 @@ const Header = () => (
         }
       </Location>
     </span>
-  </div>
+  </nav>
 );
 
 export default Header;

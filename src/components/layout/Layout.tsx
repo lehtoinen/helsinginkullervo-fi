@@ -25,7 +25,7 @@ const Layout = ({ children }: Props) => (
       ]}
     />
     <Header />
-    <div>{children}</div>
+    <main>{children}</main>
   </div>
 );
 
