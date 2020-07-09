@@ -20,7 +20,7 @@ Install dependencies:
 yarn
 ```
 
-Then you can the site locally with:
+Then you can run the site locally with:
 
 ```sh
 yarn develop
