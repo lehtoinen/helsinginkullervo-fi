@@ -33,7 +33,7 @@ const IndexPage = ({ data }: Props) => {
     <Layout>
       <Grid>
         <BorderedContainer>
-          <h2 id="otteluohjelma">Otteluohjelma</h2>
+          <h3 id="otteluohjelma">Otteluohjelma</h3>
           <Fixtures
             items={fixtures.map((edge: { node: MatchNode }) =>
               parseFixture(edge.node)
@@ -41,7 +41,7 @@ const IndexPage = ({ data }: Props) => {
           />
         </BorderedContainer>
         <BorderedContainer>
-          <h2 id="sarjataulukot">Sarjataulukot</h2>
+          <h3 id="sarjataulukot">Sarjataulukot</h3>
           <Competitions
             items={groups.map((edge: { node: GroupNode }) =>
               parseGroup(edge.node)
