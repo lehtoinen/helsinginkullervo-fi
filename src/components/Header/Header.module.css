@@ -31,13 +31,13 @@
   }
 }
 
-a {
+.root a {
   margin: 0 0.5em;
   font-size: 0.8em;
 }
 
 @media (max-width: 767px) {
-  a {
+  .root a {
     font-size: 1em;
   }
 }

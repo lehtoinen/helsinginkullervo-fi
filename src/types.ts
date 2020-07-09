@@ -43,3 +43,35 @@ export type RootState = {
   fixtureFilters: FixtureFilters;
   tableFilters: TableFilters;
 };
+
+export type MatchNode = {
+  fs_B: number;
+  team_B_name: string;
+  category_name: string;
+  date: Date;
+  fs_A: number;
+  team_A_name: string;
+  status: string;
+  time: string;
+  venue_name: string;
+};
+
+export type TeamNode = {
+  team_name: string;
+  team_id: string;
+  goals_for: number;
+  goals_against: number;
+  matches_lost: number;
+  matches_played: number;
+  matches_tied: number;
+  matches_won: number;
+  points: number;
+  current_standing: number;
+};
+
+export type GroupNode = {
+  title: string;
+  category_name: string;
+  group_name: string;
+  live_standings: TeamNode[];
+};

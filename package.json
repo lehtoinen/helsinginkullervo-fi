@@ -46,7 +46,8 @@
     "gatsby-plugin-react-axe": "^0.4.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.0.1",
-    "jest-axe": "3.4.0"
+    "jest-axe": "3.4.0",
+    "redux-devtools-extension": "2.13.8"
   },
   "scripts": {
     "build": "yarn test && gatsby build",
