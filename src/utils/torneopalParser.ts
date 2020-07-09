@@ -1,5 +1,7 @@
+import { GroupNode, MatchNode } from '../types';
+
 // Helper function to parse a Torneopal match node to a fixture object
-export const parseFixture = (match) => ({
+export const parseFixture = (match: MatchNode) => ({
   awayScore: match.fs_B,
   awayTeam: match.team_B_name,
   competition: match.category_name,
@@ -13,7 +15,7 @@ export const parseFixture = (match) => ({
 });
 
 // Helper function to parse a Torneopal group node to a group object
-export const parseGroup = (group) => ({
+export const parseGroup = (group: GroupNode) => ({
   title: group.title,
   competition: group.category_name,
   group: group.group_name,

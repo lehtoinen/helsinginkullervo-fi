@@ -17,10 +17,6 @@ h4 {
 }
 
 @media (max-width: 767px) {
-  body {
-    margin: 0;
-  }
-
   .hideSmall {
     display: none !important;
   }
