@@ -29,8 +29,6 @@ const IndexPage = ({ data }: Props) => {
   const groups = data?.groups?.edges ?? [];
   const fixtures = data?.fixtures?.edges ?? [];
 
-  console.dir('groups', groups);
-
   return (
     <Layout>
       <Grid>
