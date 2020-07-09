@@ -146,7 +146,6 @@ const Page = ({ data }: Props) => {
 
 export default Page;
 
-// eslint-disable-next-line no-undef
 export const query = graphql`
   {
     file(relativePath: { eq: "img/100-v-braku.jpg" }) {
