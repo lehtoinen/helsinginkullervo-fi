@@ -23,7 +23,7 @@ const typography = new Typography({
       },
       {
         name: 'Lato',
-        styles: ['400', '400i', '700', '700i', '900'],
+        styles: ['400', '700&display=swap'],
       },
     ],
   },
