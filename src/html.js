@@ -16,7 +16,13 @@ export default function HTML(props) {
           href="//fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,700&amp;display=swap"
           as="style"
           onload="this.onload=null;this.rel='stylesheet'"
-        />
+        ></link>
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="//fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,700&amp;display=swap"
+          ></link>
+        </noscript>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
