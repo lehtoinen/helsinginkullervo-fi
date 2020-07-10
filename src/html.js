@@ -17,12 +17,10 @@ export default function HTML(props) {
           as="style"
           onload="this.onload=null;this.rel='stylesheet'"
         ></link>
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="//fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,700&amp;display=swap"
-          ></link>
-        </noscript>
+        <link
+          rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,700&amp;display=swap"
+        ></link>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
