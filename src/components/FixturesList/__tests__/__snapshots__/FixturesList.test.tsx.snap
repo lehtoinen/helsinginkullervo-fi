@@ -2,90 +2,88 @@
 
 exports[`FixturesList renders 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="root"
+  >
     <div
-      class="root"
+      class="option"
+    >
+      <label
+        for="filter_competition_fixtures_Regions Cup"
+      >
+        <input
+          id="filter_competition_fixtures_Regions Cup"
+          type="checkbox"
+        />
+        Regions Cup
+      </label>
+    </div>
+  </div>
+  <div
+    class="root"
+  >
+    <div
+      class="option"
+    >
+      <label
+        for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
+      >
+        <input
+          id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
+          type="checkbox"
+        />
+        Näytä vain tulevat ottelut
+      </label>
+    </div>
+  </div>
+  <div
+    class="root completed"
+  >
+    <div
+      class="day"
     >
       <div
-        class="option"
+        class="weekday"
       >
-        <label
-          for="filter_competition_fixtures_Regions Cup"
-        >
-          <input
-            id="filter_competition_fixtures_Regions Cup"
-            type="checkbox"
-          />
-          Regions Cup
-        </label>
+        la
+      </div>
+      <div
+        class="date"
+      >
+        06.06
       </div>
     </div>
+  </div>
+  <div
+    class="fixture completed"
+  >
     <div
-      class="root"
+      class="subject"
     >
-      <div
-        class="option"
+      <span
+        class="competition"
       >
-        <label
-          for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-        >
-          <input
-            id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-            type="checkbox"
-          />
-          Näytä vain tulevat ottelut
-        </label>
-      </div>
+         Regions Cup: 
+      </span>
+      <span
+        class="winner"
+      >
+        RiPS 8
+      </span>
+       - 
+      <span>
+        0 Kullervo/Überkleber
+      </span>
     </div>
     <div
-      class="root completed"
+      class="info"
     >
-      <div
-        class="day"
+      klo 15:00 
+      <span
+        class="location"
       >
-        <div
-          class="weekday"
-        >
-          la
-        </div>
-        <div
-          class="date"
-        >
-          06.06
-        </div>
-      </div>
-    </div>
-    <div
-      class="fixture completed"
-    >
-      <div
-        class="subject"
-      >
-        <span
-          class="competition"
-        >
-           Regions Cup: 
-        </span>
-        <span
-          class="winner"
-        >
-          RiPS 8
-        </span>
-         - 
-        <span>
-          0 Kullervo/Überkleber
-        </span>
-      </div>
-      <div
-        class="info"
-      >
-        klo 15:00 
-        <span
-          class="location"
-        >
-          Riihimäki Keskuskenttä TN
-        </span>
-      </div>
+        Riihimäki Keskuskenttä TN
+      </span>
     </div>
   </div>
 </DocumentFragment>
@@ -93,90 +91,88 @@ exports[`FixturesList renders 1`] = `
 
 exports[`FixturesList renders with undefined fixtures 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="root"
+  >
     <div
-      class="root"
+      class="option"
+    >
+      <label
+        for="filter_competition_fixtures_Regions Cup"
+      >
+        <input
+          id="filter_competition_fixtures_Regions Cup"
+          type="checkbox"
+        />
+        Regions Cup
+      </label>
+    </div>
+  </div>
+  <div
+    class="root"
+  >
+    <div
+      class="option"
+    >
+      <label
+        for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
+      >
+        <input
+          id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
+          type="checkbox"
+        />
+        Näytä vain tulevat ottelut
+      </label>
+    </div>
+  </div>
+  <div
+    class="root completed"
+  >
+    <div
+      class="day"
     >
       <div
-        class="option"
+        class="weekday"
       >
-        <label
-          for="filter_competition_fixtures_Regions Cup"
-        >
-          <input
-            id="filter_competition_fixtures_Regions Cup"
-            type="checkbox"
-          />
-          Regions Cup
-        </label>
+        la
+      </div>
+      <div
+        class="date"
+      >
+        06.06
       </div>
     </div>
+  </div>
+  <div
+    class="fixture completed"
+  >
     <div
-      class="root"
+      class="subject"
     >
-      <div
-        class="option"
+      <span
+        class="competition"
       >
-        <label
-          for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-        >
-          <input
-            id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-            type="checkbox"
-          />
-          Näytä vain tulevat ottelut
-        </label>
-      </div>
+         Regions Cup: 
+      </span>
+      <span
+        class="winner"
+      >
+        RiPS 8
+      </span>
+       - 
+      <span>
+        0 Kullervo/Überkleber
+      </span>
     </div>
     <div
-      class="root completed"
+      class="info"
     >
-      <div
-        class="day"
+      klo 15:00 
+      <span
+        class="location"
       >
-        <div
-          class="weekday"
-        >
-          la
-        </div>
-        <div
-          class="date"
-        >
-          06.06
-        </div>
-      </div>
-    </div>
-    <div
-      class="fixture completed"
-    >
-      <div
-        class="subject"
-      >
-        <span
-          class="competition"
-        >
-           Regions Cup: 
-        </span>
-        <span
-          class="winner"
-        >
-          RiPS 8
-        </span>
-         - 
-        <span>
-          0 Kullervo/Überkleber
-        </span>
-      </div>
-      <div
-        class="info"
-      >
-        klo 15:00 
-        <span
-          class="location"
-        >
-          Riihimäki Keskuskenttä TN
-        </span>
-      </div>
+        Riihimäki Keskuskenttä TN
+      </span>
     </div>
   </div>
 </DocumentFragment>

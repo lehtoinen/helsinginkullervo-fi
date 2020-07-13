@@ -10,10 +10,11 @@ export type TableRow = React.ReactElement & {
 type Props = {
   columnTitles?: React.ReactNode[];
   rows?: TableRow[];
+  className?: string;
 };
 
-const Table = ({ columnTitles = [], rows = [] }: Props) => (
-  <div className={styles.root}>
+const Table = ({ columnTitles = [], rows = [], className }: Props) => (
+  <div className={classNames(styles.root, className)}>
     <div className={`${styles.tableRow} ${styles.tableHead}`}>
       {columnTitles.map((title) => title)}
     </div>

@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => (
-  <div>
+  <>
     <Helmet
       title="Helsingin Kullervo"
       meta={[
@@ -26,7 +26,7 @@ const Layout = ({ children }: Props) => (
     />
     <Header />
     <main>{children}</main>
-  </div>
+  </>
 );
 
 export default Layout;

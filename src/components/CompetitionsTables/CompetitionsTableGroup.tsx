@@ -12,11 +12,12 @@ type Props = {
 };
 
 const Group = ({ title, teams }: Props) => (
-  <div className={styles.root}>
+  <>
     <div className={styles.title}>
       <h4>{title}</h4>
     </div>
     <Table
+      className={styles.table}
       columnTitles={[
         <div key={`${title}-coltitle-1`} />,
         <div key={`${title}-coltitle-2`} />,
@@ -54,7 +55,7 @@ const Group = ({ title, teams }: Props) => (
         );
       })}
     />
-  </div>
+  </>
 );
 
 export default Group;

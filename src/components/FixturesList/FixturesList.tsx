@@ -55,23 +55,21 @@ const FixturesList = ({ fixtures = [], filters, updateFilters }: Props) => {
   let currentDate: Date;
 
   return (
-    <div>
-      <Fragment>
-        <Filter
-          group="fixtures"
-          property="competition"
-          options={competitions}
-          selected={filters.competition}
-          onChange={(value) => onChangeFilter('competition', value)}
-        />
-        <Filter
-          group="fixtures"
-          property="upcoming"
-          options={['Näytä vain tulevat ottelut']}
-          selected={filters.upcoming}
-          onChange={(value) => onChangeFilter('upcoming', value)}
-        />
-      </Fragment>
+    <>
+      <Filter
+        group="fixtures"
+        property="competition"
+        options={competitions}
+        selected={filters.competition}
+        onChange={(value) => onChangeFilter('competition', value)}
+      />
+      <Filter
+        group="fixtures"
+        property="upcoming"
+        options={['Näytä vain tulevat ottelut']}
+        selected={filters.upcoming}
+        onChange={(value) => onChangeFilter('upcoming', value)}
+      />
       {filterFixtures(fixtures, filters).map((fixture) => {
         const addDateBadge = currentDate !== fixture.date;
         currentDate = fixture.date;
@@ -90,7 +88,7 @@ const FixturesList = ({ fixtures = [], filters, updateFilters }: Props) => {
           </Fragment>
         );
       })}
-    </div>
+    </>
   );
 };
 

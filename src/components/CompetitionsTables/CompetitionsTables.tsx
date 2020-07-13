@@ -38,16 +38,14 @@ const CompetitionsTables = ({ groups = [], filters, updateFilters }: Props) => {
   };
 
   return (
-    <div>
-      <React.Fragment>
-        <Filter
-          group="tables"
-          property="competition"
-          options={competitions}
-          selected={filters.competition}
-          onChange={(value) => onChangeFilter('competition', value)}
-        />
-      </React.Fragment>
+    <>
+      <Filter
+        group="tables"
+        property="competition"
+        options={competitions}
+        selected={filters.competition}
+        onChange={(value) => onChangeFilter('competition', value)}
+      />
       {orderBy(filterGroups(groups, filters), ['competition'], ['asc']).map(
         (group) => (
           <CompetitionsTableGroup
@@ -57,7 +55,7 @@ const CompetitionsTables = ({ groups = [], filters, updateFilters }: Props) => {
           />
         )
       )}
-    </div>
+    </>
   );
 };
 
