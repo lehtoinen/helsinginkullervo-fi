@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useStaticQuery, graphql } from 'gatsby';
 import xor from 'lodash/xor';
@@ -9,11 +9,14 @@ import { updateFilters } from '../state/actions';
 import FilterType from '../enum/FilterType';
 import { parseGroup } from '../utils/torneopalParser';
 import parseCompetitions from '../utils/parseCompetitions';
+import useUserHasInteracted from '../hooks/useUserHasInteracted';
 
 import CompetitionsTables from '../components/CompetitionsTables/CompetitionsTables';
 import Filter from '../components/Filter';
 
 const Competitions = () => {
+  const userHasInteracted = useUserHasInteracted();
+
   const filters = useSelector((state: RootState) => state.tableFilters);
   const dispatch = useDispatch();
 
@@ -38,6 +41,12 @@ const Competitions = () => {
       : groups;
   };
 
+  const filteredGroups = orderBy(
+    filterGroups(groups, filters),
+    ['competition'],
+    ['asc']
+  ).slice(0, !userHasInteracted ? 2 : undefined);
+
   return (
     <>
       <Filter
@@ -47,13 +56,7 @@ const Competitions = () => {
         selected={filters.competition}
         onChange={(value) => onChangeFilter('competition', value)}
       />
-      <CompetitionsTables
-        groups={orderBy(
-          filterGroups(groups, filters),
-          ['competition'],
-          ['asc']
-        )}
-      />
+      <CompetitionsTables groups={filteredGroups} />
     </>
   );
 };
