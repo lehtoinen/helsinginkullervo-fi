@@ -21,17 +21,7 @@ describe('FixturesList', () => {
         venue: 'Riihimäki Keskuskenttä TN',
       },
     ],
-    filters = {
-      competition: [],
-      upcoming: [],
-    },
-  }) => (
-    <FixturesList
-      fixtures={fixtures}
-      filters={filters}
-      updateFilters={jest.fn()}
-    />
-  );
+  }) => <FixturesList fixtures={fixtures} />;
 
   it('renders', async () => {
     const { asFragment, container } = render(component({}));
