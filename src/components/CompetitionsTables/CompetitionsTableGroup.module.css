@@ -22,14 +22,14 @@
   white-space: normal;
 }
 
-.hideMedium {
-  @media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hideMedium {
     display: none !important;
   }
 }
 
-.hideSmall {
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .hideSmall {
     display: none !important;
   }
 }
