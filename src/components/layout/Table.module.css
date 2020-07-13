@@ -24,6 +24,7 @@
   display: table-cell;
   text-align: center;
   padding: 7px 5px;
+  white-space: nowrap;
 }
 
 .tableRow.highlight {
