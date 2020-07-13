@@ -15,7 +15,7 @@ export default function HTML(props) {
           rel="preload"
           href="//fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,700&amp;display=swap"
           as="style"
-          onload="this.onload=null;this.rel='stylesheet'"
+          onLoad="this.onload=null;this.rel='stylesheet'"
         ></link>
         <link
           rel="stylesheet"

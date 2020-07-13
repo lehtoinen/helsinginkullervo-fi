@@ -23,6 +23,7 @@ const Fixtures = () => {
 
   return (
     <FixturesList
+      // fixtures={fixtures.slice(0, 10)}
       fixtures={fixtures}
       filters={filters}
       updateFilters={onUpdateFilters}
