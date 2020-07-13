@@ -5,14 +5,17 @@ import xor from 'lodash/xor';
 
 import { RootState, MatchNode, Fixture, FixtureFilters } from '../types';
 import { updateFilters } from '../state/actions';
+import FilterType from '../enum/FilterType';
 import { parseFixture } from '../utils/torneopalParser';
 import parseCompetitions from '../utils/parseCompetitions';
-import FilterType from '../enum/FilterType';
+import useUserHasInteracted from '../hooks/useUserHasInteracted';
 
 import Filter from '../components/Filter';
 import FixturesList from '../components/FixturesList/FixturesList';
 
 const Fixtures = () => {
+  const userHasInteracted = useUserHasInteracted();
+
   const filters = useSelector((state: RootState) => state.fixtureFilters);
   const dispatch = useDispatch();
 
@@ -68,7 +71,12 @@ const Fixtures = () => {
         selected={filters.upcoming}
         onChange={(value) => onChangeFilter('upcoming', value)}
       />
-      <FixturesList fixtures={filterFixtures(fixtures, filters)} />
+      <FixturesList
+        fixtures={filterFixtures(fixtures, filters).slice(
+          0,
+          !userHasInteracted ? 10 : undefined
+        )}
+      />
     </>
   );
 };
