@@ -3,40 +3,6 @@
 exports[`FixturesList renders 1`] = `
 <DocumentFragment>
   <div
-    class="root"
-  >
-    <div
-      class="option"
-    >
-      <label
-        for="filter_competition_fixtures_Regions Cup"
-      >
-        <input
-          id="filter_competition_fixtures_Regions Cup"
-          type="checkbox"
-        />
-        Regions Cup
-      </label>
-    </div>
-  </div>
-  <div
-    class="root"
-  >
-    <div
-      class="option"
-    >
-      <label
-        for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-      >
-        <input
-          id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-          type="checkbox"
-        />
-        Näytä vain tulevat ottelut
-      </label>
-    </div>
-  </div>
-  <div
     class="root completed"
   >
     <div
@@ -91,40 +57,6 @@ exports[`FixturesList renders 1`] = `
 
 exports[`FixturesList renders with undefined fixtures 1`] = `
 <DocumentFragment>
-  <div
-    class="root"
-  >
-    <div
-      class="option"
-    >
-      <label
-        for="filter_competition_fixtures_Regions Cup"
-      >
-        <input
-          id="filter_competition_fixtures_Regions Cup"
-          type="checkbox"
-        />
-        Regions Cup
-      </label>
-    </div>
-  </div>
-  <div
-    class="root"
-  >
-    <div
-      class="option"
-    >
-      <label
-        for="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-      >
-        <input
-          id="filter_upcoming_fixtures_Näytä vain tulevat ottelut"
-          type="checkbox"
-        />
-        Näytä vain tulevat ottelut
-      </label>
-    </div>
-  </div>
   <div
     class="root completed"
   >
