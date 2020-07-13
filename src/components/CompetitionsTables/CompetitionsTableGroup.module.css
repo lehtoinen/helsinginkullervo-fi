@@ -16,9 +16,10 @@
   font-weight: bold;
 }
 
-.teamCell {
-  text-align: left !important;
+.teamCell.teamCell {
+  text-align: left;
   word-break: break-word;
+  white-space: normal;
 }
 
 .hideMedium {
