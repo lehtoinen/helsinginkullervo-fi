@@ -1,13 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useStaticQuery, graphql } from 'gatsby';
+import xor from 'lodash/xor';
+import orderBy from 'lodash/orderBy';
 
-import { RootState, Group, GroupNode } from '../types';
+import { RootState, Group, GroupNode, TableFilters } from '../types';
 import { updateFilters } from '../state/actions';
 import FilterType from '../enum/FilterType';
 import { parseGroup } from '../utils/torneopalParser';
+import parseCompetitions from '../utils/parseCompetitions';
 
 import CompetitionsTables from '../components/CompetitionsTables/CompetitionsTables';
+import Filter from '../components/Filter';
 
 const Competitions = () => {
   const filters = useSelector((state: RootState) => state.tableFilters);
@@ -17,16 +21,40 @@ const Competitions = () => {
   const groups: Group[] = (data?.groups?.edges ?? []).map((edge) =>
     parseGroup(edge.node)
   );
+  const competitions = parseCompetitions(groups);
 
-  const onUpdateFilters = (property: string, values: string[]) =>
-    dispatch(updateFilters(FilterType.TABLES, { [property]: values }));
+  const onChangeFilter = (property: 'competition', value: string) => {
+    const filterValues = xor(filters[property]?.slice(0) ?? [], [value]);
+    dispatch(updateFilters(FilterType.TABLES, { [property]: filterValues }));
+  };
+
+  const filterGroups = (groups: Group[], filters: TableFilters) => {
+    const competitionFilters = (
+      filters.competition ?? []
+    ).filter((competition) => competitions.includes(competition)); // removing non-active competitions
+
+    return competitionFilters.length
+      ? groups.filter((group) => competitionFilters.includes(group.competition))
+      : groups;
+  };
 
   return (
-    <CompetitionsTables
-      groups={groups}
-      filters={filters}
-      updateFilters={onUpdateFilters}
-    />
+    <>
+      <Filter
+        group="tables"
+        property="competition"
+        options={competitions}
+        selected={filters.competition}
+        onChange={(value) => onChangeFilter('competition', value)}
+      />
+      <CompetitionsTables
+        groups={orderBy(
+          filterGroups(groups, filters),
+          ['competition'],
+          ['asc']
+        )}
+      />
+    </>
   );
 };
 
