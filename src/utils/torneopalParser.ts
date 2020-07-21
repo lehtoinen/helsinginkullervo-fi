@@ -12,6 +12,7 @@ export const parseFixture = (match: MatchNode) => ({
   time: match.time,
   timecode: `${match.date}-${match.time}`,
   venue: match.venue_name,
+  city: match.venue_city_name,
 });
 
 // Helper function to parse a Torneopal group node to a group object
