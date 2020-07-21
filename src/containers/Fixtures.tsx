@@ -99,6 +99,7 @@ const fixturesQuery = graphql`
           time
           category_name
           venue_name
+          venue_city_name
           team_A_name
           team_B_name
           fs_A

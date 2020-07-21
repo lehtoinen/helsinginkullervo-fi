@@ -25,6 +25,7 @@ export type Fixture = {
   awayTeam: string;
   isCompleted: boolean;
   venue?: string;
+  city?: string;
   homeScore?: number;
   awayScore?: number;
   date: Date;
@@ -54,6 +55,7 @@ export type MatchNode = {
   status: string;
   time: string;
   venue_name: string;
+  venue_city_name: string;
 };
 
 export type TeamNode = {

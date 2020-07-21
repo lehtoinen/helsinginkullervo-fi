@@ -10,6 +10,7 @@ const FixtureListEntry = ({
   homeTeam,
   awayTeam,
   venue,
+  city,
   homeScore = 0,
   awayScore = 0,
 }: Fixture) => {
@@ -31,7 +32,11 @@ const FixtureListEntry = ({
         </span>
       </div>
       <div className={styles.info}>
-        klo {timeStr} <span className={styles.location}>{venue}</span>
+        klo {timeStr}{' '}
+        <span className={styles.location}>
+          {venue}
+          {city ? `, ${city}` : ''}
+        </span>
       </div>
     </div>
   );
