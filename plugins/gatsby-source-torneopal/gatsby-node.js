@@ -1,15 +1,16 @@
 const crypto = require('crypto');
 const fetch = require('node-fetch');
 const queryString = require('query-string');
+const uniqBy = require('lodash/uniqBy');
 
 /**
  * API Reference found at:
  * https://spl.torneopal.fi/taso/rest/help#group-group-get
  */
 
-exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
+exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
   const { createNode } = actions;
-  const { api, key, queries } = configOptions;
+  const { api, key, club_id, competition_id } = configOptions;
 
   const generateNodeData = (id, type, data) => {
     const nodeContent = JSON.stringify(data);
@@ -33,7 +34,7 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
   };
 
   // Helper function that processes a match entry to match Gatsby's node structure.
-  const parseMatch = (match, injectData = {}) => {
+  const generateMatchNode = (match, injectData = {}) => {
     const matchId = match.match_id;
     const nodeId = createNodeId(`torneopal-match-${matchId}`);
 
@@ -41,11 +42,12 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
       { ...injectData },
       generateNodeData(nodeId, 'TorneopalMatch', match)
     );
+
     return nodeData;
   };
 
   // Helper function that processes a group entry to match Gatsby's node structure.
-  const parseGroup = (group, injectData = {}) => {
+  const generateGroupNode = (group, injectData = {}) => {
     const {
       competition_id: competitionId,
       category_id: categoryId,
@@ -60,35 +62,51 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
       { ...injectData },
       generateNodeData(nodeId, 'TorneopalGroup', group)
     );
+
     return nodeData;
   };
 
   // Helper function that fetches based on given query object. Returns a promise.
-  const fetchQuery = query => {
+  const fetchQuery = async (query) => {
     const params = queryString.stringify(query.options);
     const url = `${api}/${query.method}/?api_key=${key}&${params}`;
 
     console.log(`Fetch Torneopal data: ${url}`);
 
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        // if the response contain match data, parse
-        if (data.matches) {
-          data.matches.forEach(match => {
-            const nodeData = parseMatch(match, query.injectData);
-            createNode(nodeData);
-          });
-        }
-
-        // if the response contains group data, parse
-        if (data.group) {
-          const nodeData = parseGroup(data.group, query.injectData);
-          createNode(nodeData);
-        }
-      });
+    const response = await fetch(url);
+    return response.json();
   };
 
-  // Fetch the queries and wait until all are finished.
-  return Promise.all(queries.map(fetchQuery));
+  const matchesData = await fetchQuery({
+    method: 'getMatches',
+    options: {
+      club_id,
+      competition_id,
+    },
+  });
+
+  const matches = matchesData.matches || [];
+  matches.forEach((match) => createNode(generateMatchNode(match)));
+
+  const groups = uniqBy(
+    matches.map(({ category_id, group_id }) => ({
+      category_id,
+      group_id,
+    })),
+    JSON.stringify
+  );
+
+  for (const { category_id, group_id } of groups) {
+    const groupData = await fetchQuery({
+      method: 'getGroup',
+      options: {
+        competition_id,
+        category_id,
+        group_id,
+        matches: '0', // '0' = ei ottelulistausta
+      },
+    });
+
+    createNode(generateGroupNode(groupData.group));
+  }
 };

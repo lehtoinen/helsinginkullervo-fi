@@ -60,87 +60,8 @@ module.exports = {
       options: {
         api: 'https://spl.torneopal.fi/taso/rest/',
         key: process.env.TORNEOPAL_API_KEY,
-        queries: [
-          {
-            method: 'getMatches',
-            options: {
-              club_id: 571,
-              competition_id,
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Miesten Seiska',
-            },
-            options: {
-              competition_id,
-              category_id: 'M7', // Miehet Seiska
-              group_id: '4', // lohko 4
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Miesten Kutonen',
-            },
-            options: {
-              competition_id,
-              category_id: 'M6', // Miehet Kutonen
-              group_id: '4', // lohko 4
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Miehet 35',
-            },
-            options: {
-              competition_id,
-              category_id: 'M35', // Miehet 35
-              group_id: '4', // lohko 4
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Miehet 40',
-            },
-            options: {
-              competition_id,
-              category_id: 'M40', // Miehet 40
-              group_id: '6', // lohko 6
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Miehet 50',
-            },
-            options: {
-              competition_id,
-              category_id: 'M50', // Miehet 50
-              group_id: '5', // lohko 5
-              matches: '0', // ei ottelulistausta
-            },
-          },
-          {
-            method: 'getGroup',
-            injectData: {
-              title: 'Miehet 55',
-            },
-            options: {
-              competition_id,
-              category_id: 'M55', // Miehet 55
-              group_id: '2', // lohko 2
-              matches: '0', // ei ottelulistausta
-            },
-          },
-        ],
+        club_id: process.env.TORNEOPAL_CLUB_ID,
+        competition_id: process.env.TORNEOPAL_COMPETITION_ID,
       },
     },
   ],
