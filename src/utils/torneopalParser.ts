@@ -1,4 +1,5 @@
 import { GroupNode, MatchNode } from '../types';
+import slugify from './slugify';
 
 // Helper function to parse a Torneopal match node to a fixture object
 export const parseFixture = (match: MatchNode) => ({
@@ -17,9 +18,11 @@ export const parseFixture = (match: MatchNode) => ({
 
 // Helper function to parse a Torneopal group node to a group object
 export const parseGroup = (group: GroupNode) => ({
-  title: group.title,
   competition: group.category_name,
   group: group.group_name,
+  externalURL: `https://www.palloliitto.fi/spletela/${slugify(
+    group.category_name
+  )}/tilastot?group=${group.group_id}`,
   teams: group.live_standings.map((team) => ({
     name: team.team_name,
     id: team.team_id,

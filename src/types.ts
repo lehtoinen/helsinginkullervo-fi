@@ -15,6 +15,7 @@ export type Group = {
   competition: string;
   group: string;
   teams: Team[];
+  externalURL: string;
 };
 
 export type Fixture = {
