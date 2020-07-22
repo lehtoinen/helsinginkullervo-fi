@@ -24,6 +24,7 @@ const Competitions = () => {
   const groups: Group[] = (data?.groups?.edges ?? []).map((edge) =>
     parseGroup(edge.node)
   );
+
   const competitions = parseCompetitions(groups);
 
   const onChangeFilter = (property: 'competition', value: string) => {
@@ -74,8 +75,6 @@ const groupsQuery = graphql`
     groups: allTorneopalGroup {
       edges {
         node {
-          id
-          title
           competition_id
           category_name
           group_name

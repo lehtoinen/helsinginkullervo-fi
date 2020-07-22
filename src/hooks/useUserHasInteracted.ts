@@ -7,7 +7,6 @@ const useUserHasInteracted = () => {
     const onInteract = () => {
       clearListeners();
       setUserHasInteracted(true);
-      console.log('onInteract');
     };
 
     document.body.addEventListener('mousemove', onInteract);

@@ -14,7 +14,7 @@ const CompetitionsTables = ({ groups = [] }: Props) => {
       {groups.map((group) => (
         <CompetitionsTableGroup
           key={`${group.competition}: ${group.group}`}
-          title={`${group.title}`}
+          title={`${group.competition}: ${group.group}`}
           teams={group.teams}
         />
       ))}
