@@ -14,7 +14,6 @@ export type Team = {
 export type Group = {
   competition: string;
   group: string;
-  title: string;
   teams: Team[];
 };
 
@@ -72,7 +71,7 @@ export type TeamNode = {
 };
 
 export type GroupNode = {
-  title: string;
+  group_id: string;
   category_name: string;
   group_name: string;
   live_standings: TeamNode[];
