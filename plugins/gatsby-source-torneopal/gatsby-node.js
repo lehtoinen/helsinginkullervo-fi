@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 const crypto = require('crypto');
 const fetch = require('node-fetch');
 const queryString = require('query-string');
@@ -19,16 +21,19 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
       .update(nodeContent)
       .digest('hex');
 
-    const nodeData = Object.assign({}, data, {
-      id,
-      parent: null,
-      children: [],
-      internal: {
-        type,
-        content: nodeContent,
-        contentDigest: nodeContentDigest,
+    const nodeData = {
+      ...data,
+      ...{
+        id,
+        parent: null,
+        children: [],
+        internal: {
+          type,
+          content: nodeContent,
+          contentDigest: nodeContentDigest,
+        },
       },
-    });
+    };
 
     return nodeData;
   };
@@ -38,10 +43,10 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
     const matchId = match.match_id;
     const nodeId = createNodeId(`torneopal-match-${matchId}`);
 
-    const nodeData = Object.assign(
-      { ...injectData },
-      generateNodeData(nodeId, 'TorneopalMatch', match)
-    );
+    const nodeData = generateNodeData(nodeId, 'TorneopalMatch', {
+      ...match,
+      ...injectData,
+    });
 
     return nodeData;
   };
@@ -58,10 +63,24 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
       `torneopal-group-${competitionId}-${categoryId}-${groupId}`
     );
 
-    const nodeData = Object.assign(
-      { ...injectData },
-      generateNodeData(nodeId, 'TorneopalGroup', group)
-    );
+    const nodeData = generateNodeData(nodeId, 'TorneopalGroup', {
+      ...group,
+      ...injectData,
+    });
+
+    return nodeData;
+  };
+
+  // Helper function that processes a team entry to match Gatsby's node structure.
+  const generateTeamNode = (team, injectData = {}) => {
+    const { team_id: teamId, club_id: clubId } = team;
+
+    const nodeId = createNodeId(`torneopal-team-${clubId}-${teamId}`);
+
+    const nodeData = generateNodeData(nodeId, 'TorneopalTeam', {
+      ...team,
+      ...injectData,
+    });
 
     return nodeData;
   };
@@ -88,15 +107,28 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
   const matches = matchesData.matches || [];
   matches.forEach((match) => createNode(generateMatchNode(match)));
 
-  const groups = uniqBy(
-    matches.map(({ category_id, group_id }) => ({
-      category_id,
-      group_id,
-    })),
+  // Pluck team specific data from matches
+  const teams = uniqBy(
+    matches.map(
+      ({
+        club_A_id,
+        team_A_id,
+        team_B_id,
+        category_id,
+        category_name,
+        group_id,
+      }) => ({
+        team_id: club_A_id === club_id ? team_A_id : team_B_id,
+        category_id,
+        category_name,
+        group_id,
+      })
+    ),
     JSON.stringify
   );
 
-  for (const { category_id, group_id } of groups) {
+  // Fetch all groups
+  for (const { category_id, group_id } of teams) {
     const groupData = await fetchQuery({
       method: 'getGroup',
       options: {
@@ -108,5 +140,25 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
     });
 
     createNode(generateGroupNode(groupData.group));
+  }
+
+  for (const { category_id, team_id, category_name, group_id } of teams) {
+    const teamsData = await fetchQuery({
+      method: 'getTeam',
+      options: {
+        competition_id,
+        category_id,
+        team_id,
+      },
+    });
+
+    createNode(
+      generateTeamNode(teamsData.team, {
+        competition_id,
+        category_id,
+        category_name,
+        group_id,
+      })
+    );
   }
 };
