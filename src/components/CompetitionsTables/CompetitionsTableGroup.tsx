@@ -18,19 +18,33 @@ const Group = ({ title, teams }: Props) => (
     </div>
     <Table
       className={styles.table}
-      columnTitles={[
-        <div key={`${title}-coltitle-1`} />,
-        <div key={`${title}-coltitle-2`} />,
-        <div key={`${title}-coltitle-3`}>O</div>,
-        <div key={`${title}-coltitle-4`}>V</div>,
-        <div key={`${title}-coltitle-5`}>T</div>,
-        <div key={`${title}-coltitle-6`}>H</div>,
-        <div key={`${title}-coltitle-7`} className={styles.hideSmall}>
-          M
-        </div>,
-        <div key={`${title}-coltitle-8`}>+/-</div>,
-        <div key={`${title}-coltitle-9`}>Pst</div>,
-      ]}
+      columnTitles={
+        <>
+          <div />
+          <div />
+          <div>
+            <abbr title="Pelatut ottelut">O</abbr>
+          </div>
+          <div>
+            <abbr title="Voitot">V</abbr>
+          </div>
+          <div>
+            <abbr title="Tasapelit">T</abbr>
+          </div>
+          <div>
+            <abbr title="Häviöt">H</abbr>
+          </div>
+          <div className="hideSmall">
+            <abbr title="Maalit (tehdyt-päästetyt)">M</abbr>
+          </div>
+          <div>
+            <abbr title="Maaliero">+/-</abbr>
+          </div>
+          <div>
+            <abbr title="Pisteet">Pst</abbr>
+          </div>
+        </>
+      }
       rows={teams.map((team) => {
         const goalsTotal = team.goalsFor - team.goalsAgainst;
         return (
@@ -46,7 +60,7 @@ const Group = ({ title, teams }: Props) => (
             <div>{team.matchesWon}</div>
             <div>{team.matchesTied}</div>
             <div>{team.matchesLost}</div>
-            <div className={styles.hideSmall}>
+            <div className="hideSmall">
               {team.goalsFor}-{team.goalsAgainst}
             </div>
             <div>{`${goalsTotal > 0 ? '+' : ''}${goalsTotal}`}</div>

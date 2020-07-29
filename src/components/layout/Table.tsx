@@ -8,7 +8,7 @@ export type TableRow = React.ReactElement & {
 };
 
 type Props = {
-  columnTitles?: React.ReactNode[];
+  columnTitles?: React.ReactNode;
   rows?: TableRow[];
   className?: string;
 };
@@ -16,7 +16,7 @@ type Props = {
 const Table = ({ columnTitles = [], rows = [], className }: Props) => (
   <div className={classNames(styles.root, className)}>
     <div className={`${styles.tableRow} ${styles.tableHead}`}>
-      {columnTitles.map((title) => title)}
+      {columnTitles}
     </div>
     {rows.map((row) => (
       <row.type

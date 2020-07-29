@@ -28,7 +28,16 @@ export type Fixture = {
   city?: string;
   homeScore?: number;
   awayScore?: number;
-  date: Date;
+  date: string;
+};
+
+export type PlayerStats = {
+  shirtNumber: number;
+  name: string;
+  matches: number;
+  goals: number;
+  warnings: number;
+  suspensions: number;
 };
 
 export type FixtureFilters = {
@@ -46,11 +55,11 @@ export type RootState = {
 };
 
 export type MatchNode = {
-  fs_B: number;
+  fs_B: string;
   team_B_name: string;
   category_name: string;
-  date: Date;
-  fs_A: number;
+  date: string;
+  fs_A: string;
   team_A_name: string;
   status: string;
   time: string;
@@ -58,22 +67,32 @@ export type MatchNode = {
   venue_city_name: string;
 };
 
-export type TeamNode = {
+export type StandingsNode = {
   team_name: string;
   team_id: string;
-  goals_for: number;
-  goals_against: number;
-  matches_lost: number;
-  matches_played: number;
-  matches_tied: number;
-  matches_won: number;
-  points: number;
-  current_standing: number;
+  goals_for: string;
+  goals_against: string;
+  matches_lost: string;
+  matches_played: string;
+  matches_tied: string;
+  matches_won: string;
+  points: string;
+  current_standing: string;
 };
 
 export type GroupNode = {
   group_id: string;
   category_name: string;
   group_name: string;
-  live_standings: TeamNode[];
+  live_standings: StandingsNode[];
+};
+
+export type PlayerNode = {
+  shirt_number: string;
+  first_name: string;
+  last_name: string;
+  matches: string;
+  goals: string;
+  warnings: string;
+  suspensions: string;
 };

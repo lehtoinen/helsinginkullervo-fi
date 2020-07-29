@@ -24,11 +24,11 @@ const FixtureListEntry = ({
       <div className={styles.subject}>
         <span className={styles.competition}> {competition}: </span>
         <span className={winner > 0 ? styles.winner : null}>
-          {homeTeam} {homeScore}
+          {homeTeam} {isCompleted && homeScore}
         </span>{' '}
         -{' '}
         <span className={winner < 0 ? styles.winner : null}>
-          {awayScore} {awayTeam}
+          {isCompleted && awayScore} {awayTeam}
         </span>
       </div>
       <div className={styles.info}>

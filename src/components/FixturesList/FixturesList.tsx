@@ -10,7 +10,7 @@ type Props = {
 };
 
 const FixturesList = ({ fixtures = [] }: Props) => {
-  let currentDate: Date;
+  let currentDate: string;
 
   return (
     <>

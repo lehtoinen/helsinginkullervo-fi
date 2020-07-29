@@ -8,6 +8,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@types/slug": "0.9.1",
     "classnames": "2.2.6",
     "date-fns": "2.14.0",
     "gatsby": "2.22.12",
@@ -29,6 +30,7 @@
     "react-redux": "7.2.0",
     "react-typography": "0.16.19",
     "redux-persist": "6.0.0",
+    "slug": "3.3.2",
     "typescript": "3.9.6",
     "typography": "0.16.19",
     "typography-theme-kirkham": "0.16.19"

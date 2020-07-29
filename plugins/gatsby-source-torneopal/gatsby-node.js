@@ -73,13 +73,16 @@ exports.sourceNodes = async ({ actions, createNodeId }, configOptions) => {
 
   // Helper function that processes a team entry to match Gatsby's node structure.
   const generateTeamNode = (team, injectData = {}) => {
-    const { team_id: teamId, club_id: clubId } = team;
-
+    const { team_id: teamId, club_id: clubId, players } = team;
     const nodeId = createNodeId(`torneopal-team-${clubId}-${teamId}`);
 
     const nodeData = generateNodeData(nodeId, 'TorneopalTeam', {
       ...team,
       ...injectData,
+      ...{
+        // filter out players that have not played any games for the team
+        players: players.filter((player) => parseInt(player.matches, 10) > 0),
+      },
     });
 
     return nodeData;
