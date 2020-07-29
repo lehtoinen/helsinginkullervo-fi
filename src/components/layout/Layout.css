@@ -26,3 +26,8 @@ h4 {
   color: var(--color-white);
   background: var(--color-base-dark);
 }
+
+.off-screen {
+  left: -100vw;
+  position: absolute;
+}

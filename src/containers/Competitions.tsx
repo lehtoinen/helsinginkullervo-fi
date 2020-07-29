@@ -56,6 +56,7 @@ const Competitions = () => {
         options={competitions}
         selected={filters.competition}
         onChange={(value) => onChangeFilter('competition', value)}
+        legend="Näytä sarjataulukot:"
       />
       <CompetitionsTables groups={filteredGroups} />
     </>

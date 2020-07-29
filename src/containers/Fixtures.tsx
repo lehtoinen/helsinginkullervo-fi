@@ -63,6 +63,7 @@ const Fixtures = () => {
         options={competitions}
         selected={filters.competition}
         onChange={(value) => onChangeFilter('competition', value)}
+        legend="Näytä ottelut sarjoista:"
       />
       <Filter
         group="fixtures"
