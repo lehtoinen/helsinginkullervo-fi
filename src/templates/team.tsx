@@ -8,11 +8,13 @@ import {
   MatchNode,
   GroupNode,
   Group,
-} from 'types';
+  Team,
+} from '../types';
 import {
   parsePlayer,
   parseFixture,
   parseGroup,
+  parseTeam,
 } from '../utils/torneopalParser';
 import Layout from '../components/layout/Layout';
 import Header from '../components/Header/Header';
@@ -24,12 +26,7 @@ import CompetitionsTables from '../components/CompetitionsTables/CompetitionsTab
 import { Helmet } from 'react-helmet';
 
 const TeamPage = ({ data }: TeamQueryData) => {
-  const {
-    team_name: teamName,
-    category_name: categoryName,
-    officials_jojo: officials,
-  } = data.team;
-
+  const team: Team = parseTeam(data?.team);
   const group: Group = parseGroup(data?.group);
 
   const fixtures: Fixture[] = (data?.fixtures?.edges ?? []).map((edge) =>
@@ -72,14 +69,12 @@ const TeamPage = ({ data }: TeamQueryData) => {
     <Layout helmet={helmet} header={header}>
       <BorderedContainer>
         <h2>{pageTitle}</h2>
-        {officials.length > 0 && (
+        {team.officials.length > 0 && (
           <>
-            {officials.length > 1
+            {team.officials.length > 1
               ? 'Joukkueenjohtajat: '
               : 'Joukkueenjohtaja: '}
-            {officials
-              .map(({ first_name, last_name }) => `${first_name} ${last_name}`)
-              .join(', ')}
+            {team.officials.map(({ name }) => name).join(', ')}
           </>
         )}
       </BorderedContainer>

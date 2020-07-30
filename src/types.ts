@@ -1,4 +1,4 @@
-export type Team = {
+export type TeamStats = {
   goalsAgainst: number;
   goalsFor: number;
   id: string;
@@ -14,7 +14,7 @@ export type Team = {
 export type Group = {
   competition: string;
   group: string;
-  teams: Team[];
+  teams: TeamStats[];
   externalURL: string;
 };
 
@@ -29,6 +29,14 @@ export type Fixture = {
   homeScore?: number;
   awayScore?: number;
   date: string;
+};
+
+export type Team = {
+  teamName: string;
+  categoryName: string;
+  officials: {
+    name: string;
+  }[];
 };
 
 export type PlayerStats = {
@@ -95,4 +103,13 @@ export type PlayerNode = {
   goals: string;
   warnings: string;
   suspensions: string;
+};
+
+export type TeamNode = {
+  team_name: string;
+  category_name: string;
+  officials_jojo: {
+    first_name: string;
+    last_name: string;
+  }[];
 };

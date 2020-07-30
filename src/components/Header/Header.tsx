@@ -31,7 +31,7 @@ const Header = ({ anchorLinks }: Props) => (
     {anchorLinks && (
       <span className={styles.anchorLinks}>
         {anchorLinks.map(({ anchor, label }) => (
-          <AnchorLink offset="100" href={anchor}>
+          <AnchorLink key={anchor} offset="100" href={anchor}>
             {label}
           </AnchorLink>
         ))}

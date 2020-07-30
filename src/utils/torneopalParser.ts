@@ -5,6 +5,8 @@ import {
   Group,
   Fixture,
   PlayerStats,
+  Team,
+  TeamNode,
 } from '../types';
 import slug from 'slug';
 
@@ -54,6 +56,14 @@ export const parsePlayer = (player: PlayerNode): PlayerStats => {
     suspensions: parseInt(player.suspensions, 10),
   };
 };
+
+export const parseTeam = (team: TeamNode): Team => ({
+  teamName: team.team_name,
+  categoryName: team.category_name,
+  officials: team.officials_jojo.map((official) => ({
+    name: `${official.first_name} ${official.last_name}`,
+  })),
+});
 
 export default {
   parseFixture,

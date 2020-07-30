@@ -1,14 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Team } from '../../types';
+import { TeamStats } from '../../types';
 import Table from '../layout/Table';
 
 import styles from './CompetitionsTableGroup.module.css';
 
 type Props = {
   title: string;
-  teams: Team[];
+  teams: TeamStats[];
 };
 
 const Group = ({ title, teams }: Props) => (
