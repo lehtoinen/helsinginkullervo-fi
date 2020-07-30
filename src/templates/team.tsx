@@ -40,35 +40,36 @@ const TeamPage = ({ data }: TeamQueryData) => {
     .map((node: PlayerNode) => parsePlayer(node))
     .sort((a, b) => a.shirtNumber - b.shirtNumber);
 
-  const pageTitle = `${teamName}, ${categoryName}`;
+  const pageTitle = `${team.teamName}, ${team.categoryName}`;
+
+  const helmet = (
+    <Helmet
+      title={`Helsingin Kullervo - ${pageTitle}`}
+      meta={[
+        {
+          name: 'description',
+          content: `Helsingin Kullervon ${pageTitle} -joukkueen kotisivu`,
+        },
+        {
+          name: 'keywords',
+          content: `helsinki, ${team.teamName.toLowerCase()}, ${team.categoryName.toLowerCase()}`,
+        },
+      ]}
+    />
+  );
+
+  const header = (
+    <Header
+      anchorLinks={[
+        { anchor: '#sarjataulukko', label: 'Sarjataulukko' },
+        { anchor: '#ottelut', label: 'Ottelut' },
+        { anchor: '#pelaajat', label: 'Pelaajat' },
+      ]}
+    />
+  );
 
   return (
-    <Layout
-      helmet={
-        <Helmet
-          title={`Helsingin Kullervo - ${pageTitle}`}
-          meta={[
-            {
-              name: 'description',
-              content: `Helsingin Kullervon ${pageTitle} -joukkueen kotisivu`,
-            },
-            {
-              name: 'keywords',
-              content: `helsinki, ${teamName}, ${categoryName}`,
-            },
-          ]}
-        />
-      }
-      header={
-        <Header
-          anchorLinks={[
-            { anchor: '#sarjataulukko', label: 'Sarjataulukko' },
-            { anchor: '#ottelut', label: 'Ottelut' },
-            { anchor: '#pelaajat', label: 'Pelaajat' },
-          ]}
-        />
-      }
-    >
+    <Layout helmet={helmet} header={header}>
       <BorderedContainer>
         <h2>{pageTitle}</h2>
         {officials.length > 0 && (
