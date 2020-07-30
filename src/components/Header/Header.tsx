@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Location } from '@reach/router';
 
 import styles from './Header.module.css';
 import Logo from '../layout/Logo';
 
-const Header = () => (
+export type Props = {
+  anchorLinks?: {
+    anchor: string;
+    label: string;
+  }[];
+};
+
+const Header = ({ anchorLinks }: Props) => (
   <nav className={styles.root}>
     <span>
       <Link
@@ -22,22 +28,15 @@ const Header = () => (
         <h4 className={styles.siteName}>Helsingin Kullervo</h4>
       </Link>
     </span>
-    <span className={styles.anchorLinks}>
-      <Location>
-        {({ location }) =>
-          location.pathname === '/' ? (
-            <React.Fragment>
-              <AnchorLink offset="100" href="#otteluohjelma">
-                Otteluohjelma
-              </AnchorLink>
-              <AnchorLink offset="100" href="#sarjataulukot">
-                Sarjataulukot
-              </AnchorLink>
-            </React.Fragment>
-          ) : null
-        }
-      </Location>
-    </span>
+    {anchorLinks && (
+      <span className={styles.anchorLinks}>
+        {anchorLinks.map(({ anchor, label }) => (
+          <AnchorLink offset="100" href={anchor}>
+            {label}
+          </AnchorLink>
+        ))}
+      </span>
+    )}
   </nav>
 );
 
