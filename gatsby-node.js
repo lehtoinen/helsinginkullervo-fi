@@ -8,9 +8,10 @@ exports.createPages = async ({ graphql, actions }) => {
       allTorneopalTeam {
         edges {
           node {
-            team_name
             team_id
             category_name
+            category_id
+            group_id
           }
         }
       }
@@ -19,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   if (result.data.allTorneopalTeam) {
     for (const { node } of result.data.allTorneopalTeam.edges) {
-      const { team_id, category_name } = node;
+      const { team_id, category_name, category_id, group_id } = node;
       const pageSlug = slug(category_name);
 
       createPage({
@@ -27,6 +28,8 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/team.tsx`),
         context: {
           team_id,
+          category_id,
+          group_id,
         },
       });
     }

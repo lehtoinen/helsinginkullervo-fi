@@ -43,14 +43,17 @@ export const parseGroup = (group: GroupNode): Group => ({
   })),
 });
 
-export const parsePlayer = (player: PlayerNode): PlayerStats => ({
-  shirtNumber: parseInt(player.shirt_number, 10),
-  name: `${player.first_name} ${player.last_name}`,
-  matches: parseInt(player.matches, 10),
-  goals: parseInt(player.goals, 10),
-  warnings: parseInt(player.warnings, 10),
-  suspensions: parseInt(player.suspensions, 10),
-});
+export const parsePlayer = (player: PlayerNode): PlayerStats => {
+  const shirtNumber = parseInt(player.shirt_number, 10);
+  return {
+    shirtNumber: isNaN(shirtNumber) ? 9999 : shirtNumber,
+    name: `${player.first_name} ${player.last_name}`,
+    matches: parseInt(player.matches, 10),
+    goals: parseInt(player.goals, 10),
+    warnings: parseInt(player.warnings, 10),
+    suspensions: parseInt(player.suspensions, 10),
+  };
+};
 
 export default {
   parseFixture,

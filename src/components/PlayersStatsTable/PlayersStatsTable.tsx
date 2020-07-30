@@ -16,7 +16,7 @@ const PlayersStatsTable = ({ players = [] }: Props) => (
         <div />
         <div />
         <div>
-          <abbr title="Ottelut">O</abbr>
+          <abbr title="Pelatut ottelut">O</abbr>
         </div>
         <div>
           <abbr title="Maalit">M</abbr>
@@ -31,7 +31,7 @@ const PlayersStatsTable = ({ players = [] }: Props) => (
     }
     rows={players.map((player) => (
       <div key={player.name}>
-        <div>{player.shirtNumber}</div>
+        <div>{player.shirtNumber < 1000 && player.shirtNumber}</div>
         <div className={styles.nameCell}>{player.name}</div>
         <div>{player.matches}</div>
         <div>{player.goals}</div>
