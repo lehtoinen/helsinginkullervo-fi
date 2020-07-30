@@ -1,23 +1,20 @@
 .root {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  column-count: 2;
+  column-gap: 1em;
 }
 
-@media (min-width: 1024px) {
+.root > div {
+  break-inside: avoid;
+}
+
+@-moz-document url-prefix() {
   .root > div {
-    width: calc(100% - 3em);
-    margin-left: 1em;
+    display: inline-block;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .root {
-    display: block;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .root {
-    display: block;
+    column-count: 1;
   }
 }
