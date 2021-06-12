@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './FixtureListEntry.module.css';
+import * as styles from './FixtureListEntry.module.css';
 import { Fixture } from '../../types';
 
 const FixtureListEntry = ({
@@ -22,7 +22,7 @@ const FixtureListEntry = ({
       className={`${styles.fixture} ${isCompleted ? styles.completed : null}`}
     >
       <div className={styles.subject}>
-        <span className={styles.competition}> {competition}: </span>
+        <span> {competition}: </span>
         <span className={winner > 0 ? styles.winner : null}>
           {homeTeam} {homeScore}
         </span>{' '}

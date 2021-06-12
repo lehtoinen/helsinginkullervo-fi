@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Filter.module.css';
+import * as styles from './Filter.module.css';
 
 type Props = {
   group: string;

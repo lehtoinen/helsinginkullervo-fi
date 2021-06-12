@@ -2,7 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import { fi } from 'date-fns/locale';
 
-import styles from './DateBadge.module.css';
+import * as styles from './DateBadge.module.css';
 
 type Props = {
   date: Date;

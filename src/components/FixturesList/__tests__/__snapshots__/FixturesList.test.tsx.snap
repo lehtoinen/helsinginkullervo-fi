@@ -3,37 +3,25 @@
 exports[`FixturesList renders 1`] = `
 <DocumentFragment>
   <div
-    class="root completed"
+    class="undefined undefined"
   >
-    <div
-      class="day"
-    >
-      <div
-        class="weekday"
-      >
+    <div>
+      <div>
         la
       </div>
-      <div
-        class="date"
-      >
+      <div>
         06.06
       </div>
     </div>
   </div>
   <div
-    class="fixture completed"
+    class="undefined undefined"
   >
-    <div
-      class="subject"
-    >
-      <span
-        class="competition"
-      >
+    <div>
+      <span>
          Regions Cup: 
       </span>
-      <span
-        class="winner"
-      >
+      <span>
         RiPS 8
       </span>
        - 
@@ -41,13 +29,9 @@ exports[`FixturesList renders 1`] = `
         0 Kullervo/Überkleber
       </span>
     </div>
-    <div
-      class="info"
-    >
+    <div>
       klo 15:00 
-      <span
-        class="location"
-      >
+      <span>
         Riihimäki Keskuskenttä TN
       </span>
     </div>
@@ -58,37 +42,25 @@ exports[`FixturesList renders 1`] = `
 exports[`FixturesList renders with undefined fixtures 1`] = `
 <DocumentFragment>
   <div
-    class="root completed"
+    class="undefined undefined"
   >
-    <div
-      class="day"
-    >
-      <div
-        class="weekday"
-      >
+    <div>
+      <div>
         la
       </div>
-      <div
-        class="date"
-      >
+      <div>
         06.06
       </div>
     </div>
   </div>
   <div
-    class="fixture completed"
+    class="undefined undefined"
   >
-    <div
-      class="subject"
-    >
-      <span
-        class="competition"
-      >
+    <div>
+      <span>
          Regions Cup: 
       </span>
-      <span
-        class="winner"
-      >
+      <span>
         RiPS 8
       </span>
        - 
@@ -96,13 +68,9 @@ exports[`FixturesList renders with undefined fixtures 1`] = `
         0 Kullervo/Überkleber
       </span>
     </div>
-    <div
-      class="info"
-    >
+    <div>
       klo 15:00 
-      <span
-        class="location"
-      >
+      <span>
         Riihimäki Keskuskenttä TN
       </span>
     </div>

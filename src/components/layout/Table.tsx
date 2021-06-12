@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './Table.module.css';
+import * as styles from './Table.module.css';
 
 export type TableRow = React.ReactElement & {
   highlight?: boolean;

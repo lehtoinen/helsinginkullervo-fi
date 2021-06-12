@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Grid.module.css';
+import * as styles from './Grid.module.css';
 
 type Props = { children: React.ReactNode };
 
