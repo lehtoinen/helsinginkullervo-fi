@@ -3,19 +3,13 @@
 exports[`Fixture renders 1`] = `
 <DocumentFragment>
   <div
-    class="fixture completed"
+    class="undefined undefined"
   >
-    <div
-      class="subject"
-    >
-      <span
-        class="competition"
-      >
+    <div>
+      <span>
          Regions Cup: 
       </span>
-      <span
-        class="winner"
-      >
+      <span>
         RiPS 8
       </span>
        - 
@@ -23,13 +17,9 @@ exports[`Fixture renders 1`] = `
         0 Kullervo/Überkleber
       </span>
     </div>
-    <div
-      class="info"
-    >
+    <div>
       klo 15:00 
-      <span
-        class="location"
-      >
+      <span>
         Riihimäki Keskuskenttä TN
       </span>
     </div>
@@ -40,19 +30,13 @@ exports[`Fixture renders 1`] = `
 exports[`Fixture renders with only required props defined 1`] = `
 <DocumentFragment>
   <div
-    class="fixture completed"
+    class="undefined undefined"
   >
-    <div
-      class="subject"
-    >
-      <span
-        class="competition"
-      >
+    <div>
+      <span>
          Regions Cup: 
       </span>
-      <span
-        class="winner"
-      >
+      <span>
         RiPS 8
       </span>
        - 
@@ -60,13 +44,9 @@ exports[`Fixture renders with only required props defined 1`] = `
         0 Kullervo/Überkleber
       </span>
     </div>
-    <div
-      class="info"
-    >
+    <div>
       klo 15:00 
-      <span
-        class="location"
-      >
+      <span>
         Riihimäki Keskuskenttä TN
       </span>
     </div>
