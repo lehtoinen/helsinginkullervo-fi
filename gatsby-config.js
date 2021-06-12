@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const competition_id = 'etejp20';
-
 module.exports = {
   siteMetadata: {
     injectData: {
