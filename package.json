@@ -35,18 +35,18 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "7.14.5",
-    "@testing-library/react": "10.4.3",
+    "@testing-library/react": "11.2.7",
     "@types/classnames": "2.3.1",
     "@types/jest": "26.0.23",
     "@types/jest-axe": "3.5.1",
     "@types/react-helmet": "6.1.1",
     "@types/react-redux": "7.1.16",
-    "eslint-config-gatsby-standard": "2.2.0",
-    "eslint-plugin-jest": "23.17.1",
+    "eslint-config-gatsby-standard": "3.0.2",
+    "eslint-plugin-jest": "24.3.6",
     "gatsby-plugin-react-axe": "0.5.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.0.1",
-    "jest-axe": "3.4.0",
+    "jest": "27.0.4",
+    "jest-axe": "5.0.1",
     "redux-devtools-extension": "2.13.9"
   },
   "scripts": {
