@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo from '../../assets/img/kullervo.svg';
-import styles from './Logo.module.css';
+import * as styles from './Logo.module.css';
 
 const Logo = () => (
   <img src={logo} alt="Helsingin Kullervo logo" className={styles.root} />

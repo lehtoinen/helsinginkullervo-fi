@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Team } from '../../types';
 import Table from '../layout/Table';
 
-import styles from './CompetitionsTableGroup.module.css';
+import * as styles from './CompetitionsTableGroup.module.css';
 
 type Props = {
   title: string;

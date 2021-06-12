@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './BorderedContainer.module.css';
+import * as styles from './BorderedContainer.module.css';
 
 type Props = { children: React.ReactNode };
 

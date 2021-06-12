@@ -2,7 +2,7 @@ import React from 'react';
 
 // import BorderedContainer from './BorderedContainer';
 
-import styles from './Article.module.css';
+import * as styles from './Article.module.css';
 
 type Props = { children: React.ReactNode };
 
