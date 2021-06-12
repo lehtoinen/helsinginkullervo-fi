@@ -83,7 +83,8 @@ const groupsQuery = graphql`
             team_name
             team_id
             current_standing
-            points
+            points_home
+            points_away
             matches_played
             matches_tied
             matches_lost

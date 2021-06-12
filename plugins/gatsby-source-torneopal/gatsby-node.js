@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const crypto = require('crypto');
 const fetch = require('node-fetch');
 const queryString = require('query-string');

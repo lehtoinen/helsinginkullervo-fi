@@ -67,7 +67,8 @@ export type TeamNode = {
   matches_played: number;
   matches_tied: number;
   matches_won: number;
-  points: number;
+  points_home: number;
+  points_away: number;
   current_standing: number;
 };
 

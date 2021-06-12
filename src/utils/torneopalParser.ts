@@ -32,7 +32,7 @@ export const parseGroup = (group: GroupNode) => ({
     matchesPlayed: team.matches_played,
     matchesTied: team.matches_tied,
     matchesWon: team.matches_won,
-    points: team.points,
+    points: team.points_home + team.points_away,
     standing: team.current_standing,
   })),
 });
